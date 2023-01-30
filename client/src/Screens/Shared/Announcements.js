@@ -16,6 +16,7 @@ const Announcements = () => {
         <NavBar />
         <div className='announcement-container'>
           <h1>Announcements</h1>
+          <hr className='announcement-line' />
           <AnnouncementContainer />
           <p></p>
         </div>
