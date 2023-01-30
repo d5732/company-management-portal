@@ -1,12 +1,12 @@
 {
   "data": {
-    "users": {
-      "will": {
+    "users": [
+      {
         "id": 1,
         "profile": {
           "firstname": "will",
           "lastname": "martalla",
-          "email":"will@gmail.com",
+          "email": "will@gmail.com",
           "phone": "333-333-3333"
         },
         "isAdmin": true,
@@ -15,12 +15,12 @@
         "companies": ["CookSys", "FedEx"],
         "teams": ["team1", "team2"]
       },
-      "helena": {
+      {
         "id": 2,
         "profile": {
           "firstname": "helena",
           "lastname": "makendengue",
-          "email":"helena@gmail.com",
+          "email": "helena@gmail.com",
           "phone": "444-444-4444"
         },
         "isAdmin": true,
@@ -29,95 +29,101 @@
         "companies": ["CookSys", "Google"],
         "teams": ["team1", "team3"]
       }
-    },
-    "teams": {
-      "team1": {
+    ],
+    "teams": [
+      {
         "id": 1,
         "name": "team1",
         "description": "team1 description",
         "users": ["will", "helena"]
       },
-      "team2": {
+      {
         "id": 2,
         "name": "team2",
         "description": "team2 description",
         "users": ["will"]
       },
-      "team3": {
+      {
         "id": 3,
         "name": "team3",
         "description": "team3 description",
         "users": ["helena"]
+      },
+      {
+        "id": 4,
+        "name": "team4",
+        "description": "team4 description",
+        "users": ["will", "frank", "chris", "helena"]
       }
-    },
-    "companies": {
-      "cooksys": {
+    ],
+    "companies": [
+      {
         "id": 1,
         "name": "cooksys",
         "description": "cooksys company description",
         "teams": ["team1", "team2", "team3"],
         "users": ["will", "helena"]
       },
-      "fedex": {
+      {
         "id": 2,
         "name": "fedex",
         "description": "fedex company description",
         "teams": ["team1", "team2"],
         "users": ["will"]
       },
-      "fedex": {
+      {
         "id": 3,
         "name": "google",
         "description": "google company description",
         "teams": ["team1", "team3"],
         "users": ["helena"]
       }
-    },
-    "announcement": {
-      "announcement1": {
+    ],
+    "announcement": [
+      {
         "id": 1,
         "date": "Nov 17, 2022",
         "title": "title 1",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus. Tempora dolore voluptates obcaecati quae, vitae ea animi magnam ipsum et. Corrupti.",
         "author": "will"
       },
-      "announcement2": {
+      {
         "id": 2,
         "date": "Nov 11, 2023",
         "title": "title 2",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus. Tempora dolore voluptates obcaecati quae, vitae ea animi magnam ipsum et. Corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quo quos dolores, tenetur officiis porro maiores adipisci, voluptatum ut exercitationem sint accusamus incidunt assumenda, nam soluta voluptas animi. Placeat, nesciunt!",
         "author": "helena"
       },
-      "announcement3": {
+      {
         "id": 3,
         "date": "Dec 17, 2021",
         "title": "title 3",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus.",
         "author": "will"
       }
-    },
-    "projects": {
-      "project1": {
+    ],
+    "projects": [
+      {
         "id": 1,
         "name": "project1",
         "description": "project1 desc",
         "active": true,
         "team": ["team1", "team2"]
       },
-      "project2": {
+      {
         "id": 2,
         "name": "project2",
         "description": "project2 desc",
         "active": true,
         "team": ["team2"]
       },
-      "project3": {
+      {
         "id": 3,
         "name": "project3",
         "description": "project3 desc",
         "active": true,
         "team": ["team1"]
       }
-    }
+    ]
   }
 }
