@@ -12,8 +12,245 @@
         "isAdmin": true,
         "active": true,
         "status": "joined",
-        "companies": ["CookSys", "FedEx"],
-        "teams": ["team1", "team2"]
+        "companies": [
+          {
+            "id": 1,
+            "name": "cooksys",
+            "description": "cooksys company description",
+            "teams": [
+              {
+                "id": 1,
+                "name": "team1",
+                "description": "team1 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  },
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "team2",
+                "description": "team2 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "name": "team3",
+                "description": "team3 description",
+                "users": [
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              }
+            ],
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "fedex",
+            "description": "fedex company description",
+            "teams": [
+              {
+                "id": 1,
+                "name": "team1",
+                "description": "team1 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  },
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "team2",
+                "description": "team2 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              }
+            ],
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ],
+        "teams": [
+          {
+            "id": 1,
+            "name": "team1",
+            "description": "team1 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "team2",
+            "description": "team2 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ]
       },
       {
         "id": 2,
@@ -26,8 +263,202 @@
         "isAdmin": true,
         "active": true,
         "status": "joined",
-        "companies": ["CookSys", "Google"],
-        "teams": ["team1", "team3"]
+        "companies": [
+          {
+            "id": 1,
+            "name": "cooksys",
+            "description": "cooksys company description",
+            "teams": [
+              {
+                "id": 1,
+                "name": "team1",
+                "description": "team1 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  },
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "team2",
+                "description": "team2 description",
+                "users": [
+                  {
+                    "id": 1,
+                    "profile": {
+                      "firstname": "will",
+                      "lastname": "martalla",
+                      "email": "will@gmail.com",
+                      "phone": "333-333-3333"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "name": "team3",
+                "description": "team3 description",
+                "users": [
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              }
+            ],
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "google",
+            "description": "google company description",
+            "teams": [
+              {
+                "id": 3,
+                "name": "team3",
+                "description": "team3 description",
+                "users": [
+                  {
+                    "id": 2,
+                    "profile": {
+                      "firstname": "helena",
+                      "lastname": "makendengue",
+                      "email": "helena@gmail.com",
+                      "phone": "444-444-4444"
+                    },
+                    "isAdmin": true,
+                    "active": true,
+                    "status": "joined"
+                  }
+                ]
+              }
+            ],
+            "users": [
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ],
+        "teams": [
+          {
+            "id": 1,
+            "name": "team1",
+            "description": "team1 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "team3",
+            "description": "team3 description",
+            "users": [
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ]
       }
     ],
     "teams": [
@@ -35,19 +466,70 @@
         "id": 1,
         "name": "team1",
         "description": "team1 description",
-        "users": ["will", "helena"]
+        "users": [
+          {
+            "id": 1,
+            "profile": {
+              "firstname": "will",
+              "lastname": "martalla",
+              "email": "will@gmail.com",
+              "phone": "333-333-3333"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          },
+          {
+            "id": 2,
+            "profile": {
+              "firstname": "helena",
+              "lastname": "makendengue",
+              "email": "helena@gmail.com",
+              "phone": "444-444-4444"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       },
       {
         "id": 2,
         "name": "team2",
         "description": "team2 description",
-        "users": ["will"]
+        "users": [
+          {
+            "id": 1,
+            "profile": {
+              "firstname": "will",
+              "lastname": "martalla",
+              "email": "will@gmail.com",
+              "phone": "333-333-3333"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       },
       {
         "id": 3,
         "name": "team3",
         "description": "team3 description",
-        "users": ["helena"]
+        "users": [
+          {
+            "id": 2,
+            "profile": {
+              "firstname": "helena",
+              "lastname": "makendengue",
+              "email": "helena@gmail.com",
+              "phone": "444-444-4444"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       }
     ],
     "companies": [
@@ -55,22 +537,226 @@
         "id": 1,
         "name": "cooksys",
         "description": "cooksys company description",
-        "teams": ["team1", "team2", "team3"],
-        "users": ["will", "helena"]
+        "teams": [
+          {
+            "id": 1,
+            "name": "team1",
+            "description": "team1 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "team2",
+            "description": "team2 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "team3",
+            "description": "team3 description",
+            "users": [
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ],
+        "users": [
+          {
+            "id": 1,
+            "profile": {
+              "firstname": "will",
+              "lastname": "martalla",
+              "email": "will@gmail.com",
+              "phone": "333-333-3333"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          },
+          {
+            "id": 2,
+            "profile": {
+              "firstname": "helena",
+              "lastname": "makendengue",
+              "email": "helena@gmail.com",
+              "phone": "444-444-4444"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       },
       {
         "id": 2,
         "name": "fedex",
         "description": "fedex company description",
-        "teams": ["team1", "team2"],
-        "users": ["will"]
+        "teams": [
+          {
+            "id": 1,
+            "name": "team1",
+            "description": "team1 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              },
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "team2",
+            "description": "team2 description",
+            "users": [
+              {
+                "id": 1,
+                "profile": {
+                  "firstname": "will",
+                  "lastname": "martalla",
+                  "email": "will@gmail.com",
+                  "phone": "333-333-3333"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ],
+        "users": [
+          {
+            "id": 1,
+            "profile": {
+              "firstname": "will",
+              "lastname": "martalla",
+              "email": "will@gmail.com",
+              "phone": "333-333-3333"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          },
+          {
+            "id": 2,
+            "profile": {
+              "firstname": "helena",
+              "lastname": "makendengue",
+              "email": "helena@gmail.com",
+              "phone": "444-444-4444"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       },
       {
         "id": 3,
         "name": "google",
         "description": "google company description",
-        "teams": ["team1", "team3"],
-        "users": ["helena"]
+        "teams": [
+          {
+            "id": 3,
+            "name": "team3",
+            "description": "team3 description",
+            "users": [
+              {
+                "id": 2,
+                "profile": {
+                  "firstname": "helena",
+                  "lastname": "makendengue",
+                  "email": "helena@gmail.com",
+                  "phone": "444-444-4444"
+                },
+                "isAdmin": true,
+                "active": true,
+                "status": "joined"
+              }
+            ]
+          }
+        ],
+        "users": [
+          {
+            "id": 2,
+            "profile": {
+              "firstname": "helena",
+              "lastname": "makendengue",
+              "email": "helena@gmail.com",
+              "phone": "444-444-4444"
+            },
+            "isAdmin": true,
+            "active": true,
+            "status": "joined"
+          }
+        ]
       }
     ],
     "announcement": [
@@ -79,21 +765,36 @@
         "date": "Nov 17, 2022",
         "title": "title 1",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus. Tempora dolore voluptates obcaecati quae, vitae ea animi magnam ipsum et. Corrupti.",
-        "author": "will"
+        "author": {
+          "firstname": "will",
+          "lastname": "martalla",
+          "email": "will@gmail.com",
+          "phone": "333-333-3333"
+        }
       },
       {
         "id": 2,
         "date": "Nov 11, 2023",
         "title": "title 2",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus. Tempora dolore voluptates obcaecati quae, vitae ea animi magnam ipsum et. Corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quo quos dolores, tenetur officiis porro maiores adipisci, voluptatum ut exercitationem sint accusamus incidunt assumenda, nam soluta voluptas animi. Placeat, nesciunt!",
-        "author": "helena"
+        "author": {
+          "firstname": "helena",
+          "lastname": "makendengue",
+          "email": "helena@gmail.com",
+          "phone": "444-444-4444"
+        }
       },
       {
         "id": 3,
         "date": "Dec 17, 2021",
         "title": "title 3",
         "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptate tempore non velit aliquam ut cupiditate exercitationem natus.",
-        "author": "will"
+        "author": {
+          "firstname": "will",
+          "lastname": "martalla",
+          "email": "will@gmail.com",
+          "phone": "333-333-3333"
+        }
       }
     ],
     "projects": [
@@ -102,21 +803,108 @@
         "name": "project1",
         "description": "project1 desc",
         "active": true,
-        "team": ["team1", "team2"]
+        "team": {
+          "id": 1,
+          "name": "team1",
+          "description": "team1 description",
+          "users": [
+            {
+              "id": 1,
+              "profile": {
+                "firstname": "will",
+                "lastname": "martalla",
+                "email": "will@gmail.com",
+                "phone": "333-333-3333"
+              },
+              "isAdmin": true,
+              "active": true,
+              "status": "joined"
+            },
+            {
+              "id": 2,
+              "profile": {
+                "firstname": "helena",
+                "lastname": "makendengue",
+                "email": "helena@gmail.com",
+                "phone": "444-444-4444"
+              },
+              "isAdmin": true,
+              "active": true,
+              "status": "joined"
+            }
+          ]
+        }
       },
       {
         "id": 2,
         "name": "project2",
         "description": "project2 desc",
         "active": true,
-        "team": ["team2"]
+        "team": {
+          "id": 2,
+          "name": "team2",
+          "description": "team2 description",
+          "users": [
+            {
+              "id": 1,
+              "profile": {
+                "firstname": "will",
+                "lastname": "martalla",
+                "email": "will@gmail.com",
+                "phone": "333-333-3333"
+              },
+              "isAdmin": true,
+              "active": true,
+              "status": "joined"
+            }
+          ]
+        }
       },
       {
         "id": 3,
         "name": "project3",
         "description": "project3 desc",
         "active": true,
-        "team": ["team1"]
+        "team": {
+          "id": 3,
+          "name": "google",
+          "description": "google company description",
+          "teams": [
+            {
+              "id": 3,
+              "name": "team3",
+              "description": "team3 description",
+              "users": [
+                {
+                  "id": 2,
+                  "profile": {
+                    "firstname": "helena",
+                    "lastname": "makendengue",
+                    "email": "helena@gmail.com",
+                    "phone": "444-444-4444"
+                  },
+                  "isAdmin": true,
+                  "active": true,
+                  "status": "joined"
+                }
+              ]
+            }
+          ],
+          "users": [
+            {
+              "id": 2,
+              "profile": {
+                "firstname": "helena",
+                "lastname": "makendengue",
+                "email": "helena@gmail.com",
+                "phone": "444-444-4444"
+              },
+              "isAdmin": true,
+              "active": true,
+              "status": "joined"
+            }
+          ]
+        }
       }
     ]
   }
