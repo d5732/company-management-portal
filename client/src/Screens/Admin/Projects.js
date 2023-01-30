@@ -10,7 +10,7 @@ const Projects = () => {
         return <Navigate replace to="/" />
     } else {
         return (
-            <div>
+            <div className='main-container'>
                 <NavBar />
                 <h1>Projects</h1>
             </div>

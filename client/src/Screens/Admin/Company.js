@@ -11,7 +11,7 @@ const CompanyScreen = () => {
     }
     else {
         return (
-            <div>
+            <div className='main-container'>
                 <h1>Company</h1>
             </div>
         )
