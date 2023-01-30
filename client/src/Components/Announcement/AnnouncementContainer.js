@@ -1,8 +1,11 @@
 import React from 'react'
+import AnnouncementCard from './AnnouncementCard'
 
 const AnnouncementContainer = () => {
   return (
-    <div>AnnouncementContainer</div>
+    <div className='main-container'>
+      <AnnouncementCard />
+    </div>
   )
 }
 
