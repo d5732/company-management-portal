@@ -38,6 +38,14 @@ const NavBar = () => {
     setToggled(!toggled)
   }
 
+  function checkAdminNav() {
+    if (user.isAdmin) {
+      return ['Announcements', 'Projects', 'Teams', 'Users']
+    } else {
+      return ['Announcements', 'Projects']
+    }
+  }
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -46,7 +54,7 @@ const NavBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className='nav-list'>
-        {['Announcements', 'Projects', 'Teams', 'Users'].map((text, index) => (
+        {checkAdminNav().map((text, index) => (
           <ListItem className='nav-list-item' key={text} disablePadding>
             <Link className='nav-link' to={'/' + text.toLowerCase()}>
               <ListItemButton className='nav-list-btn'>

@@ -8,8 +8,10 @@ import NavBar from '../../Components/Navbar/NavBar'
 const Teams = () => {
   const [user, setUser] = useRecoilState(userState)
 
-  if (user.isLoggedIn) {
+  if (!user.isLoggedIn) {
     return <Navigate replace to='/' />
+  } else if (!user.isAdmin) {
+    return <Navigate replace to='/announcements' />
   } else {
     return (
       <>

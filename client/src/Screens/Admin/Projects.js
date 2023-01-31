@@ -6,7 +6,7 @@ import { userState } from '../../globalstate'
 const Projects = () => {
   const [user, setUser] = useRecoilState(userState)
 
-  if (user.isLoggedIn) {
+  if (!user.isLoggedIn) {
     return <Navigate replace to='/' />
   } else {
     return (
