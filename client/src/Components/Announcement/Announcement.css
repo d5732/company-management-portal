@@ -1,4 +1,4 @@
-.announcement-card-wrapper {
+.ann-card-wrapper {
   display: inline-block;
   width: 700px;
   height: auto;
@@ -8,30 +8,30 @@
   border-radius: 20px;
 }
 
-.announcement-container h1 {
+.ann-container h1 {
   text-align: center;
   color: #1ba098;
 }
 
-.announcement-line {
+.ann-line {
   height: 1.5px;
   background-color: #deb992;
   border: none;
   width: 70%;
 }
 
-.card-header {
+.ann-card-header {
   font-size: large;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.card-content {
+.ann-card-content {
   font-size: smaller;
 }
 
-.announcement-card-container {
+.ann-card-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,4 +40,22 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.ann-form-submit-btn {
+  margin-left: auto;
+  display: block;
+  width: 5%;
+  background-color: #1ba098;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
+}
+
+.ann-form-submit-btn:hover {
+  background-color: #1b7f78;
 }

@@ -23,3 +23,10 @@ code {
   width: 90%;
   margin: 0 auto;
 }
+
+.page-headers {
+  text-align: center;
+  font-size: 3rem;
+  color: #1BA098;
+  margin: 50px 0;
+}

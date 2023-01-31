@@ -5,7 +5,7 @@ import logo from "../../Assets/logo.png";
 import { Navigate } from "react-router-dom";
 import { errorState, userState } from "../../globalstate";
 import { login } from "../../Services/users";
-import api from "../../Services/api"
+
 const Login = () => {
     const [user, setUser] = useRecoilState(userState);
     const [username, setUsername] = React.useState("");

@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import NavBar from '../../Components/NavBar'
+import NavBar from '../../Components/Navbar/NavBar'
 import AnnouncementContainer from '../../Components/Announcement/AnnouncementContainer'
 import { userState } from '../../globalstate'
 import '../../Components/Announcement/Announcement.css'
@@ -14,9 +14,10 @@ const Announcements = () => {
     return (
       <>
         <NavBar />
-        <div className='announcement-container'>
+        <div className='ann-container'>
           <h1>Announcements</h1>
-          <hr className='announcement-line' />
+          <button className='ann-form-submit-btn'>New</button>
+          <hr className='ann-line' />
           <AnnouncementContainer />
           <p></p>
         </div>

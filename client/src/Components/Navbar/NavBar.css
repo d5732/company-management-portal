@@ -1,0 +1,74 @@
+.nav-list {
+  width: 100% !important;
+  text-align: center;
+  background-color: #0b2d45;
+}
+
+.nav-list-item {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-list-btn {
+  text-align: center !important;
+  background-color: #0b2d45 !important;
+}
+
+/* Navbar text  */
+.css-10hburv-MuiTypography-root {
+  font-size: 2.5rem !important;
+  color: #1ba098 !important;
+}
+
+.css-10hburv-MuiTypography-root:hover {
+  color: #deb992 !important;
+}
+
+/* Navbar bottom line */
+.css-9mgopn-MuiDivider-root {
+  display: none !important;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding-left: 3%;
+  gap: 20px;
+  height: 8vh;
+  color: #1ba098;
+  border-bottom: 2px solid #deb992;
+}
+
+.nav-logo {
+  width: 60px;
+}
+
+.nav-header {
+  color: #f24e1e;
+  font-size: 1.7rem;
+}
+
+.nav-icon-btn,
+.nav-icon-close-btn {
+  position: absolute !important;
+  right: 2% !important;
+  z-index: 100 !important;
+  color: #1ba098 !important;
+  background: none !important;
+}
+
+.nav-icon,
+.nav-close-icon {
+  height: 60px !important;
+  width: 60px !important;
+}
+
+.nav-close-icon:hover {
+  color: #deb992 !important;
+}
