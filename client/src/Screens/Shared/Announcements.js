@@ -8,7 +8,7 @@ import '../../Components/Announcement/Announcement.css'
 const Announcements = () => {
   const [user] = useRecoilState(userState)
 
-  if (user.isLoggedIn) {
+  if (!user.isLoggedIn) {
     return <Navigate replace to='/' />
   } else {
     return (

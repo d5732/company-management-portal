@@ -27,15 +27,19 @@ const AddUser = ({ setModal }) => {
           onClick={() => setModal(false)}
           className="modal-cancel-btn"
         />
-        <input type="text" name="firstname" placeholder="first name" />
-        <input type="text" name="lastname" placeholder="last name" />
+        <div className='nameInput'>
+          <input type="text" name="firstname" placeholder="first name" />
+          <input type="text" name="lastname" placeholder="last name" />
+        </div>
         <input type="text" name="email" placeholder="email" />
+        <div>
         <input type="text" name="password" placeholder="password" />
         <input
           type="text"
           name="confirmpassword"
           placeholder="confirm password"
         />
+        </div>
         <p>Make user an admin role?</p>
         <Select className="user-admin-select">
           <MenuItem key={false} value={false}>

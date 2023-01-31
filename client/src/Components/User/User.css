@@ -89,8 +89,9 @@ td {
     font-size: 1.5rem;
 }
 
+
 .user-modal-container input {
-    display: block;
+    /* display: block; */
     width: 20%;
     background: none;
     border: none;
@@ -100,6 +101,10 @@ td {
     color: white;
     font-size: 1.3rem;
 }
+
+/* .nameInput input {
+    display: flex;
+} */
 
 .user-admin-select {
     display: flex !important;

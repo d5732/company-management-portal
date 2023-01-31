@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import mockData from '../../data.json'
 import AddUser from './Modals/AddUser'
+import api from '../../Services/api'
 import './User.css'
 
 
