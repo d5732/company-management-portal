@@ -13,8 +13,8 @@ public interface FullUserMapper {
 	
 	FullUserDto entityToFullUserDto(User user);
 
-  Set<FullUserDto> entitiesToFullUserDtos(Set<User> users);
+	Set<FullUserDto> entitiesToFullUserDtos(Set<User> users);
 
-  User requestDtoToEntity(UserRequestDto userRequestDto);
+	User requestDtoToEntity(UserRequestDto userRequestDto);
 
 }
