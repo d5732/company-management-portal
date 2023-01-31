@@ -1,7 +1,7 @@
 package com.cooksys.groupfinal.mappers;
 
 import java.util.Set;
-
+import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.cooksys.groupfinal.dtos.CompanyDto;
@@ -12,6 +12,8 @@ public interface CompanyMapper {
 	
 	CompanyDto entityToDto(Company company);
 
-  Set<CompanyDto> entitiesToDtos(Set<Company> companies);
+	Set<CompanyDto> entitiesToDtos(Set<Company> companies);
+	
+	List<CompanyDto> entitiesListToDtos(List<Company> companies);
 
 }
