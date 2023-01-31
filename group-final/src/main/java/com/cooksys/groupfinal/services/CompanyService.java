@@ -5,6 +5,7 @@ import com.cooksys.groupfinal.dtos.*;
 import java.util.Set;
 import java.util.List;
 import com.cooksys.groupfinal.dtos.AnnouncementDto;
+import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
 import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.dtos.TeamDto;
@@ -27,4 +28,10 @@ public interface CompanyService {
     
     List<CompanyDto> getAllCompanies();
 
+	AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto);
+
+	ProjectDto updateProject(Long id, Long teamID, ProjectDto projectDto);
+
+	
+	
 }

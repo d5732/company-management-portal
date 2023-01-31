@@ -2,12 +2,11 @@ package com.cooksys.groupfinal.controllers;
 
 import com.cooksys.groupfinal.dtos.*;
 import com.cooksys.groupfinal.services.CompanyService;
-import com.cooksys.groupfinal.dtos.BasicUserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/company")
@@ -50,5 +49,23 @@ public class CompanyController {
     public BasicUserDto createUser(@PathVariable Long id, @RequestBody UserRequestDto userRequestDto) {
         return companyService.createUser(id, userRequestDto);
     }
+
+	// createAnnouncement
+	
+	@PostMapping("/{id}/announcements")
+	public AnnouncementDto createAnnouncement(@PathVariable Long id, @RequestBody AnnouncementDto announcementDto) {
+		
+		return companyService.createAnnouncement(id, announcementDto);
+		
+	}
+	
+	// updateProject
+	
+	@PatchMapping("/{id}/teams/{teamID}/projects")
+	public ProjectDto updateProject(@PathVariable Long id, @PathVariable Long teamID, @RequestBody ProjectDto projectDto) {
+	
+		return companyService.updateProject(id, teamID, projectDto);
+		
+	}
 
 }

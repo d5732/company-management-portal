@@ -7,14 +7,18 @@ import com.cooksys.groupfinal.exceptions.NotFoundException;
 import com.cooksys.groupfinal.mappers.*;
 import com.cooksys.groupfinal.repositories.CompanyRepository;
 
+import java.sql.Timestamp;
+
 import com.cooksys.groupfinal.repositories.TeamRepository;
 import com.cooksys.groupfinal.repositories.UserRepository;
 import com.cooksys.groupfinal.services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import com.cooksys.groupfinal.dtos.AnnouncementDto;
+import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
 import com.cooksys.groupfinal.dtos.BasicUserDto;
 import com.cooksys.groupfinal.dtos.CompanyDto;
@@ -22,20 +26,25 @@ import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.dtos.TeamDto;
 import com.cooksys.groupfinal.entities.Announcement;
 import com.cooksys.groupfinal.entities.Company;
+import com.cooksys.groupfinal.entities.Credentials;
 import com.cooksys.groupfinal.entities.Project;
 import com.cooksys.groupfinal.entities.Team;
 import com.cooksys.groupfinal.entities.User;
+import com.cooksys.groupfinal.exceptions.BadRequestException;
 import com.cooksys.groupfinal.exceptions.NotFoundException;
 import com.cooksys.groupfinal.mappers.AnnouncementMapper;
+import com.cooksys.groupfinal.mappers.CredentialsMapper;
 import com.cooksys.groupfinal.mappers.ProjectMapper;
 import com.cooksys.groupfinal.mappers.TeamMapper;
 import com.cooksys.groupfinal.mappers.CompanyMapper;
 import com.cooksys.groupfinal.mappers.FullUserMapper;
 import com.cooksys.groupfinal.mappers.BasicUserMapper;
+import com.cooksys.groupfinal.repositories.AnnouncementRepository;
 import com.cooksys.groupfinal.repositories.CompanyRepository;
+import com.cooksys.groupfinal.repositories.ProjectRepository;
 import com.cooksys.groupfinal.repositories.TeamRepository;
 import com.cooksys.groupfinal.services.CompanyService;
-
+ 
 import lombok.RequiredArgsConstructor;
 
 
@@ -44,6 +53,8 @@ import lombok.RequiredArgsConstructor;
 public class CompanyServiceImpl implements CompanyService {
 	
 	private final CompanyRepository companyRepository;
+	private final AnnouncementRepository announcementRepository;
+	private final ProjectRepository projectRepository;
 	private final TeamRepository teamRepository;
 	private final UserRepository userRepository;
 	private final FullUserMapper fullUserMapper;
@@ -52,8 +63,10 @@ public class CompanyServiceImpl implements CompanyService {
 	private final TeamMapper teamMapper;
 	private final ProjectMapper projectMapper;
 	private final CompanyMapper companyMapper;
+	private final CredentialsMapper credentialsMapper;
 
-    private Company findCompany(Long id) {
+	
+	private Company findCompany(Long id) {
         Optional<Company> company = companyRepository.findById(id);
         if (company.isEmpty()) {
             throw new NotFoundException("A company with the provided id does not exist.");
@@ -171,5 +184,100 @@ public class CompanyServiceImpl implements CompanyService {
 		return basicUserMapper.entityToBasicUserDto(userToSave);
 
     }
+
+	@Override
+	public AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto) {
+
+ 	
+		//Credentials credentials = credentialsMapper.dtoToEntity(credentialsDto);
+		 		
+		if(!announcementDto.getAuthor().isAdmin()) {
+			
+			throw new BadRequestException("User is not Admin, cannot post announcement.");
+		}
+		
+		Optional<Company> selectedCompany = companyRepository.findById(id);
+		
+		if(selectedCompany.isEmpty()) {
+			
+			throw new NotFoundException("Company not found with given id");
+		}
+		
+		if(announcementDto.getMessage().isBlank()) {
+			
+			throw new BadRequestException("Announcement Message cannot be empty");
+		}
+		
+ 		
+		Announcement announcementToPost = announcementMapper.dtoToEntity(announcementDto);
+		User fetchAuthor = announcementToPost.getAuthor();
+		if(fetchAuthor.isAdmin()) {
+			
+			announcementToPost.setAuthor(fetchAuthor);
+			announcementToPost.setTitle(announcementDto.getTitle());
+			announcementToPost.setDate(Timestamp.valueOf(LocalDateTime.now()));
+ 			announcementToPost.setCompany(selectedCompany.get());
+			//companyRepository.saveAndFlush(selectedCompany.get());	
+ 			
+			selectedCompany.get().getAnnouncements().add(announcementToPost);
+
+
+		}
+		
+				
+			 
+		return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
+		
+ 	}
+
+	@Override
+	public ProjectDto updateProject(Long id, Long teamID, ProjectDto projectDto) {
+
+
+		Optional<Company> selectedCompany = companyRepository.findById(id);
+		
+		if(selectedCompany.isEmpty()) {
+			
+			throw new NotFoundException("Company not found with given id");
+		}
+		
+		Optional<Team> selectedTeam = teamRepository.findById(teamID);
+
+		if(selectedTeam.isEmpty()) {
+			
+			throw new NotFoundException("Company not found with given id");
+		}
+		
+		if(!selectedTeam.get().getCompany().equals(selectedCompany.get())) {
+			
+			throw new BadRequestException("Specified team doesn't belong to the selected company");
+		
+		}
+		
+		if(projectDto.getName().isBlank()) {
+			
+			throw new BadRequestException("Project Name cannot be empty");
+		}
+		
+	
+		Project projectToUpdate = projectMapper.dtoToEntity(projectDto);
+//		
+//      for future projects
+		
+//		if(!projectToUpdate.isActive()) {
+//			
+//			projectToUpdate.setName(projectDto.getName());
+//			projectToUpdate.setDescription(projectDto.getDescription());
+//		
+//			throw new NotFoundException("Project not active.");
+//		} //
+		
+		projectToUpdate.setActive(true);
+		projectToUpdate.setTeam(selectedTeam.get());
+
+		return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToUpdate));
+		
+		
+	}
 
 }

@@ -79,5 +79,5 @@ public class TeamServiceImpl implements TeamService {
 		team.getUsers().forEach(usersInTeam::add);
 		return basicUserMapper.entitiesToBasicUserDtos(usersInTeam);
 	}
-    
+
 }
