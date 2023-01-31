@@ -184,15 +184,18 @@ public class CompanyServiceImpl implements CompanyService {
 		
 	
 		Project projectToUpdate = projectMapper.dtoToEntity(projectDto);
+//		
+//      for future projects
 		
-		if(!projectToUpdate.isActive()) {
-			
-		//	projectToUpdate.setName(projectDto.getName());
-		//	projectToUpdate.setDescription(projectDto.getDescription());
+//		if(!projectToUpdate.isActive()) {
+//			
+//			projectToUpdate.setName(projectDto.getName());
+//			projectToUpdate.setDescription(projectDto.getDescription());
+//		
+//			throw new NotFoundException("Project not active.");
+//		} //
 		
-			throw new NotFoundException("Project not active.");
-		}
-		
+		projectToUpdate.setActive(true);
 		projectToUpdate.setTeam(selectedTeam.get());
 
 		return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToUpdate));
