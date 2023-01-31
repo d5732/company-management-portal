@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import NavBar from '../../Components/NavBar'
 import TeamContainer from '../../Components/Team/TeamContainer'
 import { userState } from '../../globalstate'
 import '../../Components/Team/Team.css'
+import NavBar from '../../Components/Navbar/NavBar'
 
 const Teams = () => {
   const [user, setUser] = useRecoilState(userState)
@@ -15,7 +15,7 @@ const Teams = () => {
       <>
         <NavBar />
         <div className='team-container'>
-          <h1>Teams</h1>
+          <h1 className='page-headers'>Teams</h1>
           <TeamContainer />
           <p></p>
         </div>
