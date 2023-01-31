@@ -1,24 +1,11 @@
 import React, { useState } from 'react'
-import Box from '@mui/material/Box'
-import OutlinedInput from '@mui/material/OutlinedInput'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
-import Chip from '@mui/material/Chip'
 import CancelIcon from '@mui/icons-material/Cancel'
 import '../User.css'
 
 const AddUser = ({ setModal }) => {
   const [newUser, setNewUser] = useState({})
-
-  // const handleChange = (event) => {
-  //   const {
-  //     target: { value },
-  //   } = event
-  //   setNewUser(
-  //     // On autofill we get a stringified value.
-  //     typeof value === 'string' ? value.split(',') : value
-  //   )
-  // }
 
   return (
     <div className="user-modal-container">
@@ -27,18 +14,18 @@ const AddUser = ({ setModal }) => {
           onClick={() => setModal(false)}
           className="modal-cancel-btn"
         />
-        <div className='nameInput'>
+        <div className="nameInput">
           <input type="text" name="firstname" placeholder="first name" />
           <input type="text" name="lastname" placeholder="last name" />
         </div>
         <input type="text" name="email" placeholder="email" />
         <div>
-        <input type="text" name="password" placeholder="password" />
-        <input
-          type="text"
-          name="confirmpassword"
-          placeholder="confirm password"
-        />
+          <input type="text" name="password" placeholder="password" />
+          <input
+            type="text"
+            name="confirmpassword"
+            placeholder="confirm password"
+          />
         </div>
         <p>Make user an admin role?</p>
         <Select className="user-admin-select">

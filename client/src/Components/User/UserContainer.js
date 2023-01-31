@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import mockData from '../../data.json'
 import AddUser from './Modals/AddUser'
 import api from '../../Services/api'
@@ -19,6 +19,17 @@ const UserContainer = () => {
     admin: user.isAdmin === true ? "YES" : "NO",
     status: user.status,
   }))
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/company/6/teams`)
+      .then((resp) => resp.json())
+      .then((data) => console.log(data))
+    // .then(resp => {
+    //   setData(resp.data)
+    //   console.log(resp.data)
+    //   console.log(data)
+    // })
+  }, [])
 
   return (
     <div className="user-card-container">

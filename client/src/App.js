@@ -8,13 +8,15 @@ import Users from './Screens/Admin/Users';
 import Teams from './Screens/Admin/Teams';
 import Project from './Screens/Worker/Project';
 
-function App() {
+function App(props) {
+
+
 
   return (
     <div>
       <Routes >
         <Route path="/" element={<Login />} />
-        <Route path="/announcements" element={<Announcements />} />
+        <Route path="/announcements" element={<Announcements {...props} />} />
         <Route path="/company" element={<CompanyScreen />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/users" element={<Users />} />
