@@ -1,0 +1,10 @@
+.user-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 55px;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
