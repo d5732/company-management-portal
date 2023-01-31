@@ -1,5 +1,6 @@
 package com.cooksys.groupfinal.mappers;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.mapstruct.Mapper;
@@ -13,5 +14,9 @@ public interface AnnouncementMapper {
 	AnnouncementDto entityToDto(Announcement announcement);
 
   Set<AnnouncementDto> entitiesToDtos(Set<Announcement> announcement);
+  
+  Announcement dtoToEntity(AnnouncementDto announcementDto);
+  
+  
     
 }
