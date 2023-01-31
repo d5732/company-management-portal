@@ -21,7 +21,7 @@ public class CompanyController {
         return companyService.getAllUsers(id);
     }
     
-    @GetMapping("/company/")
+    @GetMapping("/")
     public List<CompanyDto> getAllCompanies() {
     	return companyService.getAllCompanies();
     }
