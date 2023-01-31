@@ -21,6 +21,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
+    @CrossOrigin(origins = "*")
     public BasicUserDto updateUser(@PathVariable Long id, @RequestBody BasicUserDto basicUserDto) {
         return userService.updateUser(id, basicUserDto);
     }
