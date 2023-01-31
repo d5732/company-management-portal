@@ -1,6 +1,43 @@
-.announcement-card-container {
+.announcement-card-wrapper {
+  display: inline-block;
+  width: 700px;
+  height: auto;
+  background-color: #0b2d45;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 20px;
 }
 
 .announcement-container h1 {
   text-align: center;
+  color: #1ba098;
+}
+
+.announcement-line {
+  height: 1.5px;
+  background-color: #deb992;
+  border: none;
+  width: 70%;
+}
+
+.card-header {
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content {
+  font-size: smaller;
+}
+
+.announcement-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 55px;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
