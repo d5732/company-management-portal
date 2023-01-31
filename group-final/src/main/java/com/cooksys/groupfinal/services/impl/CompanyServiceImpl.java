@@ -4,30 +4,31 @@ import com.cooksys.groupfinal.dtos.*;
 import com.cooksys.groupfinal.entities.*;
 import com.cooksys.groupfinal.exceptions.BadRequestException;
 import com.cooksys.groupfinal.exceptions.NotFoundException;
-import com.cooksys.groupfinal.mappers.AnnouncementMapper;
-import com.cooksys.groupfinal.mappers.FullUserMapper;
-import com.cooksys.groupfinal.mappers.ProjectMapper;
-import com.cooksys.groupfinal.mappers.TeamMapper;
+import com.cooksys.groupfinal.mappers.*;
 import com.cooksys.groupfinal.repositories.CompanyRepository;
+import com.cooksys.groupfinal.repositories.ProjectRepository;
 import com.cooksys.groupfinal.repositories.TeamRepository;
 import com.cooksys.groupfinal.repositories.UserRepository;
 import com.cooksys.groupfinal.services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 @Service
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
-
-    private final CompanyRepository companyRepository;
-    private final TeamRepository teamRepository;
-    private final UserRepository userRepository;
-    private final FullUserMapper fullUserMapper;
-    private final AnnouncementMapper announcementMapper;
-    private final TeamMapper teamMapper;
-    private final ProjectMapper projectMapper;
+	
+	private final CompanyRepository companyRepository;
+	private final TeamRepository teamRepository;
+	private final UserRepository userRepository;
+	private final ProjectRepository projectRepository;
+	private final FullUserMapper fullUserMapper;
+	private final AnnouncementMapper announcementMapper;
+	private final TeamMapper teamMapper;
+	private final ProjectMapper projectMapper;
+	private final BasicUserMapper basicUserMapper;
 
     private Company findCompany(Long id) {
         Optional<Company> company = companyRepository.findById(id);
@@ -111,6 +112,52 @@ public class CompanyServiceImpl implements CompanyService {
         team.setName(teamDto.getName());
         team.setDescription(teamDto.getDescription());
         return teamMapper.entityToDto(teamRepository.saveAndFlush(team));
+    }
+
+	private void validateNewUserRequest(UserRequestDto userRequestDto) {
+
+		if (userRequestDto.getCredentials() == null || userRequestDto.getProfile() == null) {
+			throw new BadRequestException("Credentials or Profile request is empty or null");
+		}
+
+		if (userRequestDto.getCredentials().getUsername() == null || userRequestDto.getCredentials().getPassword() == null || userRequestDto.getProfile().getEmail() == null) {
+			throw new BadRequestException("Username, Password, and Email are required fields");
+		}
+
+		Optional<User> optionalCredentials = userRepository.findByCredentialsUsername(userRequestDto.getCredentials().getUsername());
+
+		if (optionalCredentials.isPresent()) {
+			throw new NotFoundException("Username is taken");
+		}
+
+	}
+
+	private Company getCompanyHelper(Long id) {
+
+		Optional<Company> optionalCompany = companyRepository.findById(id);
+
+		if (optionalCompany.isEmpty()) {
+			throw new NotFoundException("Company " + id + " does not exist");
+		}
+
+		return optionalCompany.get();
+
+	}
+
+    @Override
+    public BasicUserDto createUser(Long id, UserRequestDto userRequestDto) {
+
+		validateNewUserRequest(userRequestDto);
+
+		User userToSave = basicUserMapper.requestDtoToEntity(userRequestDto);
+		userRepository.saveAndFlush(userToSave);
+
+		Company companyToJoin = getCompanyHelper(id);
+		companyToJoin.getEmployees().add(userToSave);
+		companyRepository.saveAndFlush(companyToJoin);
+
+		return basicUserMapper.entityToBasicUserDto(userToSave);
+
     }
 
 }

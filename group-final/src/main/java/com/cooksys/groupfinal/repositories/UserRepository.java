@@ -12,4 +12,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByCredentialsUsernameAndActiveTrue(String username);
 
     Optional<User> findByIdAndActiveTrue(Long id);
+
+	Optional<User> findByCredentialsUsername(String username);
+
 }
