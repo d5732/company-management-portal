@@ -38,7 +38,7 @@ public class User {
 	@EqualsAndHashCode.Exclude
 	private Set<Company> companies = new HashSet<>();
 	
-	@ManyToMany(mappedBy = "teammates")
+	@ManyToMany(mappedBy = "users")
 	@EqualsAndHashCode.Exclude
 	private Set<Team> teams = new HashSet<>();
 
