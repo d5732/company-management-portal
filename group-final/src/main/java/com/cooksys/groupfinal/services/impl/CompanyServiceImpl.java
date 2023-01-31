@@ -171,7 +171,7 @@ public class CompanyServiceImpl implements CompanyService {
 			throw new NotFoundException("Company not found with given id");
 		}
 		
-		if(!selectedTeam.get().getCompany().equals(selectedCompany)) {
+		if(!selectedTeam.get().getCompany().equals(selectedCompany.get())) {
 			
 			throw new BadRequestException("Specified team doesn't belong to the selected company");
 		
