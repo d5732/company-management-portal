@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import mockData from '../../data.json'
+import CreateTeam from './Modals/CreateTeam'
 import './Team.css'
 
 const TeamCard = () => {
   const [data, setData] = useState(mockData.data.teams)
+  const [modal, setModal] = useState(false)
 
   console.log(data)
 
@@ -20,8 +22,8 @@ const TeamCard = () => {
           <p>Members</p>
           <div className='team-users-container'>
             {team.users.map((user) => (
-              <h1 className='user-badge' key={user}>
-                {user}
+              <h1 className='user-badge' key={user.profile.firstname}>
+                {user.profile.firstname}
               </h1>
             ))}
           </div>
@@ -30,6 +32,19 @@ const TeamCard = () => {
     )
   })
 
-  return <div className='team-card-container'>{renderCard}</div>
+  return (
+    <>
+      <div className='team-card-container'>
+      {modal && <CreateTeam setModal={setModal} data={data} />}
+        {renderCard}
+        <button className='team-add-btn' onClick={() => setModal(true)}>
+          <div className='placeholder-card'>
+            <h3>+</h3>
+            <p>New Team</p>
+          </div>
+        </button>
+      </div>
+    </>
+  )
 }
 export default TeamCard
