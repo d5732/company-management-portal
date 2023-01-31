@@ -14,9 +14,10 @@ const Announcements = () => {
     return (
       <>
         <NavBar />
-        <div className='announcement-container'>
+        <div className='ann-container'>
           <h1>Announcements</h1>
-          <hr className='announcement-line' />
+          <button className='ann-form-submit-btn'>New</button>
+          <hr className='ann-line' />
           <AnnouncementContainer />
           <p></p>
         </div>
