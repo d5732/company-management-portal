@@ -2,6 +2,7 @@ package com.cooksys.groupfinal.services.impl;
 
   
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -132,19 +133,22 @@ public class CompanyServiceImpl implements CompanyService {
 		
  		
 		Announcement announcementToPost = announcementMapper.dtoToEntity(announcementDto);
-	//	announcementToPost.setAuthor(announcementDto.getAuthor());		// need to fix this line
-	//	announcementToPost.setTitle(announcementDto.getTitle());
-	//	announcementToPost.setDate(new Timestamp(System.currentTimeMillis()));
-		selectedCompany.get().getAnnouncements().add(announcementToPost);
+		User fetchAuthor = announcementToPost.getAuthor();
+		if(fetchAuthor.isAdmin()) {
+			
+			announcementToPost.setAuthor(fetchAuthor);
+			announcementToPost.setTitle(announcementDto.getTitle());
+			announcementToPost.setDate(Timestamp.valueOf(LocalDateTime.now()));
+ 			announcementToPost.setCompany(selectedCompany.get());
+			//companyRepository.saveAndFlush(selectedCompany.get());	
+ 			
+			selectedCompany.get().getAnnouncements().add(announcementToPost);
+
+
+		}
 		
-		//announcementToPost.setCompany(selectedCompany.get());
-		
-		//selectedCompany.get().setAnnouncements(null);
-		
-		companyRepository.saveAndFlush(selectedCompany.get());	
-		
- 	//	return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
-	 
+				
+			 
 		return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
 		
  	}
