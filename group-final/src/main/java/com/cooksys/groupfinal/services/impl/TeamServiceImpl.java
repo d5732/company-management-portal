@@ -4,6 +4,7 @@ import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.entities.Company;
 import com.cooksys.groupfinal.entities.Project;
 import com.cooksys.groupfinal.entities.Team;
+import com.cooksys.groupfinal.exceptions.BadRequestException;
 import com.cooksys.groupfinal.exceptions.NotFoundException;
 import com.cooksys.groupfinal.mappers.ProjectMapper;
 import com.cooksys.groupfinal.repositories.ProjectRepository;
@@ -27,6 +28,10 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public ProjectDto createProject(Long id, ProjectDto projectDto) {
 
+        if (projectDto == null || projectDto.getName() == null) {
+            throw new BadRequestException("Project needs to have at least a name");
+        }
+
         Optional<Team> team = teamRepository.findById(id);
         if (team.isEmpty()) {
             throw new NotFoundException("A team with id " + id + " does not exist.");
@@ -39,4 +44,5 @@ public class TeamServiceImpl implements TeamService {
 
         return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToSave));
     }
+
 }

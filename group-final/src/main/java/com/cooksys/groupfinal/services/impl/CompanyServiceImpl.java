@@ -1,32 +1,18 @@
 package com.cooksys.groupfinal.services.impl;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
 import com.cooksys.groupfinal.dtos.*;
+import com.cooksys.groupfinal.entities.*;
 import com.cooksys.groupfinal.exceptions.BadRequestException;
-import com.cooksys.groupfinal.mappers.*;
-import com.cooksys.groupfinal.repositories.ProjectRepository;
-import com.cooksys.groupfinal.repositories.UserRepository;
-import org.springframework.stereotype.Service;
-
-import com.cooksys.groupfinal.entities.Announcement;
-import com.cooksys.groupfinal.entities.Company;
-import com.cooksys.groupfinal.entities.Project;
-import com.cooksys.groupfinal.entities.Team;
-import com.cooksys.groupfinal.entities.User;
 import com.cooksys.groupfinal.exceptions.NotFoundException;
+import com.cooksys.groupfinal.mappers.*;
 import com.cooksys.groupfinal.repositories.CompanyRepository;
 import com.cooksys.groupfinal.repositories.TeamRepository;
+import com.cooksys.groupfinal.repositories.UserRepository;
 import com.cooksys.groupfinal.services.CompanyService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +21,6 @@ public class CompanyServiceImpl implements CompanyService {
 	private final CompanyRepository companyRepository;
 	private final TeamRepository teamRepository;
 	private final UserRepository userRepository;
-	private final ProjectRepository projectRepository;
 	private final FullUserMapper fullUserMapper;
 	private final AnnouncementMapper announcementMapper;
 	private final TeamMapper teamMapper;
@@ -113,18 +98,6 @@ public class CompanyServiceImpl implements CompanyService {
 
 	}
 
-	private Company getCompanyHelper(Long id) {
-
-		Optional<Company> optionalCompany = companyRepository.findById(id);
-
-		if (optionalCompany.isEmpty()) {
-			throw new NotFoundException("Company " + id + " does not exist");
-		}
-
-		return optionalCompany.get();
-
-	}
-
     @Override
     public BasicUserDto createUser(Long id, UserRequestDto userRequestDto) {
 
@@ -133,7 +106,7 @@ public class CompanyServiceImpl implements CompanyService {
 		User userToSave = basicUserMapper.requestDtoToEntity(userRequestDto);
 		userRepository.saveAndFlush(userToSave);
 
-		Company companyToJoin = getCompanyHelper(id);
+		Company companyToJoin = findCompany(id);
 		companyToJoin.getEmployees().add(userToSave);
 		companyRepository.saveAndFlush(companyToJoin);
 
