@@ -1,8 +1,7 @@
 import React from 'react'
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import mockData from '../../data.json'
-import userTableColumns from './userTableColumns'
-import { useTable } from 'react-table'
+import './User.css'
 
 
 const UserContainer = () => {
@@ -14,60 +13,46 @@ const UserContainer = () => {
     phone: user.profile.phone,
     team: user.teams[0].name,
     active: user.active === true ? "YES" : "NO",
-    admin: user.admin === true ? "YES" : "NO",
+    admin: user.isAdmin === true ? "YES" : "NO",
     status: user.status,
   }))
-  
-  const columns = useMemo(() => userTableColumns, [])
-  const data = useMemo(() => [...userTableData, userTableData])
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
-      columns,
-      data,
-    })
 
   return (
-    <div>
+    <div className='user-card-container'>
       <h1>User Registry</h1>
       <h2>A general view of all members in your orginazation</h2>
-      <>
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
-                    {column.render('Header')}
-                  </th>
-                ))}
+      <table>
+        <tr>
+            {["Name","Email","Phone","Team","Active","Admin","Status"].map((x)=> {return <th>{x}</th>})}
+        </tr>
+        {userTableData.map((user) => {
+            return (
+              <tr>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td>{user.team}</td>
+                <td
+                  style={{
+                    color: { if: user.active === 'YES' ? 'green' : 'red' },
+                  }}
+                >
+                  {user.active}
+                </td>
+                <td
+                  style={{
+                    color: { if: user.admin === 'YES' ? 'green' : 'red' },
+                  }}
+                >
+                  {user.admin}
+                </td>
+                <td>{user.status}</td>
               </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {
-              rows.map((row, i) => {
-                prepareRow(row)
-                return (
-                  <tr {...row.getRowProps()}>
-                    {
-                      row.cells.map((cell) => {
-                        return (
-                          <td {...cell.getCellProps()}>
-                            {cell.render('Cell')}
-                          </td>
-                        )
-                      })
-                    }
-                  </tr>
-                )
-            })
-        }
-          </tbody>
-        </table>
-      </>
+            )
+        })}
+      </table>
 
-      <button>ADD USER</button>
+      <button onClick={()=>{console.log('Length:', users.length)}}>ADD USER</button>
     </div>
   )
 }

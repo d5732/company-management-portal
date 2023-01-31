@@ -2,9 +2,51 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 55px;
+    padding: 10px 20px;
     gap: 20px;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 90%;
+    margin: 3rem 0;
+    flex-direction: column;
+    color: darkcyan;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin: .2rem;
+}
+
+h2 {
+    margin: .2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+table {
+    border-spacing: 0;
+    border: .01px solid white;
+    width: 100%;
+}
+
+tr {
+    font-size: 1.3rem;
+    border-bottom: 10;
+}
+
+th {
+    color: white;
+    margin: 0;
+    padding: 1.3rem;
+    border-bottom: 1px solid white;
+    font-size: 2rem;
+}
+
+td {
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    color: burlywood;
 }
