@@ -50,18 +50,18 @@ public class CompanyController {
 	// createAnnouncement
 	
 	@PostMapping("/{id}/announcements")
-	public AnnouncementDto createAnnouncement(@PathVariable Long id, @RequestBody AnnouncementDto announcementDto, @RequestBody CredentialsDto credentialsDto) {
+	public AnnouncementDto createAnnouncement(@PathVariable Long id, @RequestBody AnnouncementDto announcementDto) {
 		
-		return companyService.createAnnouncement(id, announcementDto, credentialsDto);
+		return companyService.createAnnouncement(id, announcementDto);
 		
 	}
 	
 	// updateProject
 	
 	@PatchMapping("/{id}/teams/{teamID}/projects")
-	public ProjectDto updateProject(@PathVariable Long id, @PathVariable Long teamID, @RequestBody CredentialsDto credentialsDto, @RequestBody ProjectDto projectDto) {
+	public ProjectDto updateProject(@PathVariable Long id, @PathVariable Long teamID, @RequestBody ProjectDto projectDto) {
 	
-		return companyService.updateProject(id, teamID, credentialsDto, projectDto);
+		return companyService.updateProject(id, teamID, projectDto);
 		
 	}
 	

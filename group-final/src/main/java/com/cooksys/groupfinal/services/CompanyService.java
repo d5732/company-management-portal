@@ -18,9 +18,9 @@ public interface CompanyService {
 
 	Set<ProjectDto> getAllProjects(Long companyId, Long teamId);
 
-	AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto, CredentialsDto credentialsDto);
+	AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto);
 
-	ProjectDto updateProject(Long id, Long teamID, CredentialsDto credentialsDto, ProjectDto projectDto);
+	ProjectDto updateProject(Long id, Long teamID, ProjectDto projectDto);
 
 	
 	

@@ -1,8 +1,6 @@
 package com.cooksys.groupfinal.services.impl;
 
-import static com.cooksys.twitter_api.helpers.Helpers.parseAndSaveHashtags;
-import static com.cooksys.twitter_api.helpers.Helpers.parseAndSaveMentions;
-
+  
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,8 +35,7 @@ import com.cooksys.groupfinal.repositories.CompanyRepository;
 import com.cooksys.groupfinal.repositories.ProjectRepository;
 import com.cooksys.groupfinal.repositories.TeamRepository;
 import com.cooksys.groupfinal.services.CompanyService;
-import com.cooksys.twitter_api.entities.Tweet;
-
+ 
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -111,14 +108,9 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto, CredentialsDto credentialsDto) {
+	public AnnouncementDto createAnnouncement(Long id, AnnouncementDto announcementDto) {
 
- 		
-		if(credentialsDto == null) {
-			
-			throw new BadRequestException("Bad Credentials Dto");
-		}
-
+ 	
 		//Credentials credentials = credentialsMapper.dtoToEntity(credentialsDto);
 		 		
 		if(!announcementDto.getAuthor().isAdmin()) {
@@ -126,7 +118,7 @@ public class CompanyServiceImpl implements CompanyService {
 			throw new BadRequestException("User is not Admin, cannot post announcement.");
 		}
 		
-		Optional<Company> selectedCompany = companyRepository.findByIdAndDeletedFalse(id);
+		Optional<Company> selectedCompany = companyRepository.findById(id);
 		
 		if(selectedCompany.isEmpty()) {
 			
@@ -140,26 +132,28 @@ public class CompanyServiceImpl implements CompanyService {
 		
  		
 		Announcement announcementToPost = announcementMapper.dtoToEntity(announcementDto);
-		announcementToPost.setAuthor(announcementDto.getAuthor());		// need to fix this line
-		announcementToPost.setTitle(announcementDto.getTitle());
+	//	announcementToPost.setAuthor(announcementDto.getAuthor());		// need to fix this line
+	//	announcementToPost.setTitle(announcementDto.getTitle());
+	//	announcementToPost.setDate(new Timestamp(System.currentTimeMillis()));
 		selectedCompany.get().getAnnouncements().add(announcementToPost);
-		announcementToPost.setDate(new Timestamp(System.currentTimeMillis()));
 		
-			 
- 		return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
-				
+		//announcementToPost.setCompany(selectedCompany.get());
+		
+		//selectedCompany.get().setAnnouncements(null);
+		
+		companyRepository.saveAndFlush(selectedCompany.get());	
+		
+ 	//	return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
+	 
+		return announcementMapper.entityToDto(announcementRepository.saveAndFlush(announcementToPost));  
+		
  	}
 
 	@Override
-	public ProjectDto updateProject(Long id, Long teamID, CredentialsDto credentialsDto, ProjectDto projectDto) {
+	public ProjectDto updateProject(Long id, Long teamID, ProjectDto projectDto) {
 
-		
-		if(credentialsDto == null) {
-			
-			throw new BadRequestException("Bad Credentials Dto");
-		}
 
-		Optional<Company> selectedCompany = companyRepository.findByIdAndDeletedFalse(id);
+		Optional<Company> selectedCompany = companyRepository.findById(id);
 		
 		if(selectedCompany.isEmpty()) {
 			
@@ -187,15 +181,16 @@ public class CompanyServiceImpl implements CompanyService {
 	
 		Project projectToUpdate = projectMapper.dtoToEntity(projectDto);
 		
-		if(projectToUpdate.isActive()) {
+		if(!projectToUpdate.isActive()) {
 			
-			projectToUpdate.setName(projectDto.getName());
-			projectToUpdate.setDescription(projectDto.getDescription());
-			projectToUpdate.setTeam(selectedTeam.get());
-						
+		//	projectToUpdate.setName(projectDto.getName());
+		//	projectToUpdate.setDescription(projectDto.getDescription());
+		
+			throw new NotFoundException("Project not active.");
 		}
 		
-		
+		projectToUpdate.setTeam(selectedTeam.get());
+
 		return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToUpdate));
 		
 		
