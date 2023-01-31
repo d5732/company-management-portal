@@ -31,7 +31,7 @@ public class User {
   @Embedded
   private Profile profile;
 	
-	private boolean active;
+	private boolean active = true;
 	
 	private boolean admin;
 	
