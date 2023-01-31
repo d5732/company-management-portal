@@ -12,8 +12,6 @@ public interface CompanyService {
 
     Set<TeamDto> getAllTeams(Long id);
 
-    Set<ProjectDto> getAllProjects(Long companyId, Long teamId);
-
     BasicUserDto createUser(Long id, UserRequestDto userRequestDto);
 
     TeamDto createTeam(Long id, TeamDto teamDto);

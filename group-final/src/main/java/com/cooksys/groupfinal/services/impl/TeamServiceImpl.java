@@ -15,7 +15,9 @@ import com.cooksys.groupfinal.services.TeamService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +27,15 @@ public class TeamServiceImpl implements TeamService {
     private final ProjectRepository projectRepository;
     private final TeamRepository teamRepository;
 
+    private Team findTeam(Long id) {
+        Optional<Team> optionalTeam = teamRepository.findById(id);
+        if (optionalTeam.isEmpty()) {
+            throw new NotFoundException("A team with id " + id + " does not exist.");
+        }
+
+        return optionalTeam.get();
+    }
+
     @Override
     public ProjectDto createProject(Long id, ProjectDto projectDto) {
 
@@ -32,17 +43,23 @@ public class TeamServiceImpl implements TeamService {
             throw new BadRequestException("Project needs to have at least a name");
         }
 
-        Optional<Team> team = teamRepository.findById(id);
-        if (team.isEmpty()) {
-            throw new NotFoundException("A team with id " + id + " does not exist.");
-        }
-
-        Team teamToSave = team.get();
-
+        Team teamToSave = findTeam(id);
         Project projectToSave = projectMapper.dtoToEntity(projectDto);
         projectToSave.setTeam(teamToSave);
 
         return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToSave));
+    }
+
+    @Override
+    public Set<ProjectDto> getAllProjects(Long id) {
+
+        Team team = findTeam(id);
+        Set<Project> filteredProjects = new HashSet<>();
+        team.getProjects().forEach(filteredProjects::add);
+        filteredProjects.removeIf(project -> !project.isActive());
+
+        return projectMapper.entitiesToDtos(filteredProjects);
+
     }
 
 }

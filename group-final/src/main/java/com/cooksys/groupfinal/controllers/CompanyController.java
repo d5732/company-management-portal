@@ -29,11 +29,6 @@ public class CompanyController {
         return companyService.getAllTeams(id);
     }
 
-    @GetMapping("/{companyId}/teams/{teamId}/projects")
-    public Set<ProjectDto> getAllProjects(@PathVariable Long companyId, @PathVariable Long teamId) {
-        return companyService.getAllProjects(companyId, teamId);
-    }
-
     @PostMapping("/{id}/teams")
     public TeamDto createTeam(@PathVariable Long id, @RequestBody TeamDto teamDto) {
         return companyService.createTeam(id, teamDto);

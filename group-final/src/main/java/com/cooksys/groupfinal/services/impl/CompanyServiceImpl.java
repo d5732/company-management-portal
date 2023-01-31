@@ -72,19 +72,6 @@ public class CompanyServiceImpl implements CompanyService {
         return teamMapper.entitiesToDtos(company.getTeams());
     }
 
-    @Override
-    public Set<ProjectDto> getAllProjects(Long companyId, Long teamId) {
-        Company company = findCompany(companyId);
-        Team team = findTeam(teamId);
-        if (!company.getTeams().contains(team)) {
-            throw new NotFoundException("A team with id " + teamId + " does not exist at company with id " + companyId + ".");
-        }
-        Set<Project> filteredProjects = new HashSet<>();
-        team.getProjects().forEach(filteredProjects::add);
-        filteredProjects.removeIf(project -> !project.isActive());
-        return projectMapper.entitiesToDtos(filteredProjects);
-    }
-
     public TeamDto createTeam(Long id, TeamDto teamDto) {
         Optional<Company> optionalCompany = companyRepository.findById(id);
         if (optionalCompany.isEmpty()) {
