@@ -1,134 +1,148 @@
 .user-card-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px 20px;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 90%;
-    margin: 3rem 0;
-    flex-direction: column;
-    color: darkcyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 3rem 0;
+  flex-direction: column;
+  color: #1ba098;
+  margin: 0 auto;
+}
+
+.active-btn {
+    /* border: none;
+    padding: 1em;
+    border-radius: 20px;
+    cursor: pointer; */
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.user-check-btn {
+    color: white !important;
 }
 
 h1 .userHeading {
-    text-align: center;
-    font-size: 4rem;
-    margin: .2rem;
+  text-align: center;
+  font-size: 4rem;
+  margin: 0.2rem;
 }
 
 h2 .userSubHeading {
-    margin: .2rem;
-    text-align: center;
-    font-size: 2rem;
+  margin: 0.2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 table {
-    border-spacing: 0;
-    border: .01px solid white;
-    width: 100%;
+  border-spacing: 0;
+  border: 0.01px solid white;
+  width: 80%;
 }
 
-table tr .table-data td .name{
-    text-align: left;
+table tr .table-data td .name {
+  text-align: left;
 }
 
 tr {
-    font-size: 1.3rem;
-    border-bottom: 10;
+  font-size: 1.3rem;
+  border-bottom: 10;
 }
 
 th {
-    color: white;
-    margin: 0;
-    padding: 1.3rem;
-    border-bottom: 1px solid white;
-    font-size: 2rem;
+  color: white;
+  margin: 0;
+  padding: 1.3rem;
+  border-bottom: 1px solid white;
+  font-size: 2rem;
 }
 
 td {
-    text-align: center;
-    margin: 0;
-    padding: 0.5rem;
-    border-bottom: 1px solid white;
-    font-weight: bold;
-    color: burlywood;
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+  color: burlywood;
 }
-
 
 /* ----MODAL STYLING---- */
 
 .user-modal-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
 }
 
 .user-modal-container form {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    width: 680px;
-    padding: 4em;
-    border-radius: 20px;
-    background-color: #0b2d45;
-    z-index: 999;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  width: 680px;
+  padding: 4em;
+  border-radius: 20px;
+  background-color: #0b2d45;
+  z-index: 999;
 }
 
 .user-modal-container form p {
-    text-align: center;
-    font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
-
 .user-modal-container input {
-    /* display: block; */
-    width: 40%;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #deb992;
-    margin: 1rem;
-    margin-bottom: 20px;
-    outline: none;
-    color: white;
-    font-size: 1.3rem;
+  /* display: block; */
+  width: 40%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #deb992;
+  margin: 1rem;
+  margin-bottom: 20px;
+  outline: none;
+  color: white;
+  font-size: 1.3rem;
 }
 
 .user-modal-container input .email {
-    width: 100%;
+  width: 100%;
 }
 
 .user-admin-select {
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    background-color: white !important;
-    border: none !important;
-    margin-bottom: 20px !important;
-    text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: none !important;
+  margin-bottom: 20px !important;
+  text-align: center !important;
 }
 
 .form-submit-btn {
-    width: 100%;
-    background-color: #1ba098;
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 10px;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
+  width: 100%;
+  background-color: #1ba098;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
+}
+
+.user-add-btn {
+  width: 30%;
 }
 
 /* .form-submit-btn:hover {
@@ -136,14 +150,14 @@ td {
 } */
 
 .modal-cancel-btn {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    color: #f24e1e !important;
-    cursor: pointer !important;
-    font-size: 3rem !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  color: #f24e1e !important;
+  cursor: pointer !important;
+  font-size: 3rem !important;
 }
 
 .modal-cancel-btn:hover {
-    color: #c84218 !important;
+  color: #c84218 !important;
 }

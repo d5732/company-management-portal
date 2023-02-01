@@ -9,15 +9,17 @@ const Users = () => {
   const [user, setUser] = useRecoilState(userState)
 
   if (!user.isLoggedIn) {
-    return <Navigate replace to="/" />
+    return <Navigate replace to='/' />
   } else if (!user.isAdmin) {
-    return <Navigate replace to="/announcements" />
+    return <Navigate replace to='/announcements' />
   } else {
     return (
-      <div className="main-container">
+      <>
         <NavBar />
-        <UserContainer />
-      </div>
+        <div className='main-container'>
+          <UserContainer />
+        </div>
+      </>
     )
   }
 }
