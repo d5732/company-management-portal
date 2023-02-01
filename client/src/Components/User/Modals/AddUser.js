@@ -7,7 +7,6 @@ import api from '../../../Services/api'
 import '../User.css'
 
 const AddUser = ({ setModal }) => {
-  const [newUser, setNewUser] = useState({})
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')

@@ -155,6 +155,8 @@
 
 .form-submit-btn,
 .user-add-btn,
+.project-add-btn,
+.project-edit-btn,
 .ann-btn {
   background-color: #1ba098;
   color: white;
@@ -168,12 +170,22 @@
   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
 }
 
+.project-edit-btn {
+  background-color: #deb992;
+  color: black;
+}
+
+.project-edit-btn:hover {
+  background-color: #b99369;
+}
+
 .form-submit-btn:not([disabled]):hover {
   background-color: #1b7f78;
 }
 
 .user-add-btn:hover,
-.ann-btn:hover {
+.ann-btn:hover,
+.project-add-btn:hover {
   background-color: #1b7f78;
 }
 

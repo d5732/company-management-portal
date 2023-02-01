@@ -2,8 +2,7 @@ import { Navigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import NavBar from '../../Components/Navbar/NavBar'
 import { userState } from '../../globalstate'
-
-import ProjectsContainer from '../../Components/Project/ProjectsContainer'
+import ProjectCard from '../../Components/Project/ProjectCard'
 
 const Projects = () => {
   const [user, setUser] = useRecoilState(userState)
@@ -16,7 +15,7 @@ const Projects = () => {
         <NavBar />
         <div className='main-container'>
           <h1 className='page-headers'>Projects</h1>
-          <ProjectsContainer />
+          <ProjectCard />
         </div>
       </>
     )

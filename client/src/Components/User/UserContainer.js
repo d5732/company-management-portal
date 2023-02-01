@@ -17,8 +17,6 @@ const UserContainer = () => {
     })
   }, [])
 
-
-
   const userTableData =
     users &&
     users.map((user) => ({
@@ -61,32 +59,34 @@ const UserContainer = () => {
             <th>Status</th>
           </tr>
           {userTableData &&
-            userTableData.sort((a, b) => b.active - a.active).map((user) => {
-              return (
-                <tr className='table-data' key={user.id}>
-                  <td className='name'>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.team}</td>
-                  <td style={{ color: user.active ? 'green' : 'red' }}>
-                    <button
-                      className='active-btn'
-                      onClick={() => handleClick(user.id, user.active)}
-                    >
-                      {user.active ? (
-                        <CheckBoxIcon className='user-check-btn' />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon className='user-check-btn' />
-                      )}
-                    </button>
-                  </td>
-                  <td style={{ color: user.admin ? 'green' : 'red' }}>
-                    {user.admin ? 'YES' : 'NO'}
-                  </td>
-                  <td>{user.status}</td>
-                </tr>
-              )
-            })}
+            userTableData
+              .sort((a, b) => b.active - a.active)
+              .map((user) => {
+                return (
+                  <tr className='table-data' key={user.id}>
+                    <td className='name'>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.phone}</td>
+                    <td>{user.team}</td>
+                    <td style={{ color: user.active ? 'green' : 'red' }}>
+                      <button
+                        className='active-btn'
+                        onClick={() => handleClick(user.id, user.active)}
+                      >
+                        {user.active ? (
+                          <CheckBoxIcon className='user-check-btn' />
+                        ) : (
+                          <CheckBoxOutlineBlankIcon className='user-check-btn' />
+                        )}
+                      </button>
+                    </td>
+                    <td style={{ color: user.admin ? 'green' : 'red' }}>
+                      {user.admin ? 'YES' : 'NO'}
+                    </td>
+                    <td>{user.status}</td>
+                  </tr>
+                )
+              })}
         </tbody>
       </table>
       {modal && <AddUser setModal={setModal} />}
