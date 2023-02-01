@@ -108,6 +108,7 @@
   border-radius: 20px;
   background-color: #0b2d45;
   z-index: 999;
+  border: 1px solid #deb992;
 }
 
 .team-modal-container input {
@@ -150,6 +151,10 @@
 
 .form-submit-btn {
   width: 100%;
+}
+
+.form-submit-btn,
+.ann-btn {
   background-color: #1ba098;
   color: white;
   border: none;
@@ -177,4 +182,10 @@
 
 .modal-cancel-btn:hover {
   color: #c84218 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .team-modal-container form {
+    width: 400px;
+  }
 }

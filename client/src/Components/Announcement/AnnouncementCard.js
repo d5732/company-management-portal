@@ -3,18 +3,8 @@ import { useState, useEffect } from 'react'
 import './Announcement.css'
 import api from '../../Services/api'
 
-const AnnouncementCard = ({ user }) => {
+const AnnouncementCard = ({ handleUser }) => {
   const [announcementData, setAnnouncementData] = useState(null)
-
-  function handleUser() {
-    if (!user.isAdmin) {
-      const companyId = user.companies.map((company) => company.id)
-      return companyId
-    } else {
-      const companyId = JSON.parse(localStorage.getItem('companyId'))
-      return companyId
-    }
-  }
 
   useEffect(() => {
     api.get(`/company/${handleUser()}/announcements`).then((resp) => {
@@ -22,45 +12,34 @@ const AnnouncementCard = ({ user }) => {
     })
   }, [])
 
-  function formatTimestamp(timestamp) {
-    const date = new Date(timestamp)
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
-    const month = months[date.getMonth()]
-    const day = date.getDate()
-    const year = date.getFullYear()
-
-    return `${month} ${day}, ${year}`
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   }
 
   const renderCard = (() => {
     if (!announcementData) return
-    return announcementData.map(({ id, title, author, date, message }) => {
-      return (
-        <div key={id} className='ann-card-wrapper'>
-          <div className='ann-card-header'>
-            <p>{`${author.profile.firstName} ${author.profile.lastName}`}</p>
-            {formatTimestamp(date)}
+    return announcementData
+      .sort((a, b) => {
+        a.date = new Date(a.date)
+        b.date = new Date(b.date)
+        return b.date - a.date
+      })
+      .map(({ id, title, author, date, message }) => {
+        return (
+          <div key={id} className='ann-card-wrapper'>
+            <div className='ann-card-header'>
+              <h3>{`${author.profile.firstName} ${author.profile.lastName}`}</h3>
+              <h3>{new Date(date).toLocaleDateString('en-US', options)}</h3>
+            </div>
+            <h3>{title}</h3>
+            <div className='ann-card-content'>
+              <h4>{message}</h4>
+            </div>
           </div>
-          <h3>{title}</h3>
-          <div className='ann-card-content'>
-            <h4>{message}</h4>
-          </div>
-        </div>
-      )
-    })
+        )
+      })
   })()
 
   return <div className='ann-card-container'>{renderCard}</div>
