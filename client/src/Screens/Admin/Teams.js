@@ -4,6 +4,7 @@ import TeamContainer from '../../Components/Team/TeamContainer'
 import { userState } from '../../globalstate'
 import '../../Components/Team/Team.css'
 import NavBar from '../../Components/Navbar/NavBar'
+import TeamCard from '../../Components/Team/TeamCard'
 
 const Teams = () => {
   const [user, setUser] = useRecoilState(userState)
@@ -18,7 +19,8 @@ const Teams = () => {
         <NavBar />
         <div className='team-container'>
           <h1 className='page-headers'>Teams</h1>
-          <TeamContainer />
+          {/* <TeamContainer user={user} /> */}
+          <TeamCard user={user} />
           <p></p>
         </div>
       </>

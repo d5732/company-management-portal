@@ -1,7 +1,7 @@
 import React from 'react'
 import TeamCard from './TeamCard'
 
-const TeamContainer = () => {
+const TeamContainer = ({ user }) => {
   return (
     <div className='main-container'><TeamCard /></div>
   )

@@ -1,16 +1,33 @@
 import React from 'react'
 import { useState } from 'react'
-import mockData from '../../data.json'
 import CreateTeam from './Modals/CreateTeam'
-import './Team.css'
+import api from '../../Services/api'
 
-const TeamCard = () => {
-  const [data, setData] = useState(mockData.data.teams)
+import './Team.css'
+import { useEffect } from 'react'
+
+const TeamCard = ({ user }) => {
+  // const [data, setData] = useState(user.companies[0].teams)
+  const [teamData, setTeamData] = useState(null)
+  const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
 
-  console.log(data)
+  const companyId = user.companies.map((company) => company.id)
 
-  const renderCard = data.map((team) => {
+  console.log(companyId)
+  console.log(user)
+
+  useEffect(() => {
+    api.get(`/company/${companyId}/teams`).then((resp) => {
+      setTeamData(resp.data)
+    })
+  }, [])
+
+  console.log(teamData)
+
+  if (!teamData) return null
+
+  const renderCard = teamData.map((team) => {
     return (
       <div key={team.id} className='team-card-wrapper'>
         <div className='card-header'>
@@ -22,8 +39,8 @@ const TeamCard = () => {
           <p>Members</p>
           <div className='team-users-container'>
             {team.users.map((user) => (
-              <h1 className='user-badge' key={user.profile.firstname}>
-                {user.profile.firstname}
+              <h1 className='user-badge' key={user.profile.firstName}>
+                {`${user.profile.firstName} ${user.profile.lastName[0]}.`}
               </h1>
             ))}
           </div>
@@ -35,7 +52,14 @@ const TeamCard = () => {
   return (
     <>
       <div className='team-card-container'>
-      {modal && <CreateTeam setModal={setModal} data={data} />}
+        {modal && (
+          <CreateTeam
+            companyId={companyId}
+            setModal={setModal}
+            employees={employees}
+            user={user}
+          />
+        )}
         {renderCard}
         <button className='team-add-btn' onClick={() => setModal(true)}>
           <div className='placeholder-card'>
