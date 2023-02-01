@@ -1,22 +1,17 @@
-import { toUnitless } from '@mui/material/styles/cssUtils'
-import { textAlign } from '@mui/system'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import mockData from '../../data.json'
 import './Announcement.css'
+import api from '../../Services/api'
 
-const AnnouncementCard = () => {
+const AnnouncementCard = ({ user }) => {
   const [announcementData, setAnnouncementData] = useState(null)
 
-  const loadAnnouncements = async () => {
-    const response = await fetch(
-      `http://localhost:8080/company/6/announcements`
-    )
-    let data = await response.json()
-    setAnnouncementData(data)
-  }
+  const companyId = JSON.parse(localStorage.getItem('companyId'))
+
   useEffect(() => {
-    loadAnnouncements()
+    api.get(`/company/${companyId}/announcements`).then((resp) => {
+      setAnnouncementData(resp.data)
+    })
   }, [])
 
   function formatTimestamp(timestamp) {
