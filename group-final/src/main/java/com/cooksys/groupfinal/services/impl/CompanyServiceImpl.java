@@ -246,7 +246,7 @@ public class CompanyServiceImpl implements CompanyService {
 
 		if(selectedTeam.isEmpty()) {
 			
-			throw new NotFoundException("Company not found with given id");
+			throw new NotFoundException("Team not found with given id");
 		}
 		
 		if(!selectedTeam.get().getCompany().equals(selectedCompany.get())) {
@@ -260,6 +260,13 @@ public class CompanyServiceImpl implements CompanyService {
 			throw new BadRequestException("Project Name cannot be empty");
 		}
 		
+		Optional<Project> selectedProject = projectRepository.findById(projectDto.getId());
+		
+		if(selectedProject.isEmpty()) {
+			
+			throw new NotFoundException("Project doesn't exist with given id");
+
+		}
 	
 		Project projectToUpdate = projectMapper.dtoToEntity(projectDto);
 //		
