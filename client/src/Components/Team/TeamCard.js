@@ -7,23 +7,20 @@ import './Team.css'
 import { useEffect } from 'react'
 
 const TeamCard = ({ user }) => {
-  // const [data, setData] = useState(user.companies[0].teams)
   const [teamData, setTeamData] = useState(null)
   const [projectData, setProjectData] = useState(null)
   const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
 
   // const companyId = user.companies.map((company) => company.id)
-  const companyId = JSON.parse(localStorage.getItem("companyId"));
+  const companyId = JSON.parse(localStorage.getItem('companyId'))
 
   useEffect(() => {
     api.get(`/company/${companyId}/teams`).then((resp) => {
       setTeamData(resp.data)
     })
   }, [])
-
   console.log(teamData)
-  console.log(projectData)
 
   if (!teamData) return null
 

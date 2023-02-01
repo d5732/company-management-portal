@@ -18,7 +18,7 @@ const Announcements = ({ companyId }) => {
           <h1>Announcements</h1>
           <button className="ann-form-submit-btn">New</button>
           <hr className="ann-line" />
-          <AnnouncementContainer />
+          <AnnouncementContainer user={user} />
         </div>
         <button onClick={() => console.log(companyId)}>debug</button>
       </>

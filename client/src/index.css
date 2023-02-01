@@ -27,6 +27,12 @@ code {
 .page-headers {
   text-align: center;
   font-size: 3rem;
-  color: #1BA098;
+  color: #1ba098;
   margin: 50px 0;
+}
+
+.link-item {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
 }

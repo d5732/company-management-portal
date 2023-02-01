@@ -6,10 +6,18 @@ import api from '../../Services/api'
 const AnnouncementCard = ({ user }) => {
   const [announcementData, setAnnouncementData] = useState(null)
 
-  const companyId = JSON.parse(localStorage.getItem('companyId'))
+  function handleUser() {
+    if (!user.isAdmin) {
+      const companyId = user.companies.map((company) => company.id)
+      return companyId
+    } else {
+      const companyId = JSON.parse(localStorage.getItem('companyId'))
+      return companyId
+    }
+  }
 
   useEffect(() => {
-    api.get(`/company/${companyId}/announcements`).then((resp) => {
+    api.get(`/company/${handleUser()}/announcements`).then((resp) => {
       setAnnouncementData(resp.data)
     })
   }, [])
