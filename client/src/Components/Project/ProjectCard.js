@@ -1,42 +1,49 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../Services/api'
 import CreateProject from './Modals/CreateProject'
-import "./Project.css"
+import EditProject from './Modals/EditProject'
+import './Project.css'
 
 const ProjectCard = () => {
-  const [projectsData, setProjectsData] = useState(null)
+  const [teamsData, setTeamsData] = useState(null)
+  const [projectsData, setProjectsData] = useState([])
   const [modal, setModal] = useState(false)
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
+  // const teams = teamsData?.map((team) => team)
+
   useEffect(() => {
     api.get(`/company/${companyId}/projects`).then((resp) => {
-      setProjectsData(resp.data)
+      console.log(resp.data)
+      setTeamsData(resp.data)
     })
   }, [])
 
-  console.log(projectsData)
-
-  const renderProjects = projectsData && projectsData.map((project) => {
-    return (
-      <div key={project.id} className="project-wrapper">
-          <h3>{project.name}</h3>
-          <p>{project.desciption}</p>
-        <hr className="project-line" />
-      </div>
-    )
-  })
-
   return (
-    <>
-      <div className="project-card-container">
-        {modal && <CreateProject companyId={companyId} setModal={setModal} />}
-        {renderProjects}
-        <button className="project-add-btn" onClick={() => setModal(true)}>
-            <p>New</p>
-        </button>
-      </div>
-    </>
+    <div>
+      {modal && <CreateProject teamsData={teamsData} setModal={setModal} />}
+      <button className="project-add-btn" onClick={() => setModal(true)}>
+        <p>New</p>
+      </button>
+      {teamsData &&
+        teamsData.map((team, index) => (
+          <div key={index}>
+            <div>
+              {team.projects &&
+                team.projects.map((project, i) => (
+                  <div key={i}>
+                    <h4 className="projectName">{project.name}</h4>
+                    <p className="projectDescription">{project.description}</p>
+                    <EditProject />
+                    <hr className="project-line" />
+                  </div>
+                ))}
+            </div>
+          </div>
+        ))}
+        <button onClick={() => console.log(teamsData)}></button>
+    </div>
   )
 }
 

@@ -131,9 +131,9 @@ td {
     box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
 }
 
-.form-submit-btn:hover {
+/* .form-submit-btn:hover {
     background-color: #1b7f78;
-}
+} */
 
 .modal-cancel-btn {
     position: absolute !important;

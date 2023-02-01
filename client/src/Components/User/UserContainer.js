@@ -17,17 +17,17 @@ const UserContainer = () => {
 
   console.log("COMPANY ID", companyId)
   console.log("USERS", users)
-
-
+  
   const userTableData = (users && users.map((user) => ({
-    name: user.profile.firstName + ' ' + user.profile.lastName,
-    email: user.profile.email,
-    phone: user.profile.phone,
-    team: user.teams[0].name,
-    active: user.active,
-    admin: user.admin,
-    status: user.status,
+    name: user?.profile.firstName + ' ' + user?.profile.lastName,
+    email: user?.profile.email,
+    phone: user?.profile.phone,
+    team: user?.teams[0]?.name,
+    active: user?.active,
+    admin: user?.admin,
+    status: user?.status,
   })))
+
 
   return (
     <div className="user-card-container">
