@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { userState } from '../../globalstate'
+import { useRecoilState } from 'recoil'
 import api from '../../Services/api'
 import CreateProject from './Modals/CreateProject'
 import EditProject from './Modals/EditProject'
 import './Project.css'
 
-const ProjectCard = () => {
+const ProjectCard = ({ handleUser }) => {
+  const [user, setUser] = useRecoilState(userState)
   const [teamsData, setTeamsData] = useState(null)
   const [projectId, setProjectId] = useState(null)
   const [addModal, setAddModal] = useState(false)
@@ -12,8 +16,10 @@ const ProjectCard = () => {
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
+
+
   useEffect(() => {
-    api.get(`/company/${companyId}/projects`).then((resp) => {
+    api.get(`/company/${handleUser()}/projects`).then((resp) => {
       console.log(resp.data)
       setTeamsData(resp.data)
     })
@@ -24,9 +30,10 @@ const ProjectCard = () => {
       {addModal && (
         <CreateProject teamsData={teamsData} setAddModal={setAddModal} />
       )}
-      <button className='project-add-btn' onClick={() => setAddModal(true)}>
+      {user.isAdmin && <button className='project-add-btn' onClick={() => setAddModal(true)}>
         New
       </button>
+      }
       {teamsData &&
         teamsData.map((team, index) => {
           return (
@@ -36,7 +43,9 @@ const ProjectCard = () => {
                 {team.projects &&
                   team.projects.map((project, i) => (
                     <div className='project-wrapper' key={i}>
-                      <h2 className='projectName'>{project.name}</h2>
+                      <Link to="/project" state={{name: project.name, description: project.description}}>
+                        <h2 className='projectName'>{project.name}</h2>
+                      </Link>
                       <p className='projectDescription'>
                         {project.description}
                       </p>
@@ -48,7 +57,7 @@ const ProjectCard = () => {
                           setEditModal={setEditModal}
                         />
                       )}
-                      <button
+                      {user.isAdmin && <button
                         className='project-edit-btn'
                         onClick={() => {
                           setEditModal(true)
@@ -57,12 +66,14 @@ const ProjectCard = () => {
                       >
                         Edit
                       </button>
+                      }
                     </div>
                   ))}
               </div>
             </div>
           )
         })}
+        <button onClick={() => console.log(user)}>debug</button>
     </div>
   )
 }

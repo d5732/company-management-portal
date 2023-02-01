@@ -4,7 +4,7 @@ import NavBar from '../../Components/Navbar/NavBar'
 import { userState } from '../../globalstate'
 import ProjectCard from '../../Components/Project/ProjectCard'
 
-const Projects = () => {
+const Projects = ({ handleUser }) => {
   const [user, setUser] = useRecoilState(userState)
 
   if (!user.isLoggedIn) {
@@ -15,7 +15,7 @@ const Projects = () => {
         <NavBar />
         <div className='main-container'>
           <h1 className='page-headers'>Projects</h1>
-          <ProjectCard />
+          <ProjectCard handleUser={handleUser}/>
         </div>
       </>
     )
