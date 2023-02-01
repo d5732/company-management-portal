@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 const TeamCard = ({ user }) => {
   // const [data, setData] = useState(user.companies[0].teams)
   const [teamData, setTeamData] = useState(null)
+  const [projectData, setProjectData] = useState(null)
   const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
 
@@ -22,6 +23,7 @@ const TeamCard = ({ user }) => {
   }, [])
 
   console.log(teamData)
+  console.log(projectData)
 
   if (!teamData) return null
 
