@@ -6,12 +6,11 @@ import './Project.css'
 
 const ProjectCard = () => {
   const [teamsData, setTeamsData] = useState(null)
-  const [projectsData, setProjectsData] = useState([])
-  const [modal, setModal] = useState(false)
+  const [projectId, setProjectId] = useState(null)
+  const [addModal, setAddModal] = useState(false)
+  const [editModal, setEditModal] = useState(false)
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
-
-  // const teams = teamsData?.map((team) => team)
 
   useEffect(() => {
     api.get(`/company/${companyId}/projects`).then((resp) => {
@@ -22,27 +21,45 @@ const ProjectCard = () => {
 
   return (
     <div>
-      {modal && <CreateProject teamsData={teamsData} setModal={setModal} />}
-      <button className="project-add-btn" onClick={() => setModal(true)}>
+      {addModal && <CreateProject teamsData={teamsData} setAddModal={setAddModal} />}
+      <button className="project-add-btn" onClick={() => setAddModal(true)}>
         <p>New</p>
       </button>
       {teamsData &&
-        teamsData.map((team, index) => (
+        teamsData.map((team, index) => {
+           return (
           <div key={index}>
             <div>
-              {team.projects &&
+              {console.log(team.projects)}
+              {team.projects && 
                 team.projects.map((project, i) => (
                   <div key={i}>
                     <h4 className="projectName">{project.name}</h4>
                     <p className="projectDescription">{project.description}</p>
-                    <EditProject />
+                    <div>
+                      {editModal && <EditProject
+                        teamId={team.id}
+                        companyId={companyId}
+                        projectId={projectId}
+                        setEditModal={setEditModal}
+                      />}
+                      <button
+                        className="project-add-btn"
+                        onClick={() => {
+                          setEditModal(true)
+                          setProjectId(project.id)
+                        }}
+                      >
+                        <p>Edit</p>
+                      </button>
+                    </div>
                     <hr className="project-line" />
                   </div>
                 ))}
             </div>
           </div>
-        ))}
-        <button onClick={() => console.log(teamsData)}></button>
+        )})}
+      <button onClick={() => console.log(teamsData)}></button>
     </div>
   )
 }
