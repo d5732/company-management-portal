@@ -14,6 +14,11 @@ const CompanyScreen = ({ setCompanyId }) => {
       }
     ))
 
+    function handleSave() {
+        setCompanyId(value)
+        localStorage.setItem('companyId', value)
+    }
+
     const [value, setValue] = useState();
 
     const handleChange = (e) => {
@@ -46,7 +51,7 @@ const CompanyScreen = ({ setCompanyId }) => {
             <Link
               className="form-submit-btn"
               to="/announcements"
-              onClick={() => setCompanyId(value)}
+              onClick={handleSave}
             >
               Submit
             </Link>
