@@ -23,7 +23,7 @@ function App() {
         />
         <Route path="/company" element={<CompanyScreen {...companyProps} />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/users" element={<Users {...companyProps} />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/teams" element={<Teams {...companyProps} />} />
         <Route path="/project" element={<Project />} />
       </Routes>
