@@ -46,7 +46,9 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal}) => {
           value={description}
           onChange={handleDescriptionChange}
         />
-        <button className="form-submit-btn">Submit</button>
+        <button className="form-submit-btn" disabled={!name}>
+          Submit
+        </button>
       </form>
     </div>
   )
