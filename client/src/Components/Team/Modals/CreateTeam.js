@@ -15,12 +15,21 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
   const [employeeId, setEmployeeId] = useState(new Set())
   console.log(employeeId)
 
+  const array = Array.from(employeeId)
+  const newArr = []
+
+  for (let i = 0; i < array.length; i++) {
+    newArr.push({ id: array[i] })
+  }
+
+  console.log(newArr)
+
   const handleSubmit = () => {
     api
       .post(`company/${companyId}/teams`, {
         name: teamName,
         description: teamDesc,
-        users: employeeId,
+        users: newArr,
       })
       .then((resp) => console.log(resp))
   }
