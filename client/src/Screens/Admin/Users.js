@@ -5,7 +5,7 @@ import NavBar from '../../Components/Navbar/NavBar'
 import UserContainer from '../../Components/User/UserContainer'
 import { userState } from '../../globalstate'
 
-const Users = () => {
+const Users = ({companyId}) => {
   const [user, setUser] = useRecoilState(userState)
 
   if (!user.isLoggedIn) {
@@ -16,7 +16,7 @@ const Users = () => {
     return (
       <div className='main-container'>
         <NavBar />
-        <UserContainer />
+        <UserContainer companyId={companyId}/>
       </div>
     )
   }

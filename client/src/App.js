@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Announcements from './Screens/Shared/Announcements';
@@ -9,20 +10,25 @@ import Teams from './Screens/Admin/Teams';
 import Project from './Screens/Worker/Project';
 
 function App() {
+  const [companyId, setCompanyId] = useState()
 
+  const companyProps = { companyId, setCompanyId };
   return (
     <div>
-      <Routes >
+      <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/announcements" element={<Announcements />} />
-        <Route path="/company" element={<CompanyScreen />} />
+        <Route
+          path="/announcements"
+          element={<Announcements {...companyProps} />}
+        />
+        <Route path="/company" element={<CompanyScreen {...companyProps} />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={<Users {...companyProps} />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/project" element={<Project />} />
       </Routes>
     </div>
-  );
+  )
 }
 
 export default App;

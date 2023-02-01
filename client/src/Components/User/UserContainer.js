@@ -1,25 +1,31 @@
 import React from 'react'
-import { useState } from 'react'
-import mockData from '../../data.json'
+import { useState, useEffect } from 'react'
+// import mockData from '../../data.json'
 import AddUser from './Modals/AddUser'
 import api from '../../Services/api'
 import './User.css'
 
 
-const UserContainer = () => {
-  const [users, setUser] = useState(mockData.data.users)
+const UserContainer = ({ companyId }) => {
+  const [users, setUsers] = useState()
   const [modal, setModal] = useState(false)
 
+  useEffect(() => {
+    api.get(`/company/${companyId}/users`).then((response) => {
+      setUsers(response.data)
+    })
+  }, [])
+  
   const userTableData = users.map((user) => ({
-    name: user.profile.firstname + ' ' + user.profile.lastname,
+    name: user.profile.firstName + ' ' + user.profile.lastName,
     email: user.profile.email,
     phone: user.profile.phone,
     team: user.teams[0].name,
     active: user.active === true ? "YES" : "NO",
-    admin: user.isAdmin === true ? "YES" : "NO",
+    admin: user.admin === true ? "YES" : "NO",
     status: user.status,
   }))
-
+  
   return (
     <div className="user-card-container">
       <h1 className="userHeading">User Registry</h1>
@@ -27,7 +33,7 @@ const UserContainer = () => {
         A general view of all members in your orginazation
       </h2>
       <table>
-        <tr className='table-heading'>
+        <tr className="table-heading">
           {['Name', 'Email', 'Phone', 'Team', 'Active', 'Admin', 'Status'].map(
             (x) => {
               return <th>{x}</th>
@@ -36,8 +42,8 @@ const UserContainer = () => {
         </tr>
         {userTableData.map((user) => {
           return (
-            <tr className='table-data'>
-              <td className='name'>{user.name}</td>
+            <tr className="table-data">
+              <td className="name">{user.name}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>{user.team}</td>
