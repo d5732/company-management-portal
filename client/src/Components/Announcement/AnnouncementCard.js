@@ -30,8 +30,8 @@ const AnnouncementCard = ({ handleUser }) => {
         return (
           <div key={id} className='ann-card-wrapper'>
             <div className='ann-card-header'>
-              <p>{`${author.profile.firstName} ${author.profile.lastName}`}</p>
-              {new Date(date).toLocaleDateString('en-US', options)}
+              <h3>{`${author.profile.firstName} ${author.profile.lastName}`}</h3>
+              <h3>{new Date(date).toLocaleDateString('en-US', options)}</h3>
             </div>
             <h3>{title}</h3>
             <div className='ann-card-content'>

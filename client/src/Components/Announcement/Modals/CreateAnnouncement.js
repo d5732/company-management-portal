@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CancelIcon from '@mui/icons-material/Cancel'
 import api from '../../../Services/api'
 
-const CreateAnnouncement = ({ setModal, handleUser, user }) => {
+const CreateAnnouncement = ({ setModal, user }) => {
   const [title, setTitle] = useState('')
   const [bodyMessage, setBodyMessage] = useState('')
 
@@ -46,6 +46,7 @@ const CreateAnnouncement = ({ setModal, handleUser, user }) => {
           onChange={handleTitle}
         />
         <textarea
+          className='text-area'
           type='text'
           name='message'
           placeholder='Announcement message'

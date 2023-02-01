@@ -21,8 +21,7 @@
 }
 
 .ann-card-wrapper {
-  display: inline-block;
-  width: 700px;
+  width: 80%;
   height: auto;
   background-color: #0b2d45;
   color: white;
@@ -89,4 +88,27 @@
 
 .ann-form-submit-btn:hover {
   background-color: #1b7f78;
+}
+
+.text-area {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 40px;
+  background-color: #f4f2f2;
+  padding: 1em;
+  resize: none;
+  font-family: inherit;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ann-card-wrapper  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .ann-card-header {
+    flex-direction: column;
+  }
 }
