@@ -23,8 +23,8 @@ const AddUser = ({ setModal }) => {
     api
       .post(`company/${companyId}/users`, {
         credentials: {
-          username: 'string',
-          password: 'string'
+          username: username,
+          password: password
         },
         profile: {
           firstName: firstName,
