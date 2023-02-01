@@ -1,3 +1,25 @@
+.ann-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 70%;
+}
+
+.ann-btn {
+  width: 150px;
+}
+
+.ann-line {
+  margin-bottom: 60px;
+}
+
 .ann-card-wrapper {
   display: inline-block;
   width: 700px;

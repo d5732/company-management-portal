@@ -150,6 +150,10 @@
 
 .form-submit-btn {
   width: 100%;
+}
+
+.form-submit-btn,
+.ann-btn {
   background-color: #1ba098;
   color: white;
   border: none;
@@ -162,7 +166,10 @@
   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
 }
 
-.form-submit-btn:hover {
+
+
+.form-submit-btn:hover,
+.ann-btn:hover {
   background-color: #1b7f78;
 }
 
