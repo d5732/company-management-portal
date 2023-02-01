@@ -1,5 +1,27 @@
 .project-container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #deb992;
+}
+
+.project-wrapper h2 {
+    margin: 20px 0 0;
+}
+
+.project-container button {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.project-edit-btn {
+    color: black;
 }
 
 .project-card-container {
@@ -20,6 +42,10 @@
     color: white;
     padding: 1em 2em;
     border-radius: 20px;
+}
+
+.project-add-btn {
+    font-size: 1rem;
 }
 
 /* .card-header {

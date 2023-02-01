@@ -1,75 +1,81 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import CancelIcon from '@mui/icons-material/Cancel'
 
-
-
 import api from '../../../Services/api'
 
 const CreateProject = ({ teamsData, setAddModal }) => {
-   const [name, setName] = useState(null)
-   const [description, setDescription] = useState(null)
-   const [teamId, setTeamId] = useState(null)
+  const [name, setName] = useState(null)
+  const [teamName, setTeamName] = useState()
+  const [description, setDescription] = useState(null)
+  const [teamId, setTeamId] = useState(null)
 
-   const handleSubmit = () => {
-     api
-       .post(`teams/${teamId}/projects`, {
-         id: null,
-         name: name,
-         description: description,
-         active: true,
-         team: {}
-       })
-       .then((resp) => console.log(resp))
-   }
+  const handleSubmit = () => {
+    api
+      .post(`teams/${teamId}/projects`, {
+        id: null,
+        name: name,
+        description: description,
+        active: true,
+        team: {},
+      })
+      .then((resp) => console.log(resp))
+  }
 
-   const handleNameChange = (e) => {
-     setName(e.target.value)
-   }
-   const handleDescriptionChange = (e) => {
-     setDescription(e.target.value)
-   }
-   const handleTeamIdChange = (e) => {
-      console.log('TARGET', e.target.value)
-     setTeamId(e.target.value)
-   }
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value)
+  }
+  const handleTeamIdChange = (e) => {
+    setTeamId(e.target.value)
+  }
+  const handleTeamNameChange = (e) => {
+    console.log(e.target.value)
+    setTeamName(e.target.value)
+  }
+
   return (
-    <div className="project-modal-container">
+    <div className='project-modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setAddModal(false)}
-          className="modal-cancel-btn"
+          className='modal-cancel-btn'
         />
         <input
-          type="text"
-          name="name"
-          placeholder=" name"
+          type='text'
+          name='name'
+          placeholder=' name'
           value={name}
           onChange={handleNameChange}
         />
         <input
-          type="text"
-          name="description"
-          placeholder="description"
+          type='text'
+          name='description'
+          placeholder='description'
           value={description}
           onChange={handleDescriptionChange}
         />
         <Select
-          className="team-select"
-          value={teamsData}
-          onChange={handleTeamIdChange}
+          className='user-admin-select'
+          value={teamName || ''}
+          onChange={(e) => {
+            handleTeamIdChange(e)
+            handleTeamNameChange(e)
+          }}
+          defaultValue=''
         >
           {teamsData.map((team) => (
-            <MenuItem
-              key={team.name}
-              value={team.id}
-            >
+            <MenuItem key={team.id} value={team.id}>
               {team.name}
             </MenuItem>
           ))}
         </Select>
-        <button className="form-submit-btn" disabled={!name || !teamId}>Submit</button>
+        <button className='form-submit-btn' disabled={!name || !teamId}>
+          Submit
+        </button>
       </form>
     </div>
   )
