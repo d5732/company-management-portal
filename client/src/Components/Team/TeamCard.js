@@ -12,10 +12,8 @@ const TeamCard = ({ user }) => {
   const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
 
-  const companyId = user.companies.map((company) => company.id)
-
-  console.log(companyId)
-  console.log(user)
+  // const companyId = user.companies.map((company) => company.id)
+  const companyId = JSON.parse(localStorage.getItem("companyId"));
 
   useEffect(() => {
     api.get(`/company/${companyId}/teams`).then((resp) => {

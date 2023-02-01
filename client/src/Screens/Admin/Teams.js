@@ -6,7 +6,7 @@ import '../../Components/Team/Team.css'
 import NavBar from '../../Components/Navbar/NavBar'
 import TeamCard from '../../Components/Team/TeamCard'
 
-const Teams = () => {
+const Teams = ({ companyId }) => {
   const [user, setUser] = useRecoilState(userState)
 
   if (!user.isLoggedIn) {
@@ -20,7 +20,7 @@ const Teams = () => {
         <div className='team-container'>
           <h1 className='page-headers'>Teams</h1>
           {/* <TeamContainer user={user} /> */}
-          <TeamCard user={user} />
+          <TeamCard companyId={companyId} user={user} />
           <p></p>
         </div>
       </>
