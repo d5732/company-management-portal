@@ -5,18 +5,18 @@ import NavBar from '../../Components/Navbar/NavBar'
 import UserContainer from '../../Components/User/UserContainer'
 import { userState } from '../../globalstate'
 
-const Users = ({companyId}) => {
+const Users = () => {
   const [user, setUser] = useRecoilState(userState)
 
   if (!user.isLoggedIn) {
-    return <Navigate replace to='/' />
+    return <Navigate replace to="/" />
   } else if (!user.isAdmin) {
-    return <Navigate replace to='/announcements' />
+    return <Navigate replace to="/announcements" />
   } else {
     return (
-      <div className='main-container'>
+      <div className="main-container">
         <NavBar />
-        <UserContainer companyId={companyId}/>
+        <UserContainer />
       </div>
     )
   }

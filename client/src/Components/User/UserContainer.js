@@ -1,31 +1,34 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-// import mockData from '../../data.json'
+import React, { useState, useEffect } from 'react'
 import AddUser from './Modals/AddUser'
 import api from '../../Services/api'
 import './User.css'
 
-
-const UserContainer = ({ companyId }) => {
-  const [users, setUsers] = useState()
+const UserContainer = () => {
+  const [users, setUsers] = useState(null)
   const [modal, setModal] = useState(false)
+
+  const companyId = JSON.parse(localStorage.getItem('companyId'))
 
   useEffect(() => {
     api.get(`/company/${companyId}/users`).then((response) => {
       setUsers(response.data)
     })
   }, [])
-  
-  const userTableData = users.map((user) => ({
+
+  console.log("COMPANY ID", companyId)
+  console.log("USERS", users)
+
+
+  const userTableData = (users && users.map((user) => ({
     name: user.profile.firstName + ' ' + user.profile.lastName,
     email: user.profile.email,
     phone: user.profile.phone,
     team: user.teams[0].name,
-    active: user.active === true ? "YES" : "NO",
-    admin: user.admin === true ? "YES" : "NO",
+    active: user.active,
+    admin: user.admin,
     status: user.status,
-  }))
-  
+  })))
+
   return (
     <div className="user-card-container">
       <h1 className="userHeading">User Registry</h1>
@@ -40,26 +43,18 @@ const UserContainer = ({ companyId }) => {
             }
           )}
         </tr>
-        {userTableData.map((user) => {
+        {userTableData && userTableData.map((user) => {
           return (
             <tr className="table-data">
               <td className="name">{user.name}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>{user.team}</td>
-              <td
-                style={{
-                  color: { if: user.active === 'YES' ? 'green' : 'red' },
-                }}
-              >
-                {user.active}
+              <td style={{ color: user.active ? 'green' : 'red' }}>
+                {user.active ? 'YES' : 'NO'}
               </td>
-              <td
-                style={{
-                  color: { if: user.admin === 'YES' ? 'green' : 'red' },
-                }}
-              >
-                {user.admin}
+              <td style={{ color: user.admin ? 'green' : 'red' }}>
+                {user.admin ? 'YES' : 'NO'}
               </td>
               <td>{user.status}</td>
             </tr>
@@ -69,7 +64,6 @@ const UserContainer = ({ companyId }) => {
 
       <div>
         {modal && <AddUser setModal={setModal} />}
-
         <button className="user-add-btn" onClick={() => setModal(true)}>
           <p>ADD USER</p>
         </button>
