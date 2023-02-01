@@ -1,10 +1,10 @@
 import React from 'react'
 import AnnouncementCard from './AnnouncementCard'
 
-const AnnouncementContainer = () => {
+const AnnouncementContainer = ({ user }) => {
   return (
     <div className='main-container'>
-      <AnnouncementCard />
+      <AnnouncementCard user={user} />
     </div>
   )
 }

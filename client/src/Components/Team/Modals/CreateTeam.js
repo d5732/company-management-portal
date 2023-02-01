@@ -13,7 +13,6 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
   const [teamDesc, setTeamDesc] = useState('')
   const [teamUsers, setTeamUsers] = useState([])
   const [employeeId, setEmployeeId] = useState(new Set())
-  console.log(employeeId)
 
   const array = Array.from(employeeId)
   const newArr = []
@@ -21,8 +20,6 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
   for (let i = 0; i < array.length; i++) {
     newArr.push({ id: array[i] })
   }
-
-  console.log(newArr)
 
   const handleSubmit = () => {
     api

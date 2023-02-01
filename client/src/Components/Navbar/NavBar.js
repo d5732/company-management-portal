@@ -82,7 +82,11 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
       <img className='nav-logo' src={logo} alt='company logo' />
-      {user.isAdmin ? <h1 className='nav-header'>Acting as Admin</h1> : null}
+      {user.isAdmin ? (
+        <h1 className='nav-header'>{`${user.profile.firstName}: Admin`}</h1>
+      ) : (
+        <h1 className='nav-header'>{user.profile.firstName}</h1>
+      )}
       {toggled ? (
         <Button className='nav-icon-btn' onClick={toggleDrawer(anchor, true)}>
           <MenuIcon className='nav-icon' />

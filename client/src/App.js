@@ -12,6 +12,8 @@ import Project from './Screens/Worker/Project';
 function App() {
   const [companyId, setCompanyId] = useState()
 
+  console.log(companyId)
+
   const companyProps = { companyId, setCompanyId };
   return (
     <div>

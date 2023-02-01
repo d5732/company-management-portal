@@ -1,64 +1,59 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../globalstate'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
+import './Company.css'
+
 const CompanyScreen = ({ setCompanyId }) => {
-    const [user, setUser] = useRecoilState(userState)
-    
-    const companies = user.companies.map((company) => (
-      {
-      name: company.name, 
-      id: company.id
-      }
-    ))
+  const [user, setUser] = useRecoilState(userState)
+  const [value, setValue] = useState()
 
-    function handleSave() {
-        setCompanyId(value)
-        localStorage.setItem('companyId', value)
-    }
+  const companies = user.companies.map((company) => ({
+    name: company.name,
+    id: company.id,
+  }))
 
-    const [value, setValue] = useState();
+  function handleSave() {
+    setCompanyId(value)
+    localStorage.setItem('companyId', value)
+  }
 
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    };
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
 
-    if (!user.isLoggedIn) {
-        return <Navigate replace to="/" />
-    } else if (!user.isAdmin) {
-        return <Navigate replace to="/announcements" />
-    }
-    else {
-        return (
-          <div className="main-container">
-            <h1 className="page-headers">Select Company</h1>
-            <form>
-              <Select
-                className="user-admin-select"
-                value= {value}
-                onChange={handleChange}
-              >
-                {companies.map((company) => (
-                  <MenuItem key={company.id} value={company.id}>
-                    {company.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </form>
-
-            <Link
-              className="form-submit-btn"
-              to="/announcements"
-              onClick={handleSave}
-            >
+  if (!user.isLoggedIn) {
+    return <Navigate replace to='/' />
+  } else if (!user.isAdmin) {
+    return <Navigate replace to='/announcements' />
+  } else {
+    return (
+      <div className='main-container'>
+        <h1 className='page-headers'>Select Company</h1>
+        <form className='company-container'>
+          <Select
+            className='user-admin-select'
+            value={value || ''}
+            onChange={handleChange}
+            defaultValue=''
+          >
+            {companies.map((company) => (
+              <MenuItem key={company.id} value={company.id}>
+                {company.name}
+              </MenuItem>
+            ))}
+          </Select>
+          <Link className='link-item' to='/announcements'>
+            <button className='form-submit-btn' onClick={handleSave}>
               Submit
-            </Link>
-            <button onClick={() => console.log(companies)}>debug</button>
-          </div>
-        )
-    }
+            </button>
+          </Link>
+        </form>
+      </div>
+    )
+  }
 }
 
 export default CompanyScreen
