@@ -154,6 +154,7 @@
 }
 
 .form-submit-btn,
+.user-add-btn,
 .ann-btn {
   background-color: #1ba098;
   color: white;
@@ -168,6 +169,11 @@
 }
 
 .form-submit-btn:not([disabled]):hover {
+  background-color: #1b7f78;
+}
+
+.user-add-btn:hover,
+.ann-btn:hover {
   background-color: #1b7f78;
 }
 

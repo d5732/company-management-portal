@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AddUser from './Modals/AddUser'
 import api from '../../Services/api'
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
+import CheckBoxIcon from '@mui/icons-material/CheckBox'
 import './User.css'
 
 const UserContainer = () => {
@@ -14,6 +16,8 @@ const UserContainer = () => {
       setUsers(response.data)
     })
   }, [])
+
+
 
   const userTableData =
     users &&
@@ -57,7 +61,7 @@ const UserContainer = () => {
             <th>Status</th>
           </tr>
           {userTableData &&
-            userTableData.map((user) => {
+            userTableData.sort((a, b) => b.active - a.active).map((user) => {
               return (
                 <tr className='table-data' key={user.id}>
                   <td className='name'>{user.name}</td>
@@ -65,8 +69,15 @@ const UserContainer = () => {
                   <td>{user.phone}</td>
                   <td>{user.team}</td>
                   <td style={{ color: user.active ? 'green' : 'red' }}>
-                    <button onClick={() => handleClick(user.id, user.active)}>
-                      {user.active ? 'YES' : 'NO'}
+                    <button
+                      className='active-btn'
+                      onClick={() => handleClick(user.id, user.active)}
+                    >
+                      {user.active ? (
+                        <CheckBoxIcon className='user-check-btn' />
+                      ) : (
+                        <CheckBoxOutlineBlankIcon className='user-check-btn' />
+                      )}
                     </button>
                   </td>
                   <td style={{ color: user.admin ? 'green' : 'red' }}>
@@ -78,12 +89,10 @@ const UserContainer = () => {
             })}
         </tbody>
       </table>
-      <div>
-        {modal && <AddUser setModal={setModal} />}
-        <button className='user-add-btn' onClick={() => setModal(true)}>
-          <p>ADD USER</p>
-        </button>
-      </div>
+      {modal && <AddUser setModal={setModal} />}
+      <button className='user-add-btn' onClick={() => setModal(true)}>
+        <p>ADD USER</p>
+      </button>
     </div>
   )
 }

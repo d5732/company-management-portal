@@ -81,7 +81,9 @@ const NavBar = () => {
 
   return (
     <div className='navbar-container'>
-      <img className='nav-logo' src={logo} alt='company logo' />
+      <Link to='/announcements'>
+        <img className='nav-logo' src={logo} alt='company logo' />
+      </Link>
       {user.isAdmin ? (
         <h1 className='nav-header'>{`${user.profile.firstName}: Admin`}</h1>
       ) : (

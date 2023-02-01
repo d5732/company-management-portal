@@ -8,19 +8,16 @@ import { useEffect } from 'react'
 
 const TeamCard = ({ user }) => {
   const [teamData, setTeamData] = useState(null)
-  const [projectData, setProjectData] = useState(null)
   const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
 
-  // const companyId = user.companies.map((company) => company.id)
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
   useEffect(() => {
-    api.get(`/company/${companyId}/teams`).then((resp) => {
+    api.get(`/company/${companyId}/projects`).then((resp) => {
       setTeamData(resp.data)
     })
   }, [])
-  console.log(teamData)
 
   if (!teamData) return null
 
@@ -29,7 +26,7 @@ const TeamCard = ({ user }) => {
       <div key={team.id} className='team-card-wrapper'>
         <div className='card-header'>
           <h3>{team.name}</h3>
-          <p># of projects: 2</p>
+          <p># of projects: {team.projects.length}</p>
         </div>
         <hr className='team-line' />
         <div className='card-content'>
