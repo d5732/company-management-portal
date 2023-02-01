@@ -19,22 +19,27 @@ const AddUser = ({ setModal }) => {
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
-  const handleSubmit = () => {
-    api
-      .post(`company/${companyId}/users`, {
-        credentials: {
-          username: username,
-          password: password
-        },
-        profile: {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          phone: phone,
-        },
-        admin: admin,
-      })
-      .then((resp) => console.log(resp))
+  const handleSubmit = (e) => {
+    if (password !== passwordConf) {
+      alert("Passwords do not match")
+      e.preventDefault()
+    } else {
+      api
+        .post(`company/${companyId}/users`, {
+          credentials: {
+            username: username,
+            password: password
+          },
+          profile: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+          },
+          admin: admin,
+        })
+        .then((resp) => console.log(resp))
+    }
   }
 
   const handleFirstNameChange = (e) => {
@@ -69,7 +74,7 @@ const AddUser = ({ setModal }) => {
           onClick={() => setModal(false)}
           className="modal-cancel-btn"
         />
-        <div className="nameInput">
+        <div className="addInput">
           <input
             type="text"
             name="firstname"
@@ -93,22 +98,24 @@ const AddUser = ({ setModal }) => {
           value={email}
           onChange={handleEmailChange}
         />
-        <input
-          type="text"
-          name="phone"
-          placeholder="phone"
-          className="phone"
-          value={phone}
-          onChange={handlePhoneChange}
-        />
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          className="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
+        <div className="addInput">
+          <input
+            type="text"
+            name="phone"
+            placeholder="phone"
+            className="phone"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            className="username"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+        </div>
         <div>
           <input
             type="text"
@@ -126,7 +133,7 @@ const AddUser = ({ setModal }) => {
           />
         </div>
         <p>Make user an admin role?</p>
-        <Select className="user-admin-select">
+        <Select className="user-admin-select" defaultValue={false}>
           <MenuItem key={false} value={false} onChange={handleAdminChange}>
             False
           </MenuItem>
@@ -134,7 +141,20 @@ const AddUser = ({ setModal }) => {
             True
           </MenuItem>
         </Select>
-        <button className="form-submit-btn">Submit</button>
+        <button
+          className="form-submit-btn"
+          disabled={
+            !firstName ||
+            !lastName ||
+            !phone ||
+            !email ||
+            !username ||
+            !password ||
+            !passwordConf
+          }
+        >
+          Submit
+        </button>
       </form>
     </div>
   )
