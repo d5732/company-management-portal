@@ -84,8 +84,8 @@
 }
 
 /* ----MODAL STYLING---- */
-/* 
-.team-modal-container {
+
+.project-modal-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +97,7 @@
     backdrop-filter: blur(8px);
 }
 
-.team-modal-container form {
+.project-modal-container form {
     position: relative;
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
     z-index: 999;
 }
 
-.team-modal-container input {
+.project-modal-container input {
     display: block;
     width: 100%;
     background: none;
@@ -122,13 +122,7 @@
     font-size: 1.3rem;
 }
 
-.team-modal-container h2 {
-    text-align: center;
-    margin-top: 60px;
-    color: #deb992;
-}
-
-.team-modal-select {
+.project-modal-select {
     display: flex !important;
     width: 100% !important;
     background-color: white !important;
@@ -136,16 +130,10 @@
     margin-bottom: 20px !important;
 }
 
-.select-box {
+.team-select {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 0.5em !important;
-}
-
-.select-chip {
-    background-color: #1ba098 !important;
-    color: white !important;
-    font-weight: bold !important;
 }
 
 .form-submit-btn {
@@ -177,4 +165,4 @@
 
 .modal-cancel-btn:hover {
     color: #c84218 !important;
-} */
+}

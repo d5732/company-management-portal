@@ -7,7 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel'
 
 import api from '../../../Services/api'
 
-const CreateProject = ({ teamsData, setModal }) => {
+const CreateProject = ({ teamsData, setAddModal }) => {
    const [name, setName] = useState(null)
    const [description, setDescription] = useState(null)
    const [teamId, setTeamId] = useState(null)
@@ -21,7 +21,7 @@ const CreateProject = ({ teamsData, setModal }) => {
          active: true,
          team: {}
        })
-       .then((resp) => console.log("HELLO", resp))
+       .then((resp) => console.log(resp))
    }
 
    const handleNameChange = (e) => {
@@ -38,7 +38,7 @@ const CreateProject = ({ teamsData, setModal }) => {
     <div className="project-modal-container">
       <form onSubmit={handleSubmit}>
         <CancelIcon
-          onClick={() => setModal(false)}
+          onClick={() => setAddModal(false)}
           className="modal-cancel-btn"
         />
         <input
@@ -71,12 +71,6 @@ const CreateProject = ({ teamsData, setModal }) => {
         </Select>
         <button className="form-submit-btn" disabled={!name || !teamId}>Submit</button>
       </form>
-      <button
-        onClick={() => console.log('EEEEE', teamId)}
-        className="form-submit-btn"
-      >
-        debug
-      </button>
     </div>
   )
 }
