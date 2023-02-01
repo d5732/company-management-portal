@@ -32,6 +32,6 @@ public interface CompanyService {
 
 	ProjectDto updateProject(Long id, Long teamID, ProjectDto projectDto);
 
-	
-	
+    Set<TeamWithProjectsDto> getAllProjects(Long id);
+
 }

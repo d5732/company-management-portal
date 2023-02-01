@@ -63,6 +63,7 @@ public class CompanyServiceImpl implements CompanyService {
 	private final TeamMapper teamMapper;
 	private final ProjectMapper projectMapper;
 	private final CompanyMapper companyMapper;
+	private final TeamWithProjectsMapper teamWithProjectsMapper;
 	private final CredentialsMapper credentialsMapper;
 
 	
@@ -278,6 +279,15 @@ public class CompanyServiceImpl implements CompanyService {
 		return projectMapper.entityToDto(projectRepository.saveAndFlush(projectToUpdate));
 		
 		
+	}
+
+	@Override
+	public Set<TeamWithProjectsDto> getAllProjects(Long id) {
+		Optional<Company> optionalCompany = companyRepository.findById(id);
+		if(optionalCompany.isEmpty()) {
+			throw new NotFoundException("No company found with id " + id);
+		}
+		return teamWithProjectsMapper.entitiesToDtos(optionalCompany.get().getTeams());
 	}
 
 }
