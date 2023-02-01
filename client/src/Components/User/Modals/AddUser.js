@@ -18,7 +18,7 @@ const AddUser = ({ setModal }) => {
           <input type="text" name="firstname" placeholder="first name" />
           <input type="text" name="lastname" placeholder="last name" />
         </div>
-        <input type="text" name="email" placeholder="email" />
+        <input type="text" name="email" placeholder="email" className="email" />
         <div>
           <input type="text" name="password" placeholder="password" />
           <input

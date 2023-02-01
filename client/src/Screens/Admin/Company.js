@@ -4,16 +4,17 @@ import { useRecoilState } from 'recoil'
 import { userState } from '../../globalstate'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
-const CompanyScreen = () => {
+const CompanyScreen = ({ setCompanyId }) => {
     const [user, setUser] = useRecoilState(userState)
-    const companies = user.companies.map((company) => company.name)
+    
+    const companies = user.companies.map((company) => (
+      {
+      name: company.name, 
+      id: company.id
+      }
+    ))
 
-    const getInitialState = () => {
-        const value = undefined;
-        return value;
-    };
-
-    const [value, setValue] = useState(getInitialState);
+    const [value, setValue] = useState();
 
     const handleChange = (e) => {
         setValue(e.target.value);
@@ -31,24 +32,25 @@ const CompanyScreen = () => {
             <form>
               <Select
                 className="user-admin-select"
-                value= {undefined}
+                value= {value}
                 onChange={handleChange}
               >
                 {companies.map((company) => (
-                  <MenuItem key={company} value={company}>
-                    {company}
+                  <MenuItem key={company.id} value={company.id}>
+                    {company.name}
                   </MenuItem>
                 ))}
               </Select>
             </form>
-            
-              <Link
-                className="form-submit-btn"
-                to="/announcements"
-                state={{data: value }}
-              >
-                Submit
-              </Link>
+
+            <Link
+              className="form-submit-btn"
+              to="/announcements"
+              onClick={() => setCompanyId(value)}
+            >
+              Submit
+            </Link>
+            <button onClick={() => console.log(companies)}>debug</button>
           </div>
         )
     }
