@@ -20,12 +20,11 @@ const Login = () => {
     }
 
     const response = await login(username, password).catch((err) => {
-      setError({ isError: true, message: 'Invalid username or password' })
+      console.error(err)
+      setError({ isError: true, message: err.response?.data?.message ? err.response?.data?.message : "No response from server" })
     })
 
-    if (!response) {
-      setError({ isError: true, message: 'No Response From Server' })
-    } else if (response) {
+    if (response) {
       setError({ isError: false, message: '' })
       setUser({
         isLoggedIn: true,
