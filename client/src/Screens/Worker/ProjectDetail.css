@@ -6,7 +6,7 @@
 }
 
 .project-detail-wrapper {
-    width: 80%;
+    width: 70%;
     height: auto;
     background-color: #0b2d45;
     color: white;
@@ -19,4 +19,14 @@
     text-align: center;
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+
+.project-btn-wrapper {
+    align-items: flex-start;
+    width: 70%;
+}
+
+.project-btn {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
 }

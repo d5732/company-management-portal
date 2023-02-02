@@ -23,12 +23,12 @@ const ProjectCard = ({ handleUser }) => {
   }, [])
 
   return (
-    <div className="project-container">
+    <div className='project-container'>
       {addModal && (
         <CreateProject teamsData={teamsData} setAddModal={setAddModal} />
       )}
       {user.isAdmin && (
-        <button className="project-add-btn" onClick={() => setAddModal(true)}>
+        <button className='project-add-btn' onClick={() => setAddModal(true)}>
           New
         </button>
       )}
@@ -39,19 +39,22 @@ const ProjectCard = ({ handleUser }) => {
               <div>
                 {team.projects &&
                   team.projects.map((project, i) => (
-                    <div className="project-wrapper" key={i}>
-                      <Link
-                        className='projectHeader'
-                        to="/project"
-                        state={{
-                          name: project.name,
-                          description: project.description,
-                        }}
-                        style={{textDecoration: "none", color: "teal"}}
-                      >
-                        <h2 className="projectName">{project.name}</h2>
-                      </Link>
-                      <p className="projectDescription">
+                    <div className='project-wrapper' key={i}>
+                      <div>
+                        <Link
+                          to='/project'
+                          state={{
+                            name: project.name,
+                            description: project.description,
+                          }}
+                        >
+                          <button className='view-project-btn'>
+                            View Project
+                          </button>
+                        </Link>
+                      </div>
+                      <h2 className='projectName'>{project.name}</h2>
+                      <p className='projectDescription'>
                         {project.description}
                       </p>
                       {editModal && (
@@ -64,7 +67,7 @@ const ProjectCard = ({ handleUser }) => {
                       )}
                       {user.isAdmin && (
                         <button
-                          className="project-edit-btn"
+                          className='project-edit-btn'
                           onClick={() => {
                             setEditModal(true)
                             setProjectId(project.id)

@@ -40,7 +40,7 @@ const NavBar = () => {
 
   function checkAdminNav() {
     if (user.isAdmin) {
-      return ['Announcements', 'Projects', 'Teams', 'Users']
+      return ['Announcements', 'Projects', 'Teams', 'Users', 'Company']
     } else {
       return ['Announcements', 'Projects']
     }

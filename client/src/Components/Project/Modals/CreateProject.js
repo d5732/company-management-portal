@@ -46,8 +46,10 @@ const CreateProject = ({ teamsData, setAddModal }) => {
           type='text'
           name='name'
           placeholder='name'
+          minlength='4'
           value={name}
           onChange={handleNameChange}
+          required
         />
         <input
           type='text'
