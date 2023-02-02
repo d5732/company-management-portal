@@ -34,7 +34,7 @@ const CompanyScreen = ({ setCompanyId }) => {
         <h1 className='page-headers'>Select Company</h1>
         <form className='company-container'>
           <Select
-            className='user-admin-select'
+            className='modal-select'
             value={value || ''}
             onChange={handleChange}
             defaultValue=''

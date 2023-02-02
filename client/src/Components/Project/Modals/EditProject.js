@@ -3,12 +3,12 @@ import CancelIcon from '@mui/icons-material/Cancel'
 
 import api from '../../../Services/api'
 import '../Project.css'
-const EditProject = ({ companyId, teamId, projectId, setEditModal}) => {
+const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
   const [name, setName] = useState(null)
   const [description, setDescription] = useState(null)
 
   const handleSubmit = () => {
-    localStorage.setItem("Antonio1", "Hello")
+    localStorage.setItem('Antonio1', 'Hello')
     api
       .patch(`/company/${companyId}/teams/${teamId}/projects`, {
         id: projectId,
@@ -26,27 +26,27 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal}) => {
   }
 
   return (
-    <div className="project-modal-container">
+    <div className='modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setEditModal(false)}
-          className="modal-cancel-btn"
+          className='modal-cancel-btn'
         />
         <input
-          type="text"
-          name="name"
-          placeholder=" name"
+          type='text'
+          name='name'
+          placeholder='name'
           value={name}
           onChange={handleNameChange}
         />
         <input
-          type="text"
-          name="description"
-          placeholder="description"
+          type='text'
+          name='description'
+          placeholder='description'
           value={description}
           onChange={handleDescriptionChange}
         />
-        <button className="form-submit-btn" disabled={!name}>
+        <button className='form-submit-btn' disabled={!name}>
           Submit
         </button>
       </form>

@@ -50,7 +50,7 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
   }
 
   return (
-    <div className='team-modal-container'>
+    <div className='modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setModal(false)}
@@ -72,7 +72,7 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
         />
         <h2>Select Members</h2>
         <Select
-          className='team-modal-select'
+          className='modal-select'
           multiple
           value={teamUsers}
           onChange={handleUserChange}

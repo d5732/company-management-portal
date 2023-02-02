@@ -31,11 +31,21 @@ const Announcements = () => {
           <h1 className='page-headers'>Announcements</h1>
           <div className='ann-container'>
             <div className='btn-wrapper'>
-              {user.isAdmin && <button className='ann-btn' onClick={() => setModal(true)}>New</button>}
+              {user.isAdmin && (
+                <button className='ann-btn' onClick={() => setModal(true)}>
+                  New
+                </button>
+              )}
             </div>
             <hr className='ann-line' />
             <AnnouncementCard handleUser={handleUser} />
-            {modal && <CreateAnnouncement handleUser={handleUser} setModal={setModal} user={user} />}
+            {modal && (
+              <CreateAnnouncement
+                handleUser={handleUser}
+                setModal={setModal}
+                user={user}
+              />
+            )}
           </div>
         </div>
       </>
