@@ -11,6 +11,8 @@ const UserContainer = () => {
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
+  const currentUserId = JSON.parse(localStorage.getItem("recoil-persist")).userState.id
+
   useEffect(() => {
     api.get(`/company/${companyId}/users`).then((response) => {
       setUsers(response.data)
@@ -72,6 +74,7 @@ const UserContainer = () => {
                       <button
                         className='active-btn'
                         onClick={() => handleClick(user.id, user.active)}
+                        disabled={user.id === currentUserId}
                       >
                         {user.active ? (
                           <CheckBoxIcon className='user-check-btn' />

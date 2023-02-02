@@ -35,7 +35,7 @@ const CompanyScreen = ({ setCompanyId }) => {
         <form className='company-container'>
           <Select
             className='modal-select'
-            value={value || ''}
+            value={value}
             onChange={handleChange}
             defaultValue=''
           >
@@ -46,7 +46,7 @@ const CompanyScreen = ({ setCompanyId }) => {
             ))}
           </Select>
           <Link className='link-item' to='/announcements'>
-            <button className='form-submit-btn' onClick={handleSave}>
+            <button className='form-submit-btn' onClick={handleSave} disabled={!value}>
               Submit
             </button>
           </Link>
