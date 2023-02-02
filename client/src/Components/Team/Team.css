@@ -15,7 +15,7 @@
 
 .team-card-wrapper {
   width: 350px;
-  height: 250px;
+  height: 100%;
   background-color: #0b2d45;
   color: white;
   padding: 1em 2em;

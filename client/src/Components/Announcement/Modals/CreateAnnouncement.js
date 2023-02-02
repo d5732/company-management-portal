@@ -41,17 +41,22 @@ const CreateAnnouncement = ({ setModal, user }) => {
         <input
           type='text'
           name='title'
+          minlength='4'
+          maxlength='40'
           placeholder='Announcement title'
           value={title}
           onChange={handleTitle}
+          required
         />
         <textarea
           className='text-area'
           type='text'
           name='message'
+          minlength='4'
           placeholder='Announcement message'
           value={bodyMessage}
           onChange={handleMessage}
+          required
         />
         <button className='form-submit-btn'>Submit</button>
       </form>

@@ -36,6 +36,7 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
           placeholder='name'
           value={name}
           onChange={handleNameChange}
+          required
         />
         <input
           type='text'
@@ -43,6 +44,7 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
           placeholder='description'
           value={description}
           onChange={handleDescriptionChange}
+          required
         />
         <button className='form-submit-btn' disabled={!name}>
           Submit
