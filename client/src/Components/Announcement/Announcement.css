@@ -27,7 +27,7 @@
 
 .ann-card-wrapper h3,
 .ann-card-wrapper p {
-  text-align: center;
+  text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
