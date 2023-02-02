@@ -20,7 +20,6 @@ const CreateAnnouncement = ({ setModal, user }) => {
           admin: true,
         },
       })
-      .then((resp) => console.log(resp))
   }
 
   const handleTitle = (e) => {

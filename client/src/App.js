@@ -15,8 +15,6 @@ function App() {
   const [companyId, setCompanyId] = useState()
   const [user, setUser] = useRecoilState(userState)
 
-  console.log(companyId)
-
   const companyProps = { companyId, setCompanyId };
 
   function handleUser() {

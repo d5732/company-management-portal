@@ -32,7 +32,6 @@ const CreateProject = ({ teamsData, setAddModal }) => {
     setTeamId(e.target.value)
   }
   const handleTeamNameChange = (e) => {
-    console.log(e.target.value)
     setTeamName(e.target.value)
   }
 
