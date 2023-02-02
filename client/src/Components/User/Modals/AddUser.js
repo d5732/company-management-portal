@@ -152,10 +152,10 @@ const AddUser = ({ setModal }) => {
         <p>Make user an admin role?</p>
         <Select className='modal-select' defaultValue={false}>
           <MenuItem key={false} value={false} onChange={handleAdminChange}>
-            False
+            Yes
           </MenuItem>
           <MenuItem key={true} value={true} onChange={handleAdminChange}>
-            True
+            No
           </MenuItem>
         </Select>
         <button
