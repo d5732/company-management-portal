@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "cfd6f696-a56d-4829-b47d-41312e1b690d",
+		"name": "Assessment 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"denwa\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /company/id/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/company/6/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /company/id/announcements",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/company/6/announcements",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /company/id/teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/company/6/teams",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /teams/teamId/projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/teams/11/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"11",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /company/{id}/teams",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"denwa name string1\",\r\n  \"description\": \"denwa description string2\",\r\n  \"users\": [\r\n      {\r\n          \"id\": 18\r\n      },\r\n      {\r\n          \"id\": 21\r\n      },\r\n      {\r\n          \"id\": 23\r\n      }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/company/6/teams",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /company/{id}/teams/{id}/projects",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"name\": \"Darkstar Theme Park Extension222\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/company/6/teams/11/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"teams",
+						"11",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /company/{id}/teams/{id}/projects Copy",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 31,\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/21",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /company/6/announcements",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"message\": \"hello, new announcement here hello, new announcement here hello, new announcement here hello, new announcement here hello, new announcement herehello, new announcement here hello, new announcement here hello, new piza pizapizapizapizaannouncement here aaa   asdfasdfasdf\",\r\n    \"title\": \"Testing 123 - rajdeep\",\r\n    \"author\": {\r\n        \"id\": 23,\r\n        \"admin\": true\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/company/6/announcements",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /company/6/announcements",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"message\": \"hello, new announcement here\",\r\n    \"title\": \"Testing 123 - rajdeep\",\r\n    \"author\": {\r\n        \"id\": 23,\r\n        \"profile\": {\r\n            \"firstName\": \"Logan\",\r\n            \"lastName\": \"Roy\",\r\n            \"email\": \"lroy@email.com\",\r\n            \"phone\": \"(555) 555-5555\"\r\n        },\r\n        \"admin\": true,\r\n        \"active\": true,\r\n        \"status\": \"PENDING\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/company/6/announcements",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST localhost:8080/company/6/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"credentials\": {\r\n        \"username\": \"bob22\",\r\n        \"password\": \"password\"\r\n    },\r\n    \"profile\": {\r\n        \"firstName\": \"bob\",\r\n        \"lastName\": \"smith\",\r\n        \"email\": \"bob22@email.com\",\r\n        \"phone\": \"9019999999\"\r\n    },\r\n    \"isAdmin\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/company/6/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST localhost:8080/teams/12/projects",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"string2424\",\r\n    \"description\": \"string2424\",\r\n    \"active\": true,\r\n    \"team\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/teams/12/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"12",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /company/id/projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/company/6/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"company",
+						"6",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
