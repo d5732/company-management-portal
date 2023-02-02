@@ -31,9 +31,9 @@ const AnnouncementCard = ({ handleUser }) => {
             <div key={id} className="ann-card-wrapper">
                 <div className="ann-card-header">
                     <h2
-                        style={{ fontWeight: 300 }}
+                        style={{ fontWeight: 400 }}
                     >{`${author.profile.firstName} ${author.profile.lastName}`}</h2>
-                    <h2 style={{ color: "lightgrey", fontWeight: 400 }}>
+                    <h2 style={{ color: "lightgrey", fontWeight: 300 }}>
                         {new Date(date).toLocaleDateString("en-US", options)}
                     </h2>
                 </div>
