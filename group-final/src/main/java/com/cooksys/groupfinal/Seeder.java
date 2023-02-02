@@ -27,13 +27,20 @@ public class Seeder implements CommandLineRunner {
         Announcement announcement3 = new Announcement();
         Announcement announcement4 = new Announcement();
         Announcement announcement5 = new Announcement();
+        Announcement announcement6 = new Announcement();
+        Announcement announcement7 = new Announcement();
+        Announcement announcement8 = new Announcement();
 
         Company company1 = new Company();
         Company company2 = new Company();
+        Company company3 = new Company();
 
         Project project1 = new Project();
         Project project2 = new Project();
         Project project3 = new Project();
+        Project project4 = new Project();
+        Project project5 = new Project();
+        Project project6 = new Project();
 
         Team team1 = new Team();
         Team team2 = new Team();
@@ -42,6 +49,10 @@ public class Seeder implements CommandLineRunner {
         Team team5 = new Team();
         Team team6 = new Team();
         Team team7 = new Team();
+        Team team8 = new Team();
+        Team team9 = new Team();
+        Team team10 = new Team();
+        Team team11 = new Team();
 
         User user1 = new User();
         Credentials creds1 = new Credentials();
@@ -199,11 +210,13 @@ public class Seeder implements CommandLineRunner {
         user12.setActive(true);
         user12.setAdmin(true);
 
+
         announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement1, announcement2, announcement3, announcement4, announcement5}));
         companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company1, company2}));
         projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project1, project2, project3}));
         teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team1, team2, team3, team4, team5, team6, team7}));
         userRepository.saveAllAndFlush(Arrays.asList(new User[]{user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12}));
+
 
         announcement1.setTitle("Welcome to waystar|ROYCO!");
         announcement1.setMessage("We are waystar|ROYCO, the future of media, entertainment, and theme parks!");
@@ -230,6 +243,7 @@ public class Seeder implements CommandLineRunner {
         announcement5.setCompany(company2);
         announcement5.setAuthor(user12);
 
+
         company1.setName("waystar|ROYCO");
         company1.setDescription("waystar|ROYCO, the future of media, entertainment, and theme parks.");
         company1.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement1, announcement2)));
@@ -241,6 +255,7 @@ public class Seeder implements CommandLineRunner {
         company2.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement3)));
         company2.setEmployees(new HashSet<User>(Arrays.asList(user10, user11, user12)));
         company2.setTeams(new HashSet<Team>(Arrays.asList(team7)));
+
 
         project1.setName("Brightstar Theme Park Expansion");
         project1.setDescription("Brightstar theme park expansion to be led by newly appointed head of waystar|ROYCO's amusement park and cruise division, Tom Wambsgans.");
@@ -256,6 +271,7 @@ public class Seeder implements CommandLineRunner {
         project3.setDescription("Shuttle launch in Japan to be led by COO, Roman Roy.");
         project3.setActive(true);
         project3.setTeam(team3);
+
 
         team1.setName("Team 1");
         team1.setDescription("Greg & Tom");
@@ -285,15 +301,16 @@ public class Seeder implements CommandLineRunner {
         team5.setUsers(new HashSet<User>(Arrays.asList(user6, user8)));
 
         team6.setName("Team 6");
-        team6.setDescription("Kendall, Roman, Shiv, & Connor");
+        team6.setDescription("Kendall, Roman, Shiv & Connor");
         team6.setCompany(company1);
         team6.setUsers(new HashSet<User>(Arrays.asList(user3, user4, user5, user7)));
 
         team7.setName("Team 7");
-        team7.setDescription("Helena, Kenny, & Will");
+        team7.setDescription("Helena, Kenny & Will");
         team7.setCompany(company2);
         team7.setUsers(new HashSet<User>(Arrays.asList(user10, user11, user12)));
         team7.setProjects(new HashSet<Project>(Arrays.asList(project2)));
+
 
         user1.setCompanies(new HashSet<Company>(Arrays.asList(company1)));
         user1.setTeams(new HashSet<Team>(Arrays.asList(team1, team4)));
@@ -333,11 +350,215 @@ public class Seeder implements CommandLineRunner {
         user12.setCompanies(new HashSet<Company>(Arrays.asList(company2)));
         user12.setTeams(new HashSet<Team>(Arrays.asList(team7)));
 
+
         announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement1, announcement2, announcement3, announcement4, announcement5}));
         companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company1, company2}));
         projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project1, project2, project3}));
         teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team1, team2, team3, team4, team5, team6, team7}));
         userRepository.saveAllAndFlush(Arrays.asList(new User[]{user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12}));
+
+
+        // later to preserve original seed uuid integrity
+
+        User user13 = new User();
+        Credentials creds13 = new Credentials();
+        creds13.setUsername("denwa");
+        creds13.setPassword("password");
+        user13.setCredentials(creds13);
+        Profile profile13 = new Profile();
+        profile13.setFirstName("Dennis");
+        profile13.setLastName("Drueck");
+        profile13.setEmail("dennis@email.com");
+        profile13.setPhone("(555) 867-5309");
+        user13.setProfile(profile13);
+        user13.setActive(true);
+        user13.setAdmin(true);
+        user13.setStatus("JOINED");
+
+        User user14 = new User();
+        Credentials creds14 = new Credentials();
+        creds14.setUsername("rajdeep");
+        creds14.setPassword("password");
+        user14.setCredentials(creds14);
+        Profile profile14 = new Profile();
+        profile14.setFirstName("Rajdeep");
+        profile14.setLastName("Hundal");
+        profile14.setEmail("rajdeep@email.com");
+        profile14.setPhone("(555) 123-7564");
+        user14.setProfile(profile14);
+        user14.setActive(true);
+        user14.setAdmin(true);
+        user14.setStatus("JOINED");
+
+        User user15 = new User();
+        Credentials creds15 = new Credentials();
+        creds15.setUsername("thomas");
+        creds15.setPassword("password");
+        user15.setCredentials(creds15);
+        Profile profile15 = new Profile();
+        profile15.setFirstName("Thomas");
+        profile15.setLastName("Tuttle");
+        profile15.setEmail("thomas@email.com");
+        profile15.setPhone("(555) 222-2222");
+        user15.setProfile(profile15);
+        user15.setActive(true);
+        user15.setAdmin(true);
+
+        User user16 = new User();
+        Credentials creds16 = new Credentials();
+        creds16.setUsername("martin");
+        creds16.setPassword("password");
+        user16.setCredentials(creds16);
+        Profile profile16 = new Profile();
+        profile16.setFirstName("Martin");
+        profile16.setLastName("Hu");
+        profile16.setEmail("martin@email.com");
+        profile16.setPhone("(555) 333-3333");
+        user16.setProfile(profile16);
+        user16.setActive(true);
+        user16.setAdmin(true);
+
+        User user17 = new User();
+        Credentials creds17 = new Credentials();
+        creds17.setUsername("shyam");
+        creds17.setPassword("password");
+        user17.setCredentials(creds17);
+        Profile profile17 = new Profile();
+        profile17.setFirstName("Shyam");
+        profile17.setLastName("Patel");
+        profile17.setEmail("shyam@email.com");
+        profile17.setPhone("(555) 444-3333");
+        user17.setProfile(profile17);
+        user17.setActive(true);
+        user17.setAdmin(true);
+        user17.setStatus("JOINED");
+
+        User user18 = new User();
+        Credentials creds18 = new Credentials();
+        creds18.setUsername("antonio");
+        creds18.setPassword("password");
+        user18.setCredentials(creds18);
+        Profile profile18 = new Profile();
+        profile18.setFirstName("Antonio");
+        profile18.setLastName("Salmeron");
+        profile18.setEmail("antonio@email.com");
+        profile18.setPhone("(555) 932-1233");
+        user18.setProfile(profile18);
+        user18.setActive(true);
+        user18.setAdmin(true);
+
+        User user19 = new User();
+        Credentials creds19 = new Credentials();
+        creds19.setUsername("sejo");
+        creds19.setPassword("password");
+        user19.setCredentials(creds19);
+        Profile profile19 = new Profile();
+        profile19.setFirstName("Sejo");
+        profile19.setLastName("Basic");
+        profile19.setEmail("sejo@email.com");
+        profile19.setPhone("(555) 215-0156");
+        user19.setProfile(profile19);
+        user19.setActive(true);
+        user19.setAdmin(true);
+
+        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8}));
+        companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company3}));
+        projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project4, project5, project6}));
+        teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team8, team9, team10, team11}));
+        userRepository.saveAllAndFlush(Arrays.asList(new User[]{user13, user14, user15, user16, user17, user18, user19}));
+
+
+        user13.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user13.setTeams(new HashSet<Team>(Arrays.asList(team8, team10)));
+        user13.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8)));
+
+        user14.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team10, team11)));
+
+        user15.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user15.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
+
+        user16.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user16.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
+
+        user17.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user17.setTeams(new HashSet<Team>(Arrays.asList(team9, team11)));
+
+        user18.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user18.setTeams(new HashSet<Team>(Arrays.asList(team9, team10)));
+
+        user19.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
+        user19.setTeams(new HashSet<Team>(Arrays.asList(team9, team10)));
+        user19.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement7)));
+
+
+        announcement6.setTitle("Backend Is Complete");
+        announcement6.setMessage("The Java Spring RESTful API backend servlet has been completed. All contributor's feature branches have been merged and pushed to the backend branch. Frontend team should clone the backend branch to a new folder and run the servlet locally to test their React.js client application's endpoint interactions.");
+        announcement6.setCompany(company3);
+        announcement6.setAuthor(user13);
+
+        announcement7.setTitle("Frontend Is Complete");
+        announcement7.setMessage("The React.js client application has been completed. All contributor's feature branches have been merged and pushed to the backend branch. All team members should clone both the frontend and backend branches to separate folders and to run and test the client and server interactions.");
+        announcement7.setCompany(company3);
+        announcement7.setAuthor(user19);
+
+        announcement8.setTitle("Group Final Project Demo Has Been Scheduled");
+        announcement8.setMessage("Please join us on Friday, February 3, 2023 at 11am – 12pm (CST) for the demo of our completed \"company portal\" project. See you all in the Zoom meeting!");
+        announcement8.setCompany(company3);
+        announcement8.setAuthor(user13);
+
+        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
+        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
+
+        company3.setName("Sprint 11");
+        company3.setDescription("Veni, vidi, vici.");
+        company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement4, announcement5)));
+        company3.setEmployees(new HashSet<User>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
+        company3.setTeams(new HashSet<Team>(Arrays.asList(team8, team9, team10, team11)));
+
+        project4.setName("Backend Buildout");
+        project4.setDescription("Design and develop the Java Spring REST API backend application and document all endpoints on the wiki.");
+        project4.setActive(true);
+        project4.setTeam(team8);
+
+        project5.setName("Frontend Buildout");
+        project5.setDescription("Design and develop the React.js frontend client application and request features as need from the backend team.");
+        project5.setActive(true);
+        project5.setTeam(team9);
+
+        project6.setName("Group Final Demo");
+        project6.setDescription("Demo the frontend and backend applications.");
+        project6.setActive(true);
+        project6.setTeam(team10);
+
+        team8.setName("Backend");
+        team8.setDescription("Dennis, Martin, Rajdeep & Thomas");
+        team8.setCompany(company3);
+        team8.setUsers(new HashSet<User>(Arrays.asList(user13, user14, user15, user16)));
+        team8.setProjects(new HashSet<Project>(Arrays.asList(project4, project6)));
+
+        team9.setName("Frontend");
+        team9.setDescription("Antonio, Sejo & Shyam");
+        team9.setCompany(company3);
+        team9.setUsers(new HashSet<User>(Arrays.asList(user17, user18, user19)));
+        team9.setProjects(new HashSet<Project>(Arrays.asList(project5, project6)));
+
+        team10.setName("Night Owls");
+        team10.setDescription("Dennis, Rajdeep, Antonio & Sejo");
+        team10.setCompany(company3);
+        team10.setUsers(new HashSet<User>(Arrays.asList(user13, user14, user18, user19)));
+
+        team11.setName("Early Birds");
+        team11.setDescription("Martin, Thomas & Shyam");
+        team11.setCompany(company3);
+        team11.setUsers(new HashSet<User>(Arrays.asList(user14, user15, user16, user17)));
+
+
+        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8}));
+        companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company1, company2, company3}));
+        projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project4, project5, project6}));
+        teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team8, team9, team10, team11}));
+        userRepository.saveAllAndFlush(Arrays.asList(new User[]{user13, user14, user15, user16, user17, user18, user19}));
 
     }
 
