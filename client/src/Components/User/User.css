@@ -10,17 +10,13 @@
 }
 
 .active-btn {
-    /* border: none;
-    padding: 1em;
-    border-radius: 20px;
-    cursor: pointer; */
-    cursor: pointer;
-    border: none;
-    background: none;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 .user-check-btn {
-    color: white !important;
+  color: white !important;
 }
 
 h1 .userHeading {
@@ -101,58 +97,30 @@ td {
 }
 
 .user-modal-container input {
-    display: block;
-    width: 100%;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #deb992;
-    margin: 1rem 0;
-    margin-bottom: 20px;
-    outline: none;
-    color: white;
-    font-size: 1.3rem;
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #deb992;
+  margin: 1rem 0;
+  margin-bottom: 20px;
+  outline: none;
+  color: white;
+  font-size: 1.3rem;
 }
 
 .addInput {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .user-modal-container input .email {
   width: 100%;
 }
 
-.user-admin-select {
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: none !important;
-  margin-bottom: 20px !important;
-  text-align: center !important;
-}
-
-.form-submit-btn {
-  width: 100%;
-  background-color: #1ba098;
-  color: white;
-  border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 10px;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
-}
-
 .user-add-btn {
-  width: 30%;
+  width: 20%;
 }
-
-/* .form-submit-btn:hover {
-    background-color: #1b7f78;
-} */
 
 .modal-cancel-btn {
   position: absolute !important;
@@ -165,4 +133,16 @@ td {
 
 .modal-cancel-btn:hover {
   color: #c84218 !important;
+}
+
+.phone {
+  -moz-appearance: textfield;
+}
+.phone::-webkit-inner-spin-button {
+  display: none;
+}
+.phone::-webkit-outer-spin-button,
+.phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -35,7 +35,7 @@ const AnnouncementCard = ({ handleUser }) => {
             </div>
             <h3>{title}</h3>
             <div className='ann-card-content'>
-              <h4>{message}</h4>
+              <p>{message}</p>
             </div>
           </div>
         )

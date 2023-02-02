@@ -38,7 +38,7 @@ const CreateProject = ({ teamsData, setAddModal }) => {
   }
 
   return (
-    <div className='project-modal-container'>
+    <div className='modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setAddModal(false)}
@@ -47,7 +47,7 @@ const CreateProject = ({ teamsData, setAddModal }) => {
         <input
           type='text'
           name='name'
-          placeholder=' name'
+          placeholder='name'
           value={name}
           onChange={handleNameChange}
         />
@@ -59,7 +59,7 @@ const CreateProject = ({ teamsData, setAddModal }) => {
           onChange={handleDescriptionChange}
         />
         <Select
-          className='user-admin-select'
+          className='modal-select'
           value={teamName || ''}
           onChange={(e) => {
             handleTeamIdChange(e)

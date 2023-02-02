@@ -20,14 +20,14 @@ const AddUser = ({ setModal }) => {
 
   const handleSubmit = (e) => {
     if (password !== passwordConf) {
-      alert("Passwords do not match")
+      alert('Passwords do not match')
       e.preventDefault()
     } else {
       api
         .post(`company/${companyId}/users`, {
           credentials: {
             username: username,
-            password: password
+            password: password,
           },
           profile: {
             firstName: firstName,
@@ -51,7 +51,9 @@ const AddUser = ({ setModal }) => {
     setEmail(e.target.value)
   }
   const handlePhoneChange = (e) => {
-    setPhone(e.target.value)
+    if (!e.target.value.match(/[^\d]/)) {
+      setPhone(e.target.value)
+    }
   }
   const handleUsernameChange = (e) => {
     setUsername(e.target.value)
@@ -67,72 +69,89 @@ const AddUser = ({ setModal }) => {
   }
 
   return (
-    <div className="user-modal-container">
+    <div className='user-modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setModal(false)}
-          className="modal-cancel-btn"
+          className='modal-cancel-btn'
         />
-        <div className="addInput">
+        <div className='addInput'>
           <input
-            type="text"
-            name="firstname"
-            placeholder="first name"
+            type='text'
+            name='firstname'
+            minlength='1'
+            maxlength='30'
+            placeholder='first name'
             value={firstName}
             onChange={handleFirstNameChange}
+            required
           />
           <input
-            type="text"
-            name="lastname"
-            placeholder="last name"
+            type='text'
+            name='lastname'
+            minlength='1'
+            maxlength='30'
+            placeholder='last name'
             value={lastName}
             onChange={handleLastNameChange}
+            required
           />
         </div>
         <input
-          type="text"
-          name="email"
-          placeholder="email"
-          className="email"
+          type='email'
+          name='email'
+          placeholder='email'
+          className='email'
           value={email}
           onChange={handleEmailChange}
+          required
         />
-        <div className="addInput">
+        <div className='addInput'>
           <input
-            type="text"
-            name="phone"
-            placeholder="phone"
-            className="phone"
+            type='tel'
+            name='phone'
+            placeholder='phone'
+            className='phone'
+            minlength='11'
+            maxlength='11'
             value={phone}
             onChange={handlePhoneChange}
+            required
           />
           <input
-            type="text"
-            name="username"
-            placeholder="username"
-            className="username"
+            type='text'
+            name='username'
+            placeholder='username'
+            className='username'
+            minlength='4'
+            maxlength='30'
             value={username}
             onChange={handleUsernameChange}
+            required
           />
         </div>
         <div>
           <input
-            type="text"
-            name="password"
-            placeholder="password"
+            type='password'
+            name='password'
+            minlength='8'
+            maxlength='60'
+            placeholder='password'
             value={password}
             onChange={handlePasswordChange}
+            required
           />
           <input
-            type="text"
-            name="confirmpassword"
-            placeholder="confirm password"
+            type='password'
+            name='confirmpassword'
+            placeholder='confirm password'
             value={passwordConf}
             onChange={handlePasswordConfChange}
+            required
           />
         </div>
         <p>Make user an admin role?</p>
-        <Select className="user-admin-select" defaultValue={false}>
+        <Select className='modal-select' defaultValue={false}>
           <MenuItem key={false} value={false} onChange={handleAdminChange}>
             False
           </MenuItem>
@@ -141,7 +160,7 @@ const AddUser = ({ setModal }) => {
           </MenuItem>
         </Select>
         <button
-          className="form-submit-btn"
+          className='form-submit-btn'
           disabled={
             !firstName ||
             !lastName ||
