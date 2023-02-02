@@ -28,17 +28,21 @@ const AnnouncementCard = ({ handleUser }) => {
       })
       .map(({ id, title, author, date, message }) => {
         return (
-          <div key={id} className='ann-card-wrapper'>
-            <div className='ann-card-header'>
-              <h3>{`${author.profile.firstName} ${author.profile.lastName}`}</h3>
-              <h3>{new Date(date).toLocaleDateString('en-US', options)}</h3>
+            <div key={id} className="ann-card-wrapper">
+                <div className="ann-card-header">
+                    <h2
+                        style={{ fontWeight: 300 }}
+                    >{`${author.profile.firstName} ${author.profile.lastName}`}</h2>
+                    <h2 style={{ color: "lightgrey", fontWeight: 400 }}>
+                        {new Date(date).toLocaleDateString("en-US", options)}
+                    </h2>
+                </div>
+                <h3 style={{ fontWeight: 600 }}>{title}</h3>
+                <div className="ann-card-content">
+                    <p>{message}</p>
+                </div>
             </div>
-            <h3>{title}</h3>
-            <div className='ann-card-content'>
-              <p>{message}</p>
-            </div>
-          </div>
-        )
+        );
       })
   })()
 
