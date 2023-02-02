@@ -41,11 +41,13 @@ const ProjectCard = ({ handleUser }) => {
                   team.projects.map((project, i) => (
                     <div className="project-wrapper" key={i}>
                       <Link
+                        className='projectHeader'
                         to="/project"
                         state={{
                           name: project.name,
                           description: project.description,
                         }}
+                        style={{textDecoration: "none", color: "teal"}}
                       >
                         <h2 className="projectName">{project.name}</h2>
                       </Link>

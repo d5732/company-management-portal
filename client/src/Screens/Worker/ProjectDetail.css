@@ -1,0 +1,22 @@
+.project-detail-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 7rem;
+}
+
+.project-detail-wrapper {
+    width: 80%;
+    height: auto;
+    background-color: #0b2d45;
+    color: white;
+    padding: 1em 2em;
+    border-radius: 20px;
+}
+
+.project-detail-wrapper h3,
+.project-detail-wrapper p {
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

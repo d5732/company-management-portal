@@ -8,14 +8,17 @@ import { useEffect } from 'react'
 
 const TeamCard = ({ user }) => {
   const [teamData, setTeamData] = useState(null)
-  const [employees, setEmployees] = useState(user.companies[0].employees)
   const [modal, setModal] = useState(false)
-
+  const [employees, setEmployees] = useState(null)
+  
   const companyId = JSON.parse(localStorage.getItem('companyId'))
-
+  
   useEffect(() => {
     api.get(`/company/${companyId}/projects`).then((resp) => {
       setTeamData(resp.data)
+    })
+    api.get(`/company/${companyId}/users`).then((resp) => {
+      setEmployees(resp.data)
     })
   }, [])
 

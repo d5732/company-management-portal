@@ -49,37 +49,37 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
   }
 
   return (
-    <div className='modal-container'>
+    <div className="modal-container">
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setModal(false)}
-          className='modal-cancel-btn'
+          className="modal-cancel-btn"
         />
         <input
-          type='text'
-          name='teamName'
-          placeholder='team name'
+          type="text"
+          name="teamName"
+          placeholder="team name"
           value={teamName}
           onChange={handleNameChange}
         />
         <input
-          type='text'
-          name='teamDescription'
-          placeholder='description'
+          type="text"
+          name="teamDescription"
+          placeholder="description"
           value={teamDesc}
           onChange={handleDescChange}
         />
         <h2>Select Members</h2>
         <Select
-          className='modal-select'
+          className="modal-select"
           multiple
           value={teamUsers}
           onChange={handleUserChange}
-          input={<OutlinedInput id='select-multiple-chip' />}
+          input={<OutlinedInput id="select-multiple-chip" />}
           renderValue={(selected) => (
-            <Box className='select-box'>
+            <Box className="select-box">
               {selected.map((value) => (
-                <Chip className='select-chip' key={value} label={value} />
+                <Chip className="select-chip" key={value} label={value} />
               ))}
             </Box>
           )}
@@ -102,7 +102,7 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
             </MenuItem>
           ))}
         </Select>
-        <button className='form-submit-btn'>Submit</button>
+        <button className="form-submit-btn">Submit</button>
       </form>
     </div>
   )
