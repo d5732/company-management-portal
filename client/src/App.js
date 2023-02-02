@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={{height: "100%"}}>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
