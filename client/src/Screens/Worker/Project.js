@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil'
 import NavBar from '../../Components/Navbar/NavBar'
 import { userState } from '../../globalstate'
 import Box from '@mui/material/Box'
-
+import './ProjectDetail.css'
 
 const Project = ({ location }) => {
   const [user] = useRecoilState(userState)
@@ -14,13 +14,15 @@ const Project = ({ location }) => {
     return <Navigate replace to='/' />
   } else {
     return (
-      <div>
+      <>
         <NavBar />
-        <Box>
-          <h1>{projectData.name}</h1>
+      <div className="project-detail-container">
+        <Box className='project-detail-wrapper'>
+          <h3>{projectData.name}</h3>
           <p>{projectData.description}</p>
         </Box>
       </div>
+      </>
     )
   }
 }
