@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { userState } from './globalstate'
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Announcements from './Screens/Shared/Announcements';
@@ -11,20 +13,32 @@ import Project from './Screens/Worker/Project';
 
 function App() {
   const [companyId, setCompanyId] = useState()
+  const [user, setUser] = useRecoilState(userState)
 
   console.log(companyId)
 
   const companyProps = { companyId, setCompanyId };
+
+  function handleUser() {
+    if (!user.isAdmin) {
+      const companyId = user.companies.map((company) => company.id)
+      return companyId
+    } else {
+      const companyId = JSON.parse(localStorage.getItem('companyId'))
+      return companyId
+    }
+  }
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
           path="/announcements"
-          element={<Announcements {...companyProps} />}
+          element={<Announcements {...companyProps} handleUser={handleUser} />}
         />
         <Route path="/company" element={<CompanyScreen {...companyProps} />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects" element={<Projects handleUser={handleUser} />} />
         <Route path="/users" element={<Users />} />
         <Route path="/teams" element={<Teams {...companyProps} />} />
         <Route path="/project" element={<Project />} />
