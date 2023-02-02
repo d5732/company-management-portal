@@ -47,7 +47,7 @@ const UserContainer = () => {
     <div className='user-card-container'>
       <h1 className='userHeading'>User Registry</h1>
       <h2 className='userSubHeading'>
-        A general view of all members in your orginazation
+        A general view of all members in your organization
       </h2>
       <table>
         <tbody>
