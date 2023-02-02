@@ -93,7 +93,7 @@ const UserContainer = () => {
                                 <td className="name">{user.profile.firstName} {user.profile.lastName}</td>
                                     <td>{user.profile.email}</td>
                                     <td>{user.profile.phone}</td>
-                                    <td>{user.teams[0].name}</td>
+                                    <td>{user.teams[0]?.name}</td>
                                     <td
                                         style={{
                                             color: user.active
