@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -30,6 +31,7 @@ public class Seeder implements CommandLineRunner {
         Announcement announcement6 = new Announcement();
         Announcement announcement7 = new Announcement();
         Announcement announcement8 = new Announcement();
+        Announcement announcement9 = new Announcement();
 
         Company company1 = new Company();
         Company company2 = new Company();
@@ -172,8 +174,8 @@ public class Seeder implements CommandLineRunner {
 
         User user10 = new User();
         Credentials creds10 = new Credentials();
-        creds10.setUsername("helenaspassword");
-        creds10.setPassword("helenasusername");
+        creds10.setUsername("helenasusername");
+        creds10.setPassword("helenaspassword");
         user10.setCredentials(creds10);
         Profile profile10 = new Profile();
         profile10.setFirstName("Helena");
@@ -397,7 +399,7 @@ public class Seeder implements CommandLineRunner {
         user15.setCredentials(creds15);
         Profile profile15 = new Profile();
         profile15.setFirstName("Thomas");
-        profile15.setLastName("Tuttle");
+        profile15.setLastName("Tubbs");
         profile15.setEmail("thomas@email.com");
         profile15.setPhone("(555) 222-2222");
         user15.setProfile(profile15);
@@ -461,7 +463,7 @@ public class Seeder implements CommandLineRunner {
         user19.setActive(true);
         user19.setAdmin(true);
 
-        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8}));
+        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8, announcement9}));
         companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company3}));
         projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project4, project5, project6}));
         teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team8, team9, team10, team11}));
@@ -477,6 +479,7 @@ public class Seeder implements CommandLineRunner {
 
         user15.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user15.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
+        user15.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement9)));
 
         user16.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user16.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
@@ -496,23 +499,32 @@ public class Seeder implements CommandLineRunner {
         announcement6.setMessage("The Java Spring RESTful API backend servlet has been completed. All contributor's feature branches have been merged and pushed to the backend branch. Frontend team should clone the backend branch to a new folder and run the servlet locally to test their React.js client application's endpoint interactions.");
         announcement6.setCompany(company3);
         announcement6.setAuthor(user13);
+        announcement6.setDate(Timestamp.valueOf("2023-01-31 09:01:16"));
 
         announcement7.setTitle("Frontend Is Complete");
         announcement7.setMessage("The React.js client application has been completed. All contributor's feature branches have been merged and pushed to the backend branch. All team members should clone both the frontend and backend branches to separate folders and to run and test the client and server interactions.");
         announcement7.setCompany(company3);
         announcement7.setAuthor(user19);
+        announcement7.setDate(Timestamp.valueOf("2023-02-01 11:01:16"));
 
         announcement8.setTitle("Group Final Project Demo Has Been Scheduled");
         announcement8.setMessage("Please join us on Friday, February 3, 2023 at 11am – 12pm (CST) for the demo of our completed \"company portal\" project. See you all in the Zoom meeting!");
         announcement8.setCompany(company3);
         announcement8.setAuthor(user13);
+        announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
+
+        announcement9.setTitle("I Broke Something! Please Send Help!");
+        announcement9.setMessage("I can't get the application to build! Please send help! Please send help! Please send help! And bring coffee!");
+        announcement9.setCompany(company3);
+        announcement9.setAuthor(user15);
+        announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
 
         company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
         company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
 
         company3.setName("Sprint 11");
         company3.setDescription("Veni, vidi, vici.");
-        company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement4, announcement5)));
+        company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement7, announcement8, announcement9)));
         company3.setEmployees(new HashSet<User>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
         company3.setTeams(new HashSet<Team>(Arrays.asList(team8, team9, team10, team11)));
 
@@ -554,7 +566,7 @@ public class Seeder implements CommandLineRunner {
         team11.setUsers(new HashSet<User>(Arrays.asList(user14, user15, user16, user17)));
 
 
-        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8}));
+        announcementRepository.saveAllAndFlush(Arrays.asList(new Announcement[]{announcement6, announcement7, announcement8, announcement9}));
         companyRepository.saveAllAndFlush(Arrays.asList(new Company[]{company1, company2, company3}));
         projectRepository.saveAllAndFlush(Arrays.asList(new Project[]{project4, project5, project6}));
         teamRepository.saveAllAndFlush(Arrays.asList(new Team[]{team8, team9, team10, team11}));
