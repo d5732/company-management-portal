@@ -9,7 +9,6 @@ const Project = ({ location }) => {
   const [user] = useRecoilState(userState)
 
   const projectData = useLocation()?.state
-  console.log(projectData)
 
   if (!user.isLoggedIn) {
     return <Navigate replace to='/' />

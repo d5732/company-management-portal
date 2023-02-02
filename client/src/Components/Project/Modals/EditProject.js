@@ -8,14 +8,12 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
   const [description, setDescription] = useState(null)
 
   const handleSubmit = () => {
-    localStorage.setItem('Antonio1', 'Hello')
     api
       .patch(`/company/${companyId}/teams/${teamId}/projects`, {
         id: projectId,
         name: name,
         description: description,
       })
-      .then((resp) => localStorage.setItem('Antonio2', 'Bye'))
   }
 
   const handleNameChange = (e) => {
