@@ -37,7 +37,6 @@ const AddUser = ({ setModal }) => {
           },
           admin: admin,
         })
-        .then((resp) => console.log(resp))
     }
   }
 

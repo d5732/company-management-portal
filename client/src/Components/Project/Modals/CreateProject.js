@@ -20,7 +20,6 @@ const CreateProject = ({ teamsData, setAddModal }) => {
         active: true,
         team: {},
       })
-      .then((resp) => console.log(resp))
   }
 
   const handleNameChange = (e) => {

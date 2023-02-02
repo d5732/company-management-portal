@@ -28,7 +28,6 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
         description: teamDesc,
         users: newArr,
       })
-      .then((resp) => console.log(resp))
   }
 
   const handleUserChange = (e) => {

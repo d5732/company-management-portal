@@ -11,16 +11,6 @@ const Announcements = ({ handleUser }) => {
   const [user] = useRecoilState(userState)
   const [modal, setModal] = useState(false)
 
-  // function handleUser() {
-  //   if (!user.isAdmin) {
-  //     const companyId = user.companies.map((company) => company.id)
-  //     return companyId
-  //   } else {
-  //     const companyId = JSON.parse(localStorage.getItem('companyId'))
-  //     return companyId
-  //   }
-  // }
-
   if (!user.isLoggedIn) {
     return <Navigate replace to='/' />
   } else {

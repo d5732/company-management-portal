@@ -16,37 +16,40 @@ const ProjectCard = ({ handleUser }) => {
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
-
-
   useEffect(() => {
     api.get(`/company/${handleUser()}/projects`).then((resp) => {
-      console.log(resp.data)
       setTeamsData(resp.data)
     })
   }, [])
 
   return (
-    <div className='project-container'>
+    <div className="project-container">
       {addModal && (
         <CreateProject teamsData={teamsData} setAddModal={setAddModal} />
       )}
-      {user.isAdmin && <button className='project-add-btn' onClick={() => setAddModal(true)}>
-        New
-      </button>
-      }
+      {user.isAdmin && (
+        <button className="project-add-btn" onClick={() => setAddModal(true)}>
+          New
+        </button>
+      )}
       {teamsData &&
         teamsData.map((team, index) => {
           return (
             <div key={index}>
               <div>
-                {console.log(team.projects)}
                 {team.projects &&
                   team.projects.map((project, i) => (
-                    <div className='project-wrapper' key={i}>
-                      <Link to="/project" state={{name: project.name, description: project.description}}>
-                        <h2 className='projectName'>{project.name}</h2>
+                    <div className="project-wrapper" key={i}>
+                      <Link
+                        to="/project"
+                        state={{
+                          name: project.name,
+                          description: project.description,
+                        }}
+                      >
+                        <h2 className="projectName">{project.name}</h2>
                       </Link>
-                      <p className='projectDescription'>
+                      <p className="projectDescription">
                         {project.description}
                       </p>
                       {editModal && (
@@ -57,23 +60,23 @@ const ProjectCard = ({ handleUser }) => {
                           setEditModal={setEditModal}
                         />
                       )}
-                      {user.isAdmin && <button
-                        className='project-edit-btn'
-                        onClick={() => {
-                          setEditModal(true)
-                          setProjectId(project.id)
-                        }}
-                      >
-                        Edit
-                      </button>
-                      }
+                      {user.isAdmin && (
+                        <button
+                          className="project-edit-btn"
+                          onClick={() => {
+                            setEditModal(true)
+                            setProjectId(project.id)
+                          }}
+                        >
+                          Edit
+                        </button>
+                      )}
                     </div>
                   ))}
               </div>
             </div>
           )
         })}
-        <button onClick={() => console.log(user)}>debug</button>
     </div>
   )
 }
