@@ -84,21 +84,21 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
             </Box>
           )}
         >
-          {employees.map((name) => (
+          {employees.filter(employee=>employee.active).map((employee) => (
             <MenuItem
-              key={name.id}
-              value={`${name.profile.firstName} ${name.profile.lastName[0]}.`}
+              key={employee.id}
+              value={`${employee.profile.firstName} ${employee.profile.lastName[0]}.`}
               onClick={() => {
                 const safeCopy = new Set(employeeId)
-                if (!safeCopy.has(name.id)) {
-                  safeCopy.add(name.id)
+                if (!safeCopy.has(employee.id)) {
+                  safeCopy.add(employee.id)
                 } else {
-                  safeCopy.delete(name.id)
+                  safeCopy.delete(employee.id)
                 }
                 setEmployeeId(safeCopy)
               }}
             >
-              {`${name.profile.firstName} ${name.profile.lastName}`}
+              {`${employee.profile.firstName} ${employee.profile.lastName}`}
             </MenuItem>
           ))}
         </Select>
