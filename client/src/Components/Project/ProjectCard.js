@@ -49,6 +49,7 @@ const ProjectCard = ({ handleUser }) => {
                           state={{
                             name: project.name,
                             description: project.description,
+                            team: team
                           }}
                         >
                           <button className='view-project-btn'>
