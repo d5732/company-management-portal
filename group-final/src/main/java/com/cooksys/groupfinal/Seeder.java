@@ -512,17 +512,12 @@ public class Seeder implements CommandLineRunner {
         announcement8.setAuthor(user13);
         announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
 
-        announcement9.setTitle("I Broke Something! Please Send Help!");
-        announcement9.setMessage("I can't get the application to build! Please send help! Please send help! Please send help! And bring coffee!");
+        announcement9.setTitle("Maintenance Notice");
+        announcement9.setMessage("We will be performing scheduled maintenance in SCL (Santiago) datacenter on 2023-02-03 between 08:00 and 12:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacenter may become temporarily unavailable.");
         announcement9.setCompany(company3);
         announcement9.setAuthor(user15);
         announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
-        
-        announcement9.setTitle("Acta, non verba.");
-        announcement9.setMessage("I am both a night owl and an early bird !! Sorry I am so annoying !!");
-        announcement9.setCompany(company3);
-        announcement9.setAuthor(user14);
-        announcement9.setDate(Timestamp.valueOf("2023-02-03 02:05:16"));
+
 
         company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
         company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
