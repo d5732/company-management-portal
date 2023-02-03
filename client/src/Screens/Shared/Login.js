@@ -61,7 +61,6 @@ const Login = () => {
               }}
               id='username'
               label='Username'
-              //   placeholder='Enter username'
               type='text'
               required
             />

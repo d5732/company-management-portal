@@ -23,8 +23,9 @@ const TeamCard = ({ user }) => {
   }, [])
 
   if (!teamData) return null
+  console.log(teamData)
 
-  const renderCard = teamData.map((team) => {
+  const renderCard = teamData.sort((a, b) => b.id - a.id).map((team) => {
     return (
       <div key={team.id} className='team-card-wrapper'>
         <div className='card-header'>

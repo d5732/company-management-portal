@@ -7,6 +7,7 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
   const [name, setName] = useState(null)
   const [description, setDescription] = useState(null)
 
+
   const handleSubmit = () => {
     api
       .patch(`/company/${companyId}/teams/${teamId}/projects`, {
