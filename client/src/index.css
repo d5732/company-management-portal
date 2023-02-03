@@ -149,3 +149,9 @@ code {
 .css-6hp17o-MuiList-root-MuiMenu-list {
   max-height: 200px;
 }
+
+@media only screen and (max-width: 600px) {
+  .modal-container form {
+    width: 400px;
+  }
+}
