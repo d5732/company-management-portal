@@ -141,6 +141,7 @@ const AddUser = ({ setModal }) => {
             required
           />
           <input
+            style={{marginTop:"32px"}}
             type='password'
             name='confirmpassword'
             placeholder='confirm password'
@@ -149,7 +150,7 @@ const AddUser = ({ setModal }) => {
             required
           />
         </div>
-        <p>Make user an admin role?</p>
+        <p style={{ marginTop: "32px", color: 'burlywood'}}>Make user an admin role?</p>
         <Select className='modal-select' defaultValue={false}>
           <MenuItem key={false} value={false} onChange={handleAdminChange}>
             Yes
