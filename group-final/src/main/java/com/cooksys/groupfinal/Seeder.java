@@ -494,7 +494,7 @@ public class Seeder implements CommandLineRunner {
 
 
         announcement6.setTitle("Backend Is Complete");
-        announcement6.setMessage("The Java Spring RESTful API backend servlet has been completed. All contributor's feature branches have been merged and pushed to the backend branch. Frontend team should clone the backend branch to a new folder and run the servlet locally to test their React.js client application's endpoint interactions.");
+        announcement6.setMessage("The Java Spring RESTful API backend servlet has been completed. All contributors' feature branches have been merged and pushed to the backend branch. Frontend team should clone the backend branch to a new folder and run the servlet locally to test their React.js client application's endpoint interactions.");
         announcement6.setCompany(company3);
         announcement6.setAuthor(user13);
         announcement6.setDate(Timestamp.valueOf("2023-01-31 09:01:16"));
@@ -506,7 +506,7 @@ public class Seeder implements CommandLineRunner {
         announcement7.setDate(Timestamp.valueOf("2023-02-01 11:01:16"));
 
         announcement8.setTitle("Group Final Project Demo Has Been Scheduled");
-        announcement8.setMessage("Please join us on Friday, February 3, 2023 at 11am – 12pm (CST) for the demo of our completed \"company portal\" project. See you all in the Zoom meeting!");
+        announcement8.setMessage("Please join us on Friday, February 3, 2023 at 11am – 12pm (CST) for the demo of the company portal application. See you all in the Zoom meeting!");
         announcement8.setCompany(company3);
         announcement8.setAuthor(user13);
         announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
