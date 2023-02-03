@@ -3,9 +3,10 @@ import CancelIcon from '@mui/icons-material/Cancel'
 
 import api from '../../../Services/api'
 import '../Project.css'
-const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
-  const [name, setName] = useState(null)
-  const [description, setDescription] = useState(null)
+import { TextField } from '@mui/material'
+const EditProject = ({ companyId, teamId, projectId, setEditModal, oldName, oldDescription }) => {
+  const [name, setName] = useState(oldName)
+  const [description, setDescription] = useState(oldDescription)
 
 
   const handleSubmit = () => {
@@ -39,7 +40,7 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
           onChange={handleNameChange}
           required
         />
-        <input
+        <textarea className='text-area'
           type='text'
           name='description'
           placeholder='description'
