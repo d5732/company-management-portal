@@ -49,6 +49,7 @@ const ProjectCard = ({ handleUser }) => {
                           state={{
                             name: project.name,
                             description: project.description,
+                            team: team
                           }}
                         >
                           <button className='view-project-btn'>
@@ -92,51 +93,5 @@ const ProjectCard = ({ handleUser }) => {
     </div>
   )
 }
-                                                    {editModal && (
-                                                        <EditProject
-                                                            teamId={team.id}
-                                                            companyId={
-                                                                companyId
-                                                            }
-                                                            projectId={
-                                                                projectId
-                                                            }
-                                                            // todo: these don't map right, all same
-                                                            // oldName={
-                                                            //     project.name
-                                                            // }
-                                                            // oldDescription={
-                                                            //     project.description
-                                                            // }
-                                                            setEditModal={
-                                                                setEditModal
-                                                            }
-                                                        />
-                                                    )}
-                                                    {user.isAdmin && (
-                                                        <button
-                                                            className="project-edit-btn"
-                                                            onClick={() => {
-                                                                setEditModal(
-                                                                    true
-                                                                );
-                                                                setProjectId(
-                                                                    project.id
-                                                                );
-                                                            }}
-                                                        >
-                                                            Edit
-                                                        </button>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ))}
-                            </div>
-                        </div>
-                    );
-                })}
-        </div>
-    );
-};
 
 export default ProjectCard;
