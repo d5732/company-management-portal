@@ -13,7 +13,8 @@
 }
 
 .ann-btn {
-  width: 150px;
+  min-width: 150px;
+  margin-bottom: 20px;
 }
 
 
@@ -34,7 +35,7 @@
 }
 
 .ann-line {
-  height: 1.5px;
+  height: 1px;
   background-color: #deb992;
   border: none;
   width: 70%;
