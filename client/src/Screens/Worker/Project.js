@@ -17,17 +17,19 @@ const Project = ({ location }) => {
     return (
       <>
         <NavBar />
-        <div className='project-detail-container'>
-          <div className='project-btn-wrapper'>
-            <Link to='/projects'>
-              <button className='project-btn'>Back To Projects</button>
+        <div className="project-detail-container">
+          <div className="project-btn-wrapper">
+            <Link to="/projects">
+              <button className="project-btn">Back To Projects</button>
             </Link>
           </div>
-          <Box className='project-detail-wrapper'>
+          <Box className="project-detail-wrapper">
             <h3>{projectData.name}</h3>
+            <h4 style={{textAlign: "center"}}>{projectData.team.name}</h4>
             <p>{projectData.description}</p>
           </Box>
         </div>
+        <button onClick={() => console.log(projectData)}>debug</button>
       </>
     )
   }
