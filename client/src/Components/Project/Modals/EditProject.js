@@ -3,25 +3,27 @@ import CancelIcon from '@mui/icons-material/Cancel'
 
 import api from '../../../Services/api'
 import '../Project.css'
-const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
-  const [name, setName] = useState(null)
-  const [description, setDescription] = useState(null)
+import { TextField } from '@mui/material'
+
+const EditProject = ({ name, description, companyId, teamId, projectId, setEditModal }) => {
+  const [newName, setNewName] = useState(name)
+  const [newDescription, setNewDescription] = useState(description)
 
 
   const handleSubmit = () => {
     api
       .patch(`/company/${companyId}/teams/${teamId}/projects`, {
         id: projectId,
-        name: name,
-        description: description,
+        name: newName,
+        description: newDescription,
       })
   }
 
   const handleNameChange = (e) => {
-    setName(e.target.value)
+    setNewName(e.target.value)
   }
   const handleDescriptionChange = (e) => {
-    setDescription(e.target.value)
+    setNewDescription(e.target.value)
   }
 
   return (
@@ -34,16 +36,16 @@ const EditProject = ({ companyId, teamId, projectId, setEditModal }) => {
         <input
           type='text'
           name='name'
-          placeholder='name'
-          value={name}
+          placeholder={name}
+          value={newName}
           onChange={handleNameChange}
           required
         />
-        <input
+        <textarea className='text-area'
           type='text'
           name='description'
           placeholder='description'
-          value={description}
+          value={newDescription}
           onChange={handleDescriptionChange}
           required
         />

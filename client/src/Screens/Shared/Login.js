@@ -46,11 +46,12 @@ const Login = () => {
       <div className='main-container'>
         <Grid className='grid-style'>
           <Grid align='center'>
-            <Avatar className='avatar-style' src={logo}></Avatar>
-            <h2>Cook Systems</h2>
-            <h3>A Final App</h3>
+           
+            <h1 class="page-headers" style={{textTransform:"uppercase", marginBottom: "0"}}>Cook Systems</h1>
+            <h2 style={{textTransform:"uppercase", marginBottom: "5rem"}}>A Final App</h2>
           </Grid>
           <Paper elevation={10} className='paper-style'>
+          <Avatar className='avatar-style' src={logo} style={{marginBottom: "2rem"}}></Avatar>
             <TextField
               className='input-style'
               value={username}
