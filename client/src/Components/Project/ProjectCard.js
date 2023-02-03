@@ -88,12 +88,13 @@ const ProjectCard = ({ handleUser }) => {
                                                             projectId={
                                                                 projectId
                                                             }
-                                                            oldName={
-                                                                project.name
-                                                            }
-                                                            oldDescription={
-                                                                project.description
-                                                            }
+                                                            // todo: these don't map right, all same
+                                                            // oldName={
+                                                            //     project.name
+                                                            // }
+                                                            // oldDescription={
+                                                            //     project.description
+                                                            // }
                                                             setEditModal={
                                                                 setEditModal
                                                             }
