@@ -47,13 +47,6 @@ const CreateTeam = ({ setModal, employees, companyId }) => {
     setTeamDesc(e.target.value)
   }
 
-  const handleDisabled = () => {
-    if (teamUsers.length < 1 && teamName.length < 1) {
-
-    }
-  }
-
-
 
   return (
     <div className='modal-container'>

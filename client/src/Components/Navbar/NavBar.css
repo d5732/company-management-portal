@@ -57,11 +57,12 @@
 .nav-icon-btn,
 .nav-icon-close-btn {
   position: absolute !important;
-  right: 2% !important;
   z-index: 100 !important;
+  right: 2% !important;
   color: #1ba098 !important;
   background: none !important;
 }
+
 
 .nav-icon,
 .nav-close-icon {
