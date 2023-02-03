@@ -27,7 +27,7 @@ const EditProject = ({ name, description, companyId, teamId, projectId, setEditM
   }
 
   return (
-    <div className='modal-container'>
+    <div className='edit-modal-container'>
       <form onSubmit={handleSubmit}>
         <CancelIcon
           onClick={() => setEditModal(false)}

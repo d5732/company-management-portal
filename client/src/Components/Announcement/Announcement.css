@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 2em;
 }
 
 .btn-wrapper {
@@ -21,10 +22,11 @@
 .ann-card-wrapper {
   width: 80%;
   height: auto;
-  background-color: #0b2d45;
-  color: white;
+  background-color: var(--card-color);
+  color: var(--main-text-color);
   padding: 1em 2em;
   border-radius: 20px;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.143);
 }
 
 .ann-card-wrapper h3,
@@ -35,8 +37,8 @@
 }
 
 .ann-line {
-  height: 1px;
-  background-color: #deb992;
+  height: 1.5px;
+  background-color: var(--accent-color);
   border: none;
   width: 70%;
   margin-bottom: 60px;

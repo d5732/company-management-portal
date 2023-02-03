@@ -15,6 +15,7 @@ const ProjectCard = ({ handleUser }) => {
   const [projectDescription, setProjectDescription] = useState(null)
   const [addModal, setAddModal] = useState(false)
   const [editModal, setEditModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
 
     const companyId = JSON.parse(localStorage.getItem("companyId"));
@@ -87,7 +88,7 @@ const ProjectCard = ({ handleUser }) => {
                     </div>
                   ))}
               </div>
-            </div>
+            </>
           )
         })}
     </div>

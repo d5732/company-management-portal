@@ -1,32 +1,33 @@
 .project-detail-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 7rem;
 }
 
 .project-detail-wrapper {
-    width: 70%;
-    height: auto;
-    background-color: #0b2d45;
-    color: white;
-    padding: 1em 2em;
-    border-radius: 20px;
+  width: 70%;
+  height: auto;
+  background-color: var(--card-color);
+  color: var(--main-text-color);
+  padding: 1em 2em;
+  border-radius: 20px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.242);
 }
 
 .project-detail-wrapper h3,
 .project-detail-wrapper p {
-    text-align: center;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .project-btn-wrapper {
-    align-items: flex-start;
-    width: 70%;
+  align-items: flex-start;
+  width: 70%;
 }
 
 .project-btn {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
