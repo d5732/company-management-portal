@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { userState } from '../../globalstate'
-import { useRecoilState } from 'recoil'
-import api from '../../Services/api'
-import CreateProject from './Modals/CreateProject'
-import EditProject from './Modals/EditProject'
-import './Project.css'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { userState } from "../../globalstate";
+import { useRecoilState } from "recoil";
+import api from "../../Services/api";
+import CreateProject from "./Modals/CreateProject";
+import EditProject from "./Modals/EditProject";
+import "./Project.css";
 
 const ProjectCard = ({ handleUser }) => {
   const [user, setUser] = useRecoilState(userState)
@@ -16,13 +16,14 @@ const ProjectCard = ({ handleUser }) => {
   const [addModal, setAddModal] = useState(false)
   const [editModal, setEditModal] = useState(false)
 
-  const companyId = JSON.parse(localStorage.getItem('companyId'))
 
-  useEffect(() => {
-    api.get(`/company/${handleUser()}/projects`).then((resp) => {
-      setTeamsData(resp.data)
-    })
-  }, [])
+    const companyId = JSON.parse(localStorage.getItem("companyId"));
+
+    useEffect(() => {
+        api.get(`/company/${handleUser()}/projects`).then((resp) => {
+            setTeamsData(resp.data);
+        });
+    }, []);
 
   return (
     <div className='project-container'>
@@ -91,5 +92,51 @@ const ProjectCard = ({ handleUser }) => {
     </div>
   )
 }
+                                                    {editModal && (
+                                                        <EditProject
+                                                            teamId={team.id}
+                                                            companyId={
+                                                                companyId
+                                                            }
+                                                            projectId={
+                                                                projectId
+                                                            }
+                                                            // todo: these don't map right, all same
+                                                            // oldName={
+                                                            //     project.name
+                                                            // }
+                                                            // oldDescription={
+                                                            //     project.description
+                                                            // }
+                                                            setEditModal={
+                                                                setEditModal
+                                                            }
+                                                        />
+                                                    )}
+                                                    {user.isAdmin && (
+                                                        <button
+                                                            className="project-edit-btn"
+                                                            onClick={() => {
+                                                                setEditModal(
+                                                                    true
+                                                                );
+                                                                setProjectId(
+                                                                    project.id
+                                                                );
+                                                            }}
+                                                        >
+                                                            Edit
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+                            </div>
+                        </div>
+                    );
+                })}
+        </div>
+    );
+};
 
-export default ProjectCard
+export default ProjectCard;

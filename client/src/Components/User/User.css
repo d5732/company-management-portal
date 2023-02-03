@@ -127,19 +127,6 @@ td {
   width: 20%;
 }
 
-.modal-cancel-btn {
-  position: absolute !important;
-  top: 10px !important;
-  right: 10px !important;
-  color: #f24e1e !important;
-  cursor: pointer !important;
-  font-size: 3rem !important;
-}
-
-.modal-cancel-btn:hover {
-  color: #c84218 !important;
-}
-
 .phone {
   -moz-appearance: textfield;
 }

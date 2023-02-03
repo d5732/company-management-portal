@@ -3,6 +3,8 @@ import CancelIcon from '@mui/icons-material/Cancel'
 
 import api from '../../../Services/api'
 import '../Project.css'
+import { TextField } from '@mui/material'
+
 const EditProject = ({ name, description, companyId, teamId, projectId, setEditModal }) => {
   const [newName, setNewName] = useState(name)
   const [newDescription, setNewDescription] = useState(description)
@@ -39,7 +41,7 @@ const EditProject = ({ name, description, companyId, teamId, projectId, setEditM
           onChange={handleNameChange}
           required
         />
-        <input
+        <textarea className='text-area'
           type='text'
           name='description'
           placeholder='description'

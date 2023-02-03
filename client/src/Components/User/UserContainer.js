@@ -75,7 +75,16 @@ const UserContainer = () => {
             <h2 className="userSubHeading">
                 A general view of all members in your organization
             </h2>
-            <table>
+            <div style={{ width: "100%" }}>
+                <button
+                    style={{ marginLeft: "auto", display: "block" }}
+                    className="user-add-btn"
+                    onClick={() => setModal(true)}
+                >
+                    ADD USER
+                </button>
+            </div>
+            <table style={{ width: "100%" }}>
                 <tbody>
                     <tr className="table-heading">
                         <th>Name</th>
@@ -132,9 +141,6 @@ const UserContainer = () => {
                 </tbody>
             </table>
             {modal && <AddUser setModal={setModal} />}
-            <button className="user-add-btn" onClick={() => setModal(true)}>
-                <p>ADD USER</p>
-            </button>
         </div>
     );
 };
