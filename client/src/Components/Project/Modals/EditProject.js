@@ -53,7 +53,6 @@ const EditProject = ({ name, description, companyId, teamId, projectId, setEditM
           Submit
         </button>
       </form>
-      <button onClick={() => console.log(name)}>debug</button>
     </div>
   )
 }
