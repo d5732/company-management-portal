@@ -25,7 +25,12 @@ const Project = ({ location }) => {
           </div>
           <Box className="project-detail-wrapper">
             <h3>{projectData.name}</h3>
-            <h4 style={{textAlign: "center"}}>{projectData.team.name}</h4>
+            <h4 style={{ textAlign: "center" }}>
+              Team:{" "}
+              <span style={{ fontWeight: 400 }}>
+              {projectData.team.name}
+              </span>
+            </h4>
             <p>{projectData.description}</p>
           </Box>
         </div>
