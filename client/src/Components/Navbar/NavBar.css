@@ -2,12 +2,19 @@
   width: 100% !important;
   text-align: center;
   background-color: #0b2d45;
+  padding-top: 3rem!important;
+  padding-bottom: 3rem!important;
 }
 
 .nav-list-item {
   display: flex !important;
   justify-content: center !important;
-  width: 100% !important;
+  width: calc(100% - 20%) !important;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.nav-list-item:not(:last-of-type) { 
+  border-bottom: solid 1px rgba(255,255,255, 0.1);
 }
 
 .nav-link {
