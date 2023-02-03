@@ -389,6 +389,7 @@ public class Seeder implements CommandLineRunner {
         profile14.setPhone("(555) 123-7564");
         user14.setProfile(profile14);
         user14.setActive(true);
+        user14.setAdmin(true);
         user14.setStatus("JOINED");
 
         User user15 = new User();
@@ -516,12 +517,19 @@ public class Seeder implements CommandLineRunner {
         announcement9.setCompany(company3);
         announcement9.setAuthor(user15);
         announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
+        
+        announcement9.setTitle("Acta, non verba.");
+        announcement9.setMessage("I am both a night owl and an early bird !! Sorry I am so annoying !!");
+        announcement9.setCompany(company3);
+        announcement9.setAuthor(user14);
+        announcement9.setDate(Timestamp.valueOf("2023-02-03 02:05:16"));
 
         company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
         company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
 
         company3.setName("Sprint 11");
-        company3.setDescription("Veni, vidi, vici.");
+        company3.setDescription("The fault, dear Brutus, is not in our stars,\r\n"
+        		+ "But in ourselves, that we are underlings.");
         company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement7, announcement8, announcement9)));
         company3.setEmployees(new HashSet<User>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
         company3.setTeams(new HashSet<Team>(Arrays.asList(team8, team9, team10, team11)));
@@ -542,7 +550,7 @@ public class Seeder implements CommandLineRunner {
         project6.setTeam(team10);
 
         team8.setName("Backend");
-        team8.setDescription("Dennis, Martin, Rajdeep & Thomas");
+        team8.setDescription("Rajdeep, Martin, Dennis & Thomas");
         team8.setCompany(company3);
         team8.setUsers(new HashSet<User>(Arrays.asList(user13, user14, user15, user16)));
         team8.setProjects(new HashSet<Project>(Arrays.asList(project4, project6)));
@@ -554,12 +562,12 @@ public class Seeder implements CommandLineRunner {
         team9.setProjects(new HashSet<Project>(Arrays.asList(project5, project6)));
 
         team10.setName("Night Owls");
-        team10.setDescription("Dennis, Rajdeep, Antonio & Sejo");
+        team10.setDescription("Dennis, Shyam, Antonio & Sejo");
         team10.setCompany(company3);
         team10.setUsers(new HashSet<User>(Arrays.asList(user13, user14, user18, user19)));
 
         team11.setName("Early Birds");
-        team11.setDescription("Martin, Thomas & Shyam");
+        team11.setDescription("Martin, Thomas & Rajdeep");
         team11.setCompany(company3);
         team11.setUsers(new HashSet<User>(Arrays.asList(user14, user15, user16, user17)));
 
