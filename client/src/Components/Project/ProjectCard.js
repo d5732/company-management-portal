@@ -11,6 +11,8 @@ const ProjectCard = ({ handleUser }) => {
   const [user, setUser] = useRecoilState(userState)
   const [teamsData, setTeamsData] = useState(null)
   const [projectId, setProjectId] = useState(null)
+  const [projectName, setProjectName] = useState(null)
+  const [projectDescription, setProjectDescription] = useState(null)
   const [addModal, setAddModal] = useState(false)
   const [editModal, setEditModal] = useState(false)
 
@@ -59,6 +61,8 @@ const ProjectCard = ({ handleUser }) => {
                       </p>
                       {editModal && (
                         <EditProject
+                          name={projectName}
+                          description={projectDescription}
                           teamId={team.id}
                           companyId={companyId}
                           projectId={projectId}
@@ -71,6 +75,8 @@ const ProjectCard = ({ handleUser }) => {
                           onClick={() => {
                             setEditModal(true)
                             setProjectId(project.id)
+                            setProjectName(project.name)
+                            setProjectDescription(project.description)
                           }}
                         >
                           Edit
