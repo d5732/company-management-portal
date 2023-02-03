@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { Link } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close'
 import { userState } from '../../globalstate'
+import LogoutIcon from '@mui/icons-material/Logout'
 import { useRecoilState } from 'recoil'
 import './NavBar.css'
 
@@ -81,9 +82,16 @@ const NavBar = () => {
 
   return (
     <div className='navbar-container'>
-      <Link to='/announcements'>
+      <LogoutIcon
+        className='logout-btn'
+        onClick={() => {
+          setUser({})
+          localStorage.clear()
+        }}
+      />
+      {/* <Link to='/announcements'>
         <img className='nav-logo' src={logo} alt='company logo' />
-      </Link>
+      </Link> */}
       {user.isAdmin ? (
         <h1 className='nav-header'>{`${user.profile.firstName}: Admin`}</h1>
       ) : (

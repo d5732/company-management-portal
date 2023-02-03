@@ -1,3 +1,21 @@
+:root {
+  --main-bg-color: #051622;
+  --card-color: #0b2d45;
+  --main-text-color: white;
+  --btn-color: #1ba098;
+  --btn-hover: #1b7f78;
+  --accent-color: #deb992;
+}
+
+/* :root {
+  --main-bg-color: #fffffe;
+  --card-color: #d1d1e9;
+  --main-text-color: #2b2c34;
+  --btn-color: #6246ea;
+  --btn-hover: #7d68e6;
+  --accent-color: #2b2c34;
+} */
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -10,8 +28,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #051622;
-  color: white;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 code {
@@ -27,7 +45,7 @@ code {
 .page-headers {
   text-align: center;
   font-size: 3rem;
-  color: #1ba098;
+  color: var(--btn-color);
   margin: 50px 0;
 }
 
@@ -48,7 +66,7 @@ code {
 .ann-btn,
 .project-btn,
 .view-project-btn {
-  background-color: #1ba098;
+  background-color: var(--btn-color);
   color: white;
   border: none;
   font-size: 1.5rem;
@@ -57,20 +75,20 @@ code {
   border-radius: 10px;
   padding: 0.5em 1em;
   cursor: pointer;
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.333);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.199);
 }
 
 .project-edit-btn {
-  background-color: #deb992;
-  color: black;
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .project-edit-btn:hover {
-  background-color: #b99369;
+  background-color: #4a4d59;
 }
 
 .form-submit-btn:not([disabled]):hover {
-  background-color: #1b7f78;
+  background-color: var(--btn-hover);
 }
 
 .user-add-btn:hover,
@@ -78,20 +96,20 @@ code {
 .project-add-btn:hover,
 .project-btn:hover,
 .view-project-btn:hover {
-  background-color: #1b7f78;
+  background-color: var(--btn-hover);
 }
 
 .modal-cancel-btn {
   position: absolute !important;
   top: 10px !important;
   right: 10px !important;
-  color: #f24e1e !important;
+  color: var(--accent-color) !important;
   cursor: pointer !important;
   font-size: 3rem !important;
 }
 
 .modal-cancel-btn:hover {
-  color: #c84218 !important;
+  color: #be9d78 !important;
 }
 
 .modal-container {
@@ -115,9 +133,10 @@ code {
   width: 680px;
   padding: 4em;
   border-radius: 20px;
-  background-color: #0b2d45;
+  background-color: var(--card-color);
   z-index: 999;
-  border: 1px solid #deb992;
+  /* border: 1px solid var(--accent-color); */
+  box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.42);
 }
 
 .modal-container input {
@@ -125,7 +144,7 @@ code {
   width: 100%;
   background: none;
   border: none;
-  border-bottom: 1px solid #deb992;
+  border-bottom: 1px solid var(--accent-color);
   margin-bottom: 20px;
   outline: none;
   color: white;
@@ -135,7 +154,7 @@ code {
 .modal-container h2 {
   text-align: center;
   margin-top: 60px;
-  color: #deb992;
+  color: var(--accent-color);
 }
 
 .modal-select {

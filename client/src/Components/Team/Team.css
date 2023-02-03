@@ -1,5 +1,6 @@
 .team-container {
   text-align: center;
+  padding-bottom: 2em;
 }
 
 .team-card-container {
@@ -15,11 +16,13 @@
 
 .team-card-wrapper {
   width: 350px;
-  height: 100%;
-  background-color: #0b2d45;
-  color: white;
+  height: 250px;
+  overflow-y: scroll;
+  background-color: var(--card-color);
+  color: var(--main-text-color);
   padding: 1em 2em;
   border-radius: 20px;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.143);
 }
 
 .card-header {
@@ -30,7 +33,7 @@
 
 .team-line {
   height: 1.5px;
-  background-color: #deb992;
+  background-color: var(--accent-color);
   border: none;
 }
 
@@ -46,13 +49,14 @@
 }
 
 .user-badge {
-  background-color: #1ba098;
+  background-color: var(--btn-color);
   padding: 0.3em;
   width: 100px;
   text-align: center;
   overflow-wrap: break-word;
   border-radius: 5px;
   font-size: 100%;
+  color: white;
 }
 
 .placeholder-card {
@@ -62,8 +66,8 @@
   flex-direction: column;
   width: 350px;
   height: 250px;
-  border: 1px solid #deb992;
-  color: #deb992;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
   border-radius: 20px;
   cursor: pointer;
 }
@@ -79,8 +83,8 @@
 }
 
 .placeholder-card:hover {
-  background-color: #deb992;
-  color: #0b2d45;
+  background-color: var(--accent-color);
+  color: var(--card-color);
 }
 
 /* ----MODAL STYLING---- */
@@ -92,7 +96,7 @@
 }
 
 .select-chip {
-  background-color: #1ba098 !important;
+  background-color: var(--btn-color) !important;
   color: white !important;
   font-weight: bold !important;
 }

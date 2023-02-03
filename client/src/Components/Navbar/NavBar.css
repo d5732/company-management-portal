@@ -1,7 +1,7 @@
 .nav-list {
   width: 100% !important;
   text-align: center;
-  background-color: #0b2d45;
+  background-color: var(--card-color);
 }
 
 .nav-list-item {
@@ -17,17 +17,17 @@
 
 .nav-list-btn {
   text-align: center !important;
-  background-color: #0b2d45 !important;
+  background-color: var(--card-color) !important;
 }
 
 /* Navbar text  */
 .css-10hburv-MuiTypography-root {
   font-size: 2.5rem !important;
-  color: #1ba098 !important;
+  color: var(--btn-color) !important;
 }
 
 .css-10hburv-MuiTypography-root:hover {
-  color: #deb992 !important;
+  color: var(--accent-color) !important;
 }
 
 /* Navbar bottom line */
@@ -41,16 +41,27 @@
   padding-left: 3%;
   gap: 20px;
   height: 8vh;
-  color: #1ba098;
-  border-bottom: 2px solid #deb992;
+  color: var(--btn-color);
+  /* border-bottom: 2px solid var(--accent-color); */
+  box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.58);
 }
 
 .nav-logo {
   width: 60px;
 }
 
+.logout-btn {
+  font-size: 2rem !important;
+  width: 60px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: var(--btn-hover);
+}
+
 .nav-header {
-  color: #f24e1e;
+  color: var(--btn-color);
   font-size: 1.5rem;
 }
 
@@ -59,10 +70,9 @@
   position: absolute !important;
   z-index: 100 !important;
   right: 2% !important;
-  color: #1ba098 !important;
+  color: var(--btn-color) !important;
   background: none !important;
 }
-
 
 .nav-icon,
 .nav-close-icon {
@@ -71,5 +81,5 @@
 }
 
 .nav-close-icon:hover {
-  color: #deb992 !important;
+  color: var(--accent-color) !important;
 }

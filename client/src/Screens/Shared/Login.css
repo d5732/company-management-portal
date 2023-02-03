@@ -7,9 +7,9 @@
   height: 40vh !important;
   width: 100% !important;
   max-width: 800px !important;
-  color: #1ba098 !important;
-  background: #051622 !important;
-  border: 1px solid #deb992 !important;
+  color: var(--accent-color) !important;
+  background: var(--main-bg-color) !important;
+  /* border: 1px solid var(--accent-color) !important; */
   border-radius: 20px !important;
 }
 
@@ -19,19 +19,19 @@
   justify-content: center !important;
   align-items: center !important;
   height: 100vh !important;
-  background: #051622 !important;
-  color: #1ba098 !important;
+  background: var(--main-bg-color) !important;
+  color: var(--accent-color) !important;
 }
 
 .avatar-style {
-  background-color: #1bbd7e !important;
+  background-color: var(--btn-color) !important;
   height: 80px !important;
   width: 80px !important;
 }
 
 .input-style {
-  background: #051622 !important;
-  border-bottom: 1px solid #deb992 !important;
+  background: var(--main-bg-color) !important;
+  border-bottom: 1px solid var(--accent-color) !important;
   margin-bottom: 10px !important;
   text-align: center !important;
   width: 100% !important;
@@ -43,4 +43,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
   transition-delay: background-color 5000s, color 5000s;
+}
+
+.css-14epxft-MuiPaper-root {
+  box-shadow: 1px 3px 50px rgba(0, 0, 0, 0.472) !important;
 }

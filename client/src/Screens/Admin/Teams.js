@@ -19,7 +19,6 @@ const Teams = ({ companyId }) => {
         <div className='team-container'>
           <h1 className='page-headers'>Teams</h1>
           <TeamCard companyId={companyId} user={user} />
-          <p></p>
         </div>
       </>
     )

@@ -13,6 +13,7 @@ const ProjectCard = ({ handleUser }) => {
   const [projectId, setProjectId] = useState(null)
   const [addModal, setAddModal] = useState(false)
   const [editModal, setEditModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const companyId = JSON.parse(localStorage.getItem('companyId'))
 
@@ -35,51 +36,55 @@ const ProjectCard = ({ handleUser }) => {
       {teamsData &&
         teamsData.map((team, index) => {
           return (
-            <div key={index}>
-              <div>
-                {team.projects &&
-                  team.projects.sort((a, b) => b.id - a.id).map((project, i) => (
-                    <div className='project-wrapper' key={i}>
-                      <div>
-                        <Link
-                          to='/project'
-                          state={{
-                            name: project.name,
-                            description: project.description,
-                          }}
-                        >
-                          <button className='view-project-btn'>
-                            View Project
-                          </button>
-                        </Link>
-                      </div>
-                      <h2 className='projectName'>{project.name}</h2>
-                      <p className='projectDescription'>
-                        {project.description}
-                      </p>
-                      {editModal && (
-                        <EditProject
-                          teamId={team.id}
-                          companyId={companyId}
-                          projectId={projectId}
-                          setEditModal={setEditModal}
-                        />
-                      )}
-                      {user.isAdmin && (
-                        <button
-                          className='project-edit-btn'
-                          onClick={() => {
-                            setEditModal(true)
-                            setProjectId(project.id)
-                          }}
-                        >
-                          Edit
-                        </button>
-                      )}
-                    </div>
-                  ))}
+            <>
+              <div key={index}>
+                <div>
+                  {team.projects &&
+                    team.projects
+                      .sort((a, b) => b.id - a.id)
+                      .map((project, i) => (
+                        <div className='project-wrapper' key={i}>
+                          <div>
+                            <Link
+                              to='/project'
+                              state={{
+                                name: project.name,
+                                description: project.description,
+                              }}
+                            >
+                              <button className='view-project-btn'>
+                                View Project
+                              </button>
+                            </Link>
+                          </div>
+                          <h2 className='projectName'>{project.name}</h2>
+                          <p className='projectDescription'>
+                            {project.description}
+                          </p>
+                          {editModal && (
+                            <EditProject
+                              teamId={team.id}
+                              companyId={companyId}
+                              projectId={projectId}
+                              setEditModal={setEditModal}
+                            />
+                          )}
+                          {user.isAdmin && (
+                            <button
+                              className='project-edit-btn'
+                              onClick={() => {
+                                setEditModal(true)
+                                setProjectId(project.id)
+                              }}
+                            >
+                              Edit
+                            </button>
+                          )}
+                        </div>
+                      ))}
+                </div>
               </div>
-            </div>
+            </>
           )
         })}
     </div>
