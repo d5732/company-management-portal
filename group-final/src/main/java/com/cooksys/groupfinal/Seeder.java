@@ -389,7 +389,6 @@ public class Seeder implements CommandLineRunner {
         profile14.setPhone("(555) 123-7564");
         user14.setProfile(profile14);
         user14.setActive(true);
-        user14.setAdmin(true);
         user14.setStatus("JOINED");
 
         User user15 = new User();
@@ -418,7 +417,6 @@ public class Seeder implements CommandLineRunner {
         profile16.setPhone("(555) 333-3333");
         user16.setProfile(profile16);
         user16.setActive(true);
-        user16.setAdmin(true);
 
         User user17 = new User();
         Credentials creds17 = new Credentials();
@@ -519,8 +517,8 @@ public class Seeder implements CommandLineRunner {
         announcement9.setAuthor(user15);
         announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
 
-        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
-        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
+        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
+        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
 
         company3.setName("Sprint 11");
         company3.setDescription("Veni, vidi, vici.");
@@ -534,7 +532,7 @@ public class Seeder implements CommandLineRunner {
         project4.setTeam(team8);
 
         project5.setName("Frontend Buildout");
-        project5.setDescription("Design and develop the React.js frontend client application and request features as need from the backend team.");
+        project5.setDescription("Design and develop the React.js frontend client application and request API features from the backend team.");
         project5.setActive(true);
         project5.setTeam(team9);
 
