@@ -38,7 +38,7 @@ const ProjectCard = ({ handleUser }) => {
             <div key={index}>
               <div>
                 {team.projects &&
-                  team.projects.map((project, i) => (
+                  team.projects.sort((a, b) => b.id - a.id).map((project, i) => (
                     <div className='project-wrapper' key={i}>
                       <div>
                         <Link
