@@ -29,7 +29,6 @@ const Project = ({ location }) => {
             <p>{projectData.description}</p>
           </Box>
         </div>
-        <button onClick={() => console.log(projectData)}>debug</button>
       </>
     )
   }
