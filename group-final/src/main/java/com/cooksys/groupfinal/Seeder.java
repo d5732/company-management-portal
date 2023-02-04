@@ -475,11 +475,11 @@ public class Seeder implements CommandLineRunner {
 
         user14.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
-        user14.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8)));
+        user14.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8, announcement9)));
 
         user15.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user15.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
-        user15.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement9)));
+        user15.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6)));
 
         user16.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user16.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
@@ -513,13 +513,12 @@ public class Seeder implements CommandLineRunner {
         announcement8.setAuthor(user13);
         announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
 
-        announcement9.setTitle("Endpoints I worked on ~ by Rajdeep");
+        announcement9.setTitle("Endpoints I worked on");
         announcement9.setMessage("I worked on createAnnouncement and updateProject endpoints !!");
         announcement9.setCompany(company3);
         announcement9.setAuthor(user14);
         announcement9.setDate(Timestamp.valueOf("2023-02-03 02:05:16"));
         
-
         company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
         company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
 
