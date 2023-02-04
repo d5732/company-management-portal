@@ -474,7 +474,8 @@ public class Seeder implements CommandLineRunner {
         user13.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8)));
 
         user14.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
-        user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team10, team11)));
+        user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
+        user14.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8)));
 
         user15.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user15.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
@@ -512,24 +513,18 @@ public class Seeder implements CommandLineRunner {
         announcement8.setAuthor(user13);
         announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
 
-        announcement9.setTitle("I Broke Something! Please Send Help!");
-        announcement9.setMessage("I can't get the application to build! Please send help! Please send help! Please send help! And bring coffee!");
-        announcement9.setCompany(company3);
-        announcement9.setAuthor(user15);
-        announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
-        
-        announcement9.setTitle("Acta, non verba.");
-        announcement9.setMessage("I am both a night owl and an early bird !! Sorry I am so annoying !!");
+        announcement9.setTitle("Endpoints I worked on ~ by Rajdeep");
+        announcement9.setMessage("I worked on createAnnouncement and updateProject endpoints !!");
         announcement9.setCompany(company3);
         announcement9.setAuthor(user14);
         announcement9.setDate(Timestamp.valueOf("2023-02-03 02:05:16"));
+        
 
-        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
-        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
+        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
+        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
 
         company3.setName("Sprint 11");
-        company3.setDescription("The fault, dear Brutus, is not in our stars,\r\n"
-        		+ "But in ourselves, that we are underlings.");
+        company3.setDescription("Sprint 11 Company");
         company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement7, announcement8, announcement9)));
         company3.setEmployees(new HashSet<User>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
         company3.setTeams(new HashSet<Team>(Arrays.asList(team8, team9, team10, team11)));
