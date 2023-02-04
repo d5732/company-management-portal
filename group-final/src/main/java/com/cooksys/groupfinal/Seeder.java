@@ -474,11 +474,12 @@ public class Seeder implements CommandLineRunner {
         user13.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8)));
 
         user14.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
-        user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team10, team11)));
+        user14.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
+        user14.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement8, announcement9)));
 
         user15.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user15.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
-        user15.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement9)));
+        user15.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6)));
 
         user16.setCompanies(new HashSet<Company>(Arrays.asList(company1, company2, company3)));
         user16.setTeams(new HashSet<Team>(Arrays.asList(team8, team11)));
@@ -512,19 +513,17 @@ public class Seeder implements CommandLineRunner {
         announcement8.setAuthor(user13);
         announcement8.setDate(Timestamp.valueOf("2023-02-02 13:01:16"));
 
-        announcement9.setTitle("Maintenance Notice");
-        announcement9.setMessage("We will be performing scheduled maintenance in SCL (Santiago) datacenter on 2023-02-03 between 08:00 and 12:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacenter may become temporarily unavailable.");
+        announcement9.setTitle("Endpoints I worked on");
+        announcement9.setMessage("I worked on createAnnouncement and updateProject endpoints !!");
         announcement9.setCompany(company3);
-        announcement9.setAuthor(user15);
-        announcement9.setDate(Timestamp.valueOf("2023-02-01 01:01:16"));
-
-
-        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
-        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user15, user17, user18, user19)));
+        announcement9.setAuthor(user14);
+        announcement9.setDate(Timestamp.valueOf("2023-02-03 02:05:16"));
+        
+        company1.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
+        company2.getEmployees().addAll(new HashSet<>(Arrays.asList(user13, user14, user15, user17, user18, user19)));
 
         company3.setName("Sprint 11");
-        company3.setDescription("The fault, dear Brutus, is not in our stars,\r\n"
-        		+ "But in ourselves, that we are underlings.");
+        company3.setDescription("Sprint 11 Company");
         company3.setAnnouncements(new HashSet<Announcement>(Arrays.asList(announcement6, announcement7, announcement8, announcement9)));
         company3.setEmployees(new HashSet<User>(Arrays.asList(user13, user14, user15, user16, user17, user18, user19)));
         company3.setTeams(new HashSet<Team>(Arrays.asList(team8, team9, team10, team11)));
